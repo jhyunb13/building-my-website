@@ -21,8 +21,8 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="">Kiki</a>
         <div class="navbar-nav">
-          <a class="nav-link" href="#work">WORK</a>
           <a class="nav-link" href="#about">ABOUT</a>
+          <a class="nav-link" href="#work">WORK</a>
           <a class="nav-link" href="#experience">EXPERIENCE</a>
           <a class="nav-link" href="#contact">CONTACT</a>
         </div>
@@ -36,7 +36,78 @@
       class="container-fluid"
       tabindex="0"
     >
-      <h4 id="work">First heading</h4>
+      <!-- SHORT BIO AND PHOTO -->
+      <div class="container-fluid">
+        <div class="row" id="about">
+          <div class="col-12 col-sm-6" id="bio">
+            <div>
+              <h1>Hello,<br />I'm Kiki</h1>
+              <p>
+                I am a Front-End developer. this is going to be filled soon.
+                write down 2-3 sentences to introduce myself
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6" id="photo">
+            <div class>
+              <h1>Photo</h1>
+              <img src="IMG_4245.jpeg" class="img-fluid" alt="profile image" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHECK OUT MY WORK -->
+      <div class="container-fluid">
+        <h6 class="scroll">Check out my work</h6>
+      </div>
+
+      <!-- DISPLAY WORK -->
+      <h3>Work</h3>
+      <!-- CARD -->
+      <div class="container-fluid" id="work">  
+         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">     
+          <div class="col">
+            <div class="card">
+              <img src="IMG_4245.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>     
+          <div class="col">
+            <div class="card">
+              <img src="IMG_4245.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>     
+          <div class="col">
+            <div class="card">
+              <img src="IMG_4245.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>    
+          <div class="col">
+            <div class="card">
+              <img src="IMG_4245.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>   
+        </div>
+      </div>
+
+      <div class="container-fluid">
+         <h4 id="experience">Second heading</h4>
       <p>
         Contrary to popular belief, Lorem Ipsum is not simply random text. It
         has roots in a piece of classical Latin literature from 45 BC, making it
@@ -55,7 +126,7 @@
         exact original form, accompanied by English versions from the 1914
         translation by H. Rackham.
       </p>
-      <h4 id="about">Second heading</h4>
+      <h4 id="contact">Third heading</h4>
       <p>
         Contrary to popular belief, Lorem Ipsum is not simply random text. It
         has roots in a piece of classical Latin literature from 45 BC, making it
@@ -73,44 +144,32 @@
         "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their
         exact original form, accompanied by English versions from the 1914
         translation by H. Rackham.
-      </p>
-      <h4 id="experience">Third heading</h4>
-      <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It
-        has roots in a piece of classical Latin literature from 45 BC, making it
-        over 2000 years old. Richard McClintock, a Latin professor at
-        Hampden-Sydney College in Virginia, looked up one of the more obscure
-        Latin words, consectetur, from a Lorem Ipsum passage, and going through
-        the cites of the word in classical literature, discovered the
-        undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-        of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
-        Cicero, written in 45 BC. This book is a treatise on the theory of
-        ethics, very popular during the Renaissance. The first line of Lorem
-        Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
-        1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is
-        reproduced below for those interested. Sections 1.10.32 and 1.10.33 from
-        "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-        exact original form, accompanied by English versions from the 1914
-        translation by H. Rackham.
-      </p>
-      <h4 id="contact">Fourth heading</h4>
-      <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It
-        has roots in a piece of classical Latin literature from 45 BC, making it
-        over 2000 years old. Richard McClintock, a Latin professor at
-        Hampden-Sydney College in Virginia, looked up one of the more obscure
-        Latin words, consectetur, from a Lorem Ipsum passage, and going through
-        the cites of the word in classical literature, discovered the
-        undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-        of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
       </p>
     </div>
-
+     
     <!-- FOOTER -->
-    <footer>
-      <div class="container-fluid bg-body-secondary border-top border-3">
-        <p>footer</p>
-      </div>
+    <footer class="container-fluid bg-body-secondary border-top border-3"
+    id="contact">
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <h4>1234@gmail.com</h4>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Lectus nibh dictum arcu
+              mattis nullam at et ac aliquam.
+            </p>
+          </div>
+          <div class="col-6 col-sm-3">
+            <h6>About Me</h6>
+            CV<br />
+          </div>
+          <div class="col-6 col-sm-3">
+            <h6>Elsewhere</h6>
+            Github<br />
+            LinkedIn<br />
+            Twitter<br />
+          </div>
+        </div>
     </footer>
     <script src="script.js"></script>
     <script
