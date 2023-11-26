@@ -5,3 +5,7 @@
 .scroll {
   text-align: center;
 }
+
+.offcanvas {
+  --bs-offcanvas-width: 400px;
+}
