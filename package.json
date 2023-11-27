@@ -1,0 +1,16 @@
+{
+  "name": "building-my-website",
+  "version": "1.0.0",
+  "description": "### 1. The Purpose of My Website",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "browserify script.js > bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
