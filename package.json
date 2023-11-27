@@ -5,12 +5,13 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "browserify script.js > bundle.js"
+    "build": "browserify script.js > bundle.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.2",
     "lodash": "^4.17.21"
   }
 }

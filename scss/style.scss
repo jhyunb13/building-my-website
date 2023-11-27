@@ -1,0 +1,16 @@
+#bio {
+  text-align: left;
+}
+
+.scroll {
+  text-align: center;
+}
+
+.checkoutmywork {
+  display: flex;
+  justify-content: center;
+}
+
+$offcanvas-horizontal-width: 100px;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
