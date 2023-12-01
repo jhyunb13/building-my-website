@@ -1,16 +1,24 @@
-#bio {
-  text-align: left;
-}
+// #bio {
+//   text-align: left;
+// }
 
-.scroll {
-  text-align: center;
-}
-
+// .scroll {
+//   text-align: center;
+// }
 .checkoutmywork {
   display: flex;
   justify-content: center;
 }
 
-$offcanvas-horizontal-width: 100px;
+.offcanvas {
+  width: 200px;
+}
 
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+.accordion {
+  width: 80%;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+}
