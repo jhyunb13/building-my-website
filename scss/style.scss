@@ -5,20 +5,60 @@
 // .scroll {
 //   text-align: center;
 // }
-.checkoutmywork {
-  display: flex;
-  justify-content: center;
+
+.name {
+  font-size: 3rem;
 }
 
-.offcanvas {
-  width: 200px;
+.bio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.bio-width {
+  max-width: 400px;
+}
+
+@media (max-width: 567px) {
+  .bio-width {
+    max-width: 90%;
+  }
+}
+
+.profile-image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (max-width: 567px) {
+  .profile-image {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.image-width {
+  max-width: 75%;
+}
+
+.btn-work {
+  display: flex;
+  justify-content: center;
 }
 
 .accordion {
-  width: 80%;
+  max-width: 700px;
 }
 
-#content {
-  display: flex;
-  justify-content: center;
+@media (max-width: 567px) {
+  .accordion {
+    max-width: 100%;
+  }
+}
+
+.copyright {
+  border-top: 1px groove black;
 }
