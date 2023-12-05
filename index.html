@@ -30,9 +30,10 @@
           </div>
           <div class="offcanvas-body">
               <div class="navbar-nav mb-2 mb-sm-0 ms-auto">
-                <a class="nav-link" href="#about">ABOUT</a>
-                <a class="nav-link" href="#work">WORK</a>
-                <a class="nav-link" href="#experience">EXPERIENCE</a>
+                <a class="nav-link me-3" href="#about" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">ABOUT</a>
+                <a class="nav-link me-3" href="#work">WORK</a>
+                <a class="nav-link me-3"
+                href="#experience">EXPERIENCE</a>
                 <a class="nav-link" href="#contact">CONTACT</a>
             </div>
           </div> 
@@ -48,9 +49,9 @@
       class="px-2 px-sm-5">
 
       <!-- ABOUT -->
-      <div class="container-fluid overflow-hidden my-sm-3">
-        <div class="row row-gap-4 pb-3 " id="about">
-          <div class="col-12 col-sm-6 my-3 bio" id="bio">
+      <div class="container-fluid overflow-hidden about">
+        <div class="row row-gap-3" id="about">
+          <div class="col-12 col-lg-6 bio" id="bio">
             <div class="bio-width">
               <div>
                 <h1 class="name">Hello,<br />I'm Kiki</h1>
@@ -63,26 +64,29 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-6 my-3 profile-image">
+          <div class="col-12 col-lg-6 profile-image">
               <div class="image-width">
                 <img src="src/img/IMG_4245.jpeg" class="img-fluid" alt="profile image" />
               </div>
           </div>
+           <!-- BTN : CHECK OUT MY WORK-->
+           <div class="col-12" id="btn-to-work">
+            <a href="#work">
+              <button type="button" class="btn btn-outline-secondary">Check out my work</button>
+            </a>
+          </div>
         </div>
       </div>
+          
 
-      <!-- BTN : CHECK OUT MY WORK-->
-      <div class="btn-work my-5" id="button">
-        <a href="#work">
-          <button type="button" class="btn btn-outline-secondary">Check out my work</button>
-        </a>
-      </div>
+      <!-- BTN : SCROLL TO TOP -->
+      <button type="button" class="btn btn-dark btn-md" id="scroll-to-top">↑</button>
 
       <!-- WORK -->
-      <div class="container-fluid my-5" id="work" data-bs-spy="scroll" data-bs-target="#button" tabindex="0">  
+      <div class="container-fluid mb-5" id="work" data-bs-spy="scroll" data-bs-target="#button" tabindex="0">  
         <h3 class="my-4">Work</h3>
         <!-- CARDS -->
-         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-gap-4">     
+         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-gap-4">     
           <div class="col">
             <div class="card">
               <img src="src/img/IMG_4245.jpeg" class="card-img-top" alt="...">
@@ -171,7 +175,7 @@
       </div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER : CONTACT-->
     <footer class="container-fluid bg-body-secondary"
     id="contact">
     <div class="row row-gap-5 px-5 px-sm-5 py-3">
@@ -190,6 +194,7 @@
           <div>Github</div>
           <div>LinkedIn</div>
           <div>Twitter</div>
+          <div>Blog</div>
       </div>
       <div class="copyright py-3 pe-md-5">
         <div>© 2023 kiki</div>
@@ -197,7 +202,7 @@
     </div>
     </footer>
 
-    <script src="bundle.js"></script>
+    <script src="script.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

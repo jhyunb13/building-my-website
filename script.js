@@ -1,7 +1,24 @@
 "use strict";
 
-var _ = require("lodash");
-console.log(_);
+// ELEMENTS
+const btnScrollToTop = document.querySelector("#scroll-to-top");
 
-let array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(_.without(array, 3));
+//FUNCTIONS
+const showBtn = function () {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    btnScrollToTop.style.opacity = 100;
+  } else {
+    btnScrollToTop.style.opacity = 0;
+  }
+};
+
+const scrollToTop = function () {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+};
+
+window.onscroll = function () {
+  showBtn();
+};
+
+btnScrollToTop.addEventListener("click", scrollToTop);
