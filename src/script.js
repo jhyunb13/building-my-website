@@ -1,7 +1,18 @@
 "use strict";
+import * as bootstrap from "bootstrap";
 
 // ELEMENTS
 const btnScrollToTop = document.querySelector("#scroll-to-top");
+const myOffcanvas = document.querySelector(".offcanvas");
+const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+const offcanvasItem = document.querySelectorAll(".nav-link");
+
+//HIDE OFFCANVAS
+offcanvasItem.forEach((element) => {
+  element.addEventListener("click", function () {
+    return bsOffcanvas.hide();
+  });
+});
 
 //FUNCTIONS
 const showBtn = function () {
