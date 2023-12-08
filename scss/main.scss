@@ -67,9 +67,19 @@ $offcanvas-horizontal-width: min(80vw, 400px) !important;
 }
 
 .skills {
+  font-size: 0.9rem;
+  color: darkgray;
   display: inline-block;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 1px solid darkgray;
+  border-radius: 12px;
+  padding: 5px;
+  cursor: default;
+  margin-bottom: 5px;
+}
+
+.skills:hover {
+  color: white;
+  background-color: darkgray;
 }
 
 .accordion {

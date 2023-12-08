@@ -10,7 +10,7 @@ const offcanvasItem = document.querySelectorAll(".nav-link");
 //HIDE OFFCANVAS
 offcanvasItem.forEach((element) => {
   element.addEventListener("click", function () {
-    return bsOffcanvas.hide();
+    bsOffcanvas.hide();
   });
 });
 

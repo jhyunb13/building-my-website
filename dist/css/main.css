@@ -57,6 +57,22 @@
   justify-content: center;
 }
 
+.skills {
+  font-size: 0.9rem;
+  color: darkgray;
+  display: inline-block;
+  border: 1px solid darkgray;
+  border-radius: 12px;
+  padding: 5px;
+  cursor: default;
+  margin-bottom: 5px;
+}
+
+.skills:hover {
+  color: white;
+  background-color: darkgray;
+}
+
 .accordion {
   max-width: 700px;
 }
