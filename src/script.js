@@ -7,7 +7,7 @@ const myOffcanvas = document.querySelector(".offcanvas");
 const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
 const offcanvasItem = document.querySelectorAll(".nav-link");
 
-//HIDE OFFCANVAS
+// HIDE OFFCANVAS
 offcanvasItem.forEach((element) => {
   element.addEventListener("click", function () {
     bsOffcanvas.hide();
