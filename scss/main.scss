@@ -4,6 +4,16 @@ $offcanvas-horizontal-width: min(80vw, 400px) !important;
 
 @import "../node_modules/bootstrap/scss/variables";
 
+:root {
+  --bs-body-font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    --bs-body-font-family: InterVariable, sans-serif;
+  }
+}
+
 .offcanvas {
   @media (max-width: 430px) {
     --#{$prefix}offcanvas-width: #{$offcanvas-horizontal-width};
