@@ -4,45 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- FONT -->
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="./css/main.css" />
-
 
     <title>Kiki Bae | Developer</title>
   </head>
   <body>
     <!-- NAVIGATION BAR -->
     <nav
-      class="navbar navbar-expand-sm bg-secondary-subtle sticky-top d-flex ps-2 pe-2 ps-sm-5 pe-sm-5"
-      id="navbar">
+      class="navbar navbar-expand-sm sticky-top d-flex ps-2 pe-2 ps-sm-5 pe-sm-5 text-sm navbar-blur"
+      id="navbar"
+    >
       <div class="container-fluid">
-        <a class="navbar-brand order-last order-sm-first me-auto ms-3 ms-sm-0 flex-grow-1" href="#">Kiki</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <a
+          class="navbar-brand order-last order-sm-first me-auto ms-3 ms-sm-0 flex-grow-1"
+          href="#"
+          >Kiki</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- OVERLAY -->
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div
+          class="offcanvas offcanvas-start"
+          data-bs-scroll="true"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Kiki</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="offcanvas-body">
-              <div class="navbar-nav mb-2 mb-sm-0 ms-auto">
-                <a class="nav-link me-3" href="#about">ABOUT</a>
-                <a class="nav-link me-3" href="#projects">PROJECTS</a>
-                <a class="nav-link me-3"
-                href="#experience">EXPERIENCE</a>
-                <a class="nav-link" href="#contact">CONTACT</a>
-              </div>
+            <div class="navbar-nav mb-2 mb-sm-0 ms-auto">
+              <a class="nav-link me-3" href="#about">ABOUT</a>
+              <a class="nav-link me-3" href="#projects">PROJECTS</a>
+              <a class="nav-link me-3" href="#experience">EXPERIENCE</a>
+              <a class="nav-link" href="#contact">CONTACT</a>
+            </div>
           </div>
+        </div>
       </div>
     </nav>
 
@@ -52,8 +79,8 @@
       data-bs-target="#navbar"
       data-bs-smooth-scroll="true"
       tabindex="0"
-      class="px-2 px-sm-5">
-
+      class="px-2 px-sm-5"
+    >
       <!-- ABOUT -->
       <div class="container-fluid overflow-hidden about">
         <div class="row row-gap-3" id="about">
@@ -64,185 +91,274 @@
               </div>
               <div>
                 <p class="pt-3">
-                  I build exceptional and accessible digital experiences for the web. this is going to be filled soon.
-                  write down 2-3 sentences to introduce myself
+                  I build exceptional and accessible digital experiences for the
+                  web. this is going to be filled soon. write down 2-3 sentences
+                  to introduce myself
                 </p>
-                <div>
-                  <div class="skills">HTML</div>
-                  <div class="skills">CSS</div>
-                  <div class="skills">SCSS</div>
-                  <div class="skills">JavaScript</div>
-                  <div class="skills">Bootstrap</div>
-                  <div class="skills">React</div>
-                  <div class="skills">GitHub</div>
-                  <div class="skills">Figma</div>
-                </div>
               </div>
             </div>
           </div>
           <div class="col-12 col-lg-6 profile-image">
-              <div class="image-width">
-                <img src="../src/img/IMG_4245.jpeg" class="img-fluid" alt="profile image" />
-              </div>
+            <div class="image-width">
+              <img
+                src="../src/img/IMG_4245.jpeg"
+                class="img-fluid"
+                alt="profile image"
+              />
+            </div>
           </div>
-           <!-- BTN : CHECK OUT MY WORK-->
-           <div class="col-12" id="btn-to-work">
-            <a href="#work">
-              <button type="button" class="btn btn-outline-secondary">Check out my projects</button>
+          <!-- BTN : CHECK OUT MY WORK-->
+          <div class="col-12" id="btn-to-work">
+            <a href="#projects">
+              <button type="button" class="btn btn-outline-secondary text-sm">
+                Check out my projects
+              </button>
             </a>
           </div>
         </div>
       </div>
-          
-      <!-- WORK -->
-      <div class="container-fluid mb-5" id="projects" data-bs-spy="scroll" data-bs-target="#button" tabindex="0">  
-        <h3 class="my-4">Projects</h3>
-        <!-- CARDS -->
-         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-gap-4">     
-          <div class="col">
-            <div class="card">
-              <img src="../src/img/IMG_4245.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Project title</h5>
-                <!-- <div class="card-text"> -->
-                  <table class="table table-borderless">
-                    <tr>
-                      <th>Year</th>
-                      <td>2023</td>
-                    </tr>
-                    <tr>
-                      <th>Built with</th>
-                      <td>
-                        <div class="skills">Bootstrap</div>
-                        <div class="skills">SCSS</div>
-                        <div class="skills">JavaScript</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Links</th>
-                      <td>
-                        <a class="icon-link icon-link-hover" href="#">More.com
-                          <img src="../node_modules/bootstrap-icons/icons/arrow-up-right.svg" alt="Bootstrap" width="13" height="13">
-                        </a><br>
-                        <a class="icon-link icon-link-hover" href="#">Code
-                         <img src="../node_modules/bootstrap-icons/icons/arrow-up-right.svg" alt="Bootstrap" width="13" height="13">
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
-                <!-- </div> -->
 
-              </div>
-            </div>
-          </div>     
+      <!-- PROJECTS -->
+      <div
+        class="container-fluid mb-5"
+        id="projects"
+        data-bs-spy="scroll"
+        data-bs-target="#button"
+        tabindex="0"
+      >
+        <h4 class="my-4">Projects</h4>
+        <!-- CARDS -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-gap-4">
           <div class="col">
             <div class="card">
-              <img src="../src/img/IMG_4245.jpeg" class="card-img-top" alt="...">
+              <img
+                src="../src/img/IMG_4245.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title text-base">Project title</h5>
+                <!-- <div class="card-text"> -->
+                <table class="table table-borderless text-sm">
+                  <tr>
+                    <th>Year</th>
+                    <td>2023</td>
+                  </tr>
+                  <tr>
+                    <th>Built with</th>
+                    <td>
+                      <div class="skills">Bootstrap</div>
+                      <div class="skills">SCSS</div>
+                      <div class="skills">JavaScript</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Links</th>
+                    <td>
+                      <a class="icon-link" href="#"
+                        >More.com <i class="bi bi-arrow-right"></i> </a
+                      ><br />
+                      <a class="icon-link" href="#"
+                        >Code
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="../src/img/IMG_4245.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title text-base">Card title</h5>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
-          </div>     
+          </div>
           <div class="col">
             <div class="card">
-              <img src="../src/img/IMG_4245.jpeg" class="card-img-top" alt="...">
+              <img
+                src="../src/img/IMG_4245.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title text-base">Card title</h5>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
-          </div>    
+          </div>
           <div class="col">
             <div class="card">
-              <img src="../src/img/IMG_4245.jpeg" class="card-img-top" alt="...">
+              <img
+                src="../src/img/IMG_4245.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title text-base">Card title</h5>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
-          </div>   
+          </div>
         </div>
       </div>
 
       <!-- EXPERIENCE -->
       <div class="container-fluid my-5">
-        <h3 class="my-4">Experience</h3>
-         <div class="accordion mx-auto" id="experience">
+        <h4 class="my-4">Experience</h4>
+        <div class="accordion mx-auto" id="experience">
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <div class="mb-0 flex-grow-1">Experience #1</div>
-                <div class="mb-0 pe-3">yyyy-mm</div>
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <div class="mb-0 flex-grow-1 text-base">Experience #1</div>
+                <div class="mb-0 pe-3 text-base">yyyy-mm</div>
               </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#experience">
-              <div class="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#experience"
+            >
+              <div class="accordion-body text-sm">
+                <strong>This is the first item's accordion body.</strong> It is
+                shown by default, until the collapse plugin adds the appropriate
+                classes that we use to style each element. These classes control
+                the overall appearance, as well as the showing and hiding via
+                CSS transitions. You can modify any of this with custom CSS or
+                overriding our default variables. It's also worth noting that
+                just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <div class="mb-0 flex-grow-1">Experience #2</div>
-                <div class="mb-0 pe-3">yyyy-mm</div>              </button>
+              <button
+                class="accordion-button collapsed d-flex"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <div class="mb-0 flex-grow-1 text-base">Experience #2</div>
+                <div class="mb-0 pe-3 text-base">yyyy-mm</div>
+              </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#experience">
-              <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#experience"
+            >
+              <div class="accordion-body text-sm">
+                <strong>This is the second item's accordion body.</strong> It is
+                hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth
+                noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <div class="mb-0 flex-grow-1">Experience #3</div>
-                <div class="mb-0 pe-3">yyyy-mm</div>              </button>
+              <button
+                class="accordion-button collapsed d-flex"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <div class="mb-0 flex-grow-1 text-base">Experience #3</div>
+                <div class="mb-0 pe-3 text-base">yyyy-mm</div>
+              </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#experience">
-              <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#experience"
+            >
+              <div class="accordion-body text-sm">
+                <strong>This is the third item's accordion body.</strong> It is
+                hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth
+                noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
               </div>
             </div>
           </div>
         </div>
       </div>
-    
     </div>
- 
+
     <!-- FOOTER : CONTACT-->
-    <footer class="container-fluid bg-body-secondary"
-    id="contact">
-    <div class="row row-gap-5 px-5 px-sm-5 py-3">
-      <div class="col-12 col-md-6 pe-md-5">
-        <h4>1234@gmail.com</h4>
-        <div>
-          Lorem ipsum dolor sit amet consectetur. Lectus nibh dictum arcu mattis nullam at et ac aliquam.
+    <footer class="container-fluid bg-body-secondary" id="contact">
+      <div class="row row-gap-5 px-5 px-sm-5 py-3">
+        <div class="col-12 col-md-6 pe-md-5">
+          <h5>1234@gmail.com</h4>
+          <div class="text-sm">
+            Lorem ipsum dolor sit amet consectetur. Lectus nibh dictum arcu
+            mattis nullam at et ac aliquam.
+          </div>
         </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div><b>Docs</b></div>
-        <div>Resume</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div><b>Channels</b></div>
+        <div class="col-6 col-md-3 text-sm">
+          <div><b>Docs</b></div>
+          <div>Resume</div>
+        </div>
+        <div class="col-6 col-md-3 text-sm">
+          <div><b>Channels</b></div>
           <div>Github</div>
           <div>LinkedIn</div>
           <div>Twitter</div>
           <div>Blog</div>
+        </div>
+        <div class="copyright py-3 pe-md-5 text-sm">
+          <div>© 2023 kiki</div>
+        </div>
       </div>
-      <div class="copyright py-3 pe-md-5">
-        <div>© 2023 kiki</div>
-      </div>
-    </div>
     </footer>
 
     <!-- BTN : SCROLL TO TOP -->
-    <button type="button" class="btn btn-dark btn-md" id="scroll-to-top">↑</button>
+      <i class="bi bi-arrow-up-circle-fill" id="scroll-to-top"></i>
 
     <script src="bundle.js"></script>
   </body>
