@@ -5,6 +5,7 @@ $table-th-font-weight: 500;
 $accordion-border-color: #222222;
 $accordion-button-active-bg: rgba(254, 110, 31, 0.1);
 $accordion-button-active-color: #fe6e1f;
+$offcanvas-border-color: #222222;
 
 @import "../node_modules/bootstrap/scss/variables";
 
@@ -16,6 +17,12 @@ $accordion-button-active-color: #fe6e1f;
   :root {
     --bs-body-font-family: InterVariable, sans-serif;
   }
+}
+
+:focus {
+  outline: 0 !important;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+  color: #222222 !important;
 }
 
 //COLOR
@@ -53,27 +60,52 @@ $accordion-button-active-color: #fe6e1f;
   font-weight: 500;
 }
 
-.navbar-blur {
-  background: rgba(250, 243, 225, 0.2);
+.navbar {
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #222222;
 }
 
-.navbar-blur::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: inherit; /* Inherit the background color from the navbar */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Blur effect */
-  z-index: -1; /* Behind the content of the navbar */
+.navbar-nav {
+  --#{$prefix}nav-link-hover-color: #fe6e1f;
 }
 
 .offcanvas {
+  --#{$prefix}offcanvas-border-color: #222222;
+
   @media (max-width: 430px) {
     --#{$prefix}offcanvas-width: #{$offcanvas-horizontal-width};
   }
+}
+
+.nav-link {
+  color: #7e7d7d;
+
+  @media (max-width: 576px) {
+    --#{$prefix}nav-link-padding-y: 0.8rem;
+  }
+}
+
+.nav-link.active {
+  font-weight: 500;
+}
+
+.navbar-toggler {
+  border-color: transparent;
+}
+
+.btn-navbar-toggler {
+  font-size: 1.8rem;
+  color: #222222;
+}
+
+.navbar-toggler:hover .btn-navbar-toggler {
+  color: #fe6e1f;
+}
+
+.btn-close {
+  --bs-btn-close-color: #222222;
+  --bs-btn-border-color: #fe6e1f;
+  --bs-btn-close-hover-opacity: 1;
 }
 
 #about {
@@ -126,24 +158,24 @@ $accordion-button-active-color: #fe6e1f;
 
 .btn-to-projects {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.text-btn {
+  border: 1px solid #222222;
+  padding: 1rem;
+  background: white;
   text-decoration: none;
   color: #222222;
+  font-weight: 500;
+}
+
+.btn-to-projects:hover {
+  background: #fe6e1f;
 }
 
 .arrow-to-projects {
   font-size: 1.5rem;
   color: #222222;
 }
-
-// .btn-to-projects:hover .arrow-to-projects {
-//   color: #fe6e1f;
-// }
 
 .card {
   border-color: #222222;
@@ -206,6 +238,10 @@ h4 {
   --#{$prefix}accordion-border-color: #{$accordion-border-color};
 }
 
+.accordion-header {
+  color: #222222;
+}
+
 @media (max-width: 567px) {
   .accordion {
     max-width: 100%;
@@ -222,6 +258,44 @@ h4 {
   cursor: pointer;
 }
 
-.copyright {
+.contact {
+  display: flex;
+  align-items: center;
+  border: 1px groove #222222;
+  background: rgb(255, 255, 255);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: #222222;
+}
+
+.email {
+  flex-grow: 1;
+}
+
+.contact-arrow {
+  font-size: 1.5rem;
+}
+
+.channel-category {
+  font-weight: 600;
+}
+
+.footer-channels {
+  display: flex;
+  flex-direction: column;
+  line-height: 2rem;
+}
+
+.link-to-channel {
+  text-decoration: none;
+  color: #222222;
+}
+
+.link-to-channel:hover {
+  color: #fe6e1f;
+}
+
+.footer-copyright {
   border-top: 1px groove #222222;
+  font-size: 0.75rem;
 }
