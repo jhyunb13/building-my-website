@@ -25,6 +25,16 @@ $offcanvas-border-color: #222222;
   color: #222222 !important;
 }
 
+body {
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+  display: block;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
 //COLOR
 .bg-color-body {
   background: #faf3e1;
@@ -60,6 +70,11 @@ $offcanvas-border-color: #222222;
   font-weight: 500;
 }
 
+.text-bold {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
 .navbar {
   background: rgb(255, 255, 255);
   border-bottom: 1px solid #222222;
@@ -70,8 +85,6 @@ $offcanvas-border-color: #222222;
 }
 
 .offcanvas {
-  --#{$prefix}offcanvas-border-color: #222222;
-
   @media (max-width: 430px) {
     --#{$prefix}offcanvas-width: #{$offcanvas-horizontal-width};
   }
@@ -108,73 +121,79 @@ $offcanvas-border-color: #222222;
   --bs-btn-close-hover-opacity: 1;
 }
 
-#about {
-  height: 90vh;
+.about-me {
+  min-height: 80vh;
+  height: auto;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: auto;
+}
+
+.introduction {
+  min-height: 100%;
+  padding: 10rem 8rem;
+}
+
+.introduction-text {
+  max-width: 400px;
 }
 
 .name {
   font-size: 3rem;
 }
 
-.bio {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.bio-width {
-  max-width: 400px;
-}
-
-.profile-image {
+.profile-img {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
-.image-width {
+.profile-img-width {
   max-width: 75%;
 }
 
 @media (max-width: 992px) {
-  .image-width {
+  .introduction {
+    padding: 3rem 2rem;
+  }
+
+  .profile-img-width {
     max-width: 60%;
   }
 
-  .bio-width {
-    max-width: 80%;
-  }
-
-  .profile-image {
+  .profile-img {
     justify-content: center;
     align-items: center;
   }
 }
 
-.btn-to-projects {
+.flex {
   display: flex;
   justify-content: center;
-  align-items: center;
-  border: 1px solid #222222;
-  padding: 1rem;
+}
+
+.btn-to-projects {
   background: white;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  width: 300px;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: 500;
+}
+
+.link-to-projects {
   text-decoration: none;
   color: #222222;
-  font-weight: 500;
 }
 
 .btn-to-projects:hover {
   background: #fe6e1f;
 }
 
-.arrow-to-projects {
-  font-size: 1.5rem;
-  color: #222222;
+////////////////////////////////////////////
+#projects {
+  height: auto;
 }
 
 .card {
@@ -242,10 +261,17 @@ h4 {
   color: #222222;
 }
 
-@media (max-width: 567px) {
-  .accordion {
-    max-width: 100%;
-  }
+.expeirence-responsibilities {
+  margin-bottom: 0;
+}
+
+.job-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.duration {
+  font-size: 0.875rem;
 }
 
 #scroll-to-top {
@@ -261,11 +287,17 @@ h4 {
 .contact {
   display: flex;
   align-items: center;
-  border: 1px groove #222222;
+  box-sizing: border-box;
+  border-top: 1px solid #222222;
+  border-bottom: 1px solid #222222;
   background: rgb(255, 255, 255);
-  padding: 1.5rem;
+  padding: 3rem 4rem;
   text-decoration: none;
   color: #222222;
+
+  @media (max-width: 720px) {
+    padding: 3rem 1rem;
+  }
 }
 
 .email {
@@ -274,6 +306,11 @@ h4 {
 
 .contact-arrow {
   font-size: 1.5rem;
+}
+
+.footer-name {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .channel-category {
@@ -295,7 +332,18 @@ h4 {
   color: #fe6e1f;
 }
 
+@media (min-width: 768px) {
+  .alignment {
+    text-align: right;
+  }
+}
+
 .footer-copyright {
   border-top: 1px groove #222222;
   font-size: 0.75rem;
+}
+
+.footer-content {
+  margin: 0;
+  display: flex;
 }

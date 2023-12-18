@@ -74,29 +74,20 @@
     </nav>
 
     <!-- ABOUT to EXPERIENCE -->
-    <!-- <div
-      data-bs-spy="scroll"
-      data-bs-target="#navbar"
-      data-bs-smooth-scroll="true"
-      tabindex="0"
-      class="px-2 px-sm-5"
-    > -->
     <div
+      class="content"
       data-bs-spy="scroll"
       data-bs-target="#navbar"
       data-bs-smooth-scroll="true"
       tabindex="0"
     >
       <!-- ABOUT -->
-      <!-- <div class="container-fluid overflow-hidden about"> -->
-      <div class="overflow-hidden about">
-        <div class="row row-gap-3" id="about">
-          <div class="col-12 col-lg-6 bio px-2 px-sm-5" id="bio">
-            <div class="bio-width">
-              <div>
+      <div class="about-me" id="about">
+        <div class="container-fluid introduction">
+          <div class="row row-gap-4">
+            <div class="col-12 col-lg-6">
+              <div class="introduction-text">
                 <h1 class="name">Hello,<br />I'm Kiki</h1>
-              </div>
-              <div>
                 <p class="pt-3">
                   I build exceptional and accessible digital experiences for the
                   web. this is going to be filled soon. write down 2-3 sentences
@@ -104,27 +95,31 @@
                 </p>
               </div>
             </div>
-          </div>
-          <div class="col-12 col-lg-6 profile-image">
-            <div class="image-width">
+            <div class="col-12 col-lg-6 profile-img">
               <img
+                class="profile-img-width"
                 src="../src/img/IMG_4245.jpeg"
-                class="img-fluid"
                 alt="profile image"
               />
             </div>
+            <!-- BTN : CHECK OUT MY WORK-->
+            <div class="mt-4 flex">
+              <a class="link-to-projects" href="#projects">
+                <button type="button" class="btn-to-projects">
+                  Check out my projects
+                </button>
+              </a>
+            </div>
           </div>
-          <!-- BTN : CHECK OUT MY WORK-->
-          <a class="btn-to-projects" href="#projects">Check out my projects</a>
         </div>
       </div>
 
       <!-- PROJECTS -->
       <div
-        class="container-fluid mb-5"
+        class="mb-5 px-5 px-sm-5"
         id="projects"
         data-bs-spy="scroll"
-        data-bs-target="#button"
+        data-bs-target="#btn-projects"
         tabindex="0"
       >
         <h4 class="my-4">Projects</h4>
@@ -282,9 +277,9 @@
       </div>
 
       <!-- EXPERIENCE -->
-      <div class="container-fluid my-5">
+      <div class="my-5 px-3 px-sm-5" id="experience">
         <h4 class="my-4">Experience</h4>
-        <div class="accordion mx-auto experience" id="experience">
+        <div class="accordion mx-auto experience">
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button
@@ -295,8 +290,8 @@
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                <div class="mb-0 flex-grow-1 text-base">Experience #1</div>
-                <div class="mb-0 pe-3 text-sm">May 2022 - May 2023</div>
+                <div class="mb-0 flex-grow-1 job-title">Job title @Company</div>
+                <div class="mb-0 pe-3 duration">May 2022 - May 2023</div>
               </button>
             </h2>
             <div
@@ -305,15 +300,11 @@
               data-bs-parent="#experience"
             >
               <div class="accordion-body text-sm">
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                <ul class="expeirence-responsibilities">
+                  <li>responsibilities, accomplishment</li>
+                  <li>responsibilities, accomplishment</li>
+                  <li>responsibilities, accomplishment</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -327,7 +318,7 @@
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                <div class="mb-0 flex-grow-1 text-base">Experience #2</div>
+                <div class="mb-0 flex-grow-1 text-base">Job title @Company</div>
                 <div class="mb-0 pe-3 text-sm">May 2022 - May 2023</div>
               </button>
             </h2>
@@ -337,15 +328,11 @@
               data-bs-parent="#experience"
             >
               <div class="accordion-body text-sm">
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                <ul class="expeirence-responsibilities">
+                  <li>responsibilities, accomplishment</li>
+                  <li>responsibilities, accomplishment</li>
+                  <li>responsibilities, accomplishment</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -359,7 +346,7 @@
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                <div class="mb-0 flex-grow-1 text-base">Experience #3</div>
+                <div class="mb-0 flex-grow-1 text-base">Job title @Company</div>
                 <div class="mb-0 pe-3 text-sm">May 2022 - May 2023</div>
               </button>
             </h2>
@@ -369,15 +356,11 @@
               data-bs-parent="#experience"
             >
               <div class="accordion-body text-sm">
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                <ul class="expeirence-responsibilities">
+                  <li>responsibilities, accomplishment</li>
+                  <li>responsibilities, accomplishment</li>
+                  <li>responsibilities, accomplishment</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -385,42 +368,54 @@
       </div>
 
       <!-- CONTACT -->
-      <a class="contact" href="" id="contact">
-        <div class="email">1234@gmail.com</div>
-        <i class="bi bi-arrow-right contact-arrow"></i>
-      </a>
-
-      <!-- FOOTER-->
-      <footer class="bg-color-secondary">
-        <div class="row row-gap-5 px-5 px-sm-5 py-3">
-          <div class="col-12 col-md-6 pe-md-5">
-            <div>kiki bae</div>
+      <a class="contact" href="mailto:jhyun.b@gmail.com" id="contact">
+        <div class="email">
+          <div class="text-bold mb-2">1234@gmail.com</div>
+          <div class="text-sm">
+            I’m currently looking for new opportunities, my inbox is always
+            open.
             <div class="text-sm">
-              Lorem ipsum dolor sit amet consectetur. Lectus nibh dictum arcu
-              mattis nullam at et ac aliquam.
+              Whether you have a question or just want to say hi, feel free to
+              reach out to me!
             </div>
-          </div>
-          <div class="col-6 col-md-3 text-sm">
-            <div class="footer-channels">
-              <div class="channel-category">Docs</div>
-              <a class="link-to-channel" href="">Resume</a>
-            </div>
-          </div>
-          <div class="col-6 col-md-3 text-sm">
-            <div class="footer-channels">
-              <div class="channel-category">Channels</div>
-              <a class="link-to-channel" href="">Github</a>
-              <a class="link-to-channel" href="">LinkedIn</a>
-              <a class="link-to-channel" href="">Twitter</a>
-              <a class="link-to-channel" href="">Blog</a>
-            </div>
-          </div>
-          <div class="footer-copyright py-3 pe-md-5 text-sm">
-            <div>© 2023 kiki</div>
           </div>
         </div>
-      </footer>
+        <i class="bi bi-arrow-right contact-arrow"></i>
+      </a>
     </div>
+
+    <!-- FOOTER-->
+    <footer class="container-fluid bg-color-secondary px-3 px-sm-5 pt-3">
+      <div class="row row-gap-4 py-2 footer-content">
+        <div class="col-12 col-md-6">
+          <div class="footer-name mb-2">kiki bae</div>
+          <div class="footer-quote">
+            Let's make something amazine together. I'm a more than developer.
+            I'm a slow runner, and love knitting.
+          </div>
+        </div>
+        <div class="col-6 col-md-3 text-sm alignment">
+          <div class="footer-channels">
+            <div class="channel-category">Docs</div>
+            <a class="link-to-channel" href="">Resume</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 text-sm alignment">
+          <div class="footer-channels">
+            <div class="channel-category">Channels</div>
+            <a class="link-to-channel" href="https://github.com/kiki-tomato"
+              >Github</a
+            >
+            <a class="link-to-channel" href="">LinkedIn</a>
+            <a class="link-to-channel" href="">Twitter</a>
+            <a class="link-to-channel" href="">Blog</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright mt-3 py-3 text-sm">
+        <div>© 2023 kiki</div>
+      </div>
+    </footer>
 
     <!-- BTN : SCROLL TO TOP -->
     <i class="bi bi-arrow-up-circle-fill" id="scroll-to-top"></i>
