@@ -3,16 +3,12 @@ import * as bootstrap from "bootstrap";
 
 // ELEMENTS
 const btnScrollToTop = document.querySelector("#scroll-to-top");
+const btnToProjects = document.querySelector(".btn-to-projects");
 const myOffcanvas = document.querySelector(".offcanvas");
 const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
 const offcanvasItem = document.querySelectorAll(".nav-link");
-
-// HIDE OFFCANVAS
-offcanvasItem.forEach((element) => {
-  element.addEventListener("click", function () {
-    bsOffcanvas.hide();
-  });
-});
+const locationOfProjects = document.querySelector("#projects").offsetTop;
+const menuHeight = document.querySelector(".navbar").offsetHeight;
 
 //FUNCTIONS
 const showBtn = function () {
@@ -28,8 +24,19 @@ const scrollToTop = function () {
   document.documentElement.scrollTop = 0;
 };
 
-window.onscroll = function () {
-  showBtn();
+const scrollToProjects = function () {
+  window.scrollTo({ top: locationOfProjects - menuHeight, behavior: "smooth" });
+};
+
+const hideOffcanvas = function (element) {
+  element.addEventListener("click", function () {
+    bsOffcanvas.hide();
+  });
 };
 
 btnScrollToTop.addEventListener("click", scrollToTop);
+btnToProjects.addEventListener("click", scrollToProjects);
+offcanvasItem.forEach(hideOffcanvas);
+window.onscroll = function () {
+  showBtn();
+};

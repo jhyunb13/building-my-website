@@ -20,16 +20,17 @@
     <link rel="stylesheet" href="./css/main.css" />
 
     <title>Kiki Bae | Developer</title>
+    <link rel="icon" type="image/x-icon" href="../src/img/favicon.ico" />
   </head>
-  <body class="bg-color-body text-color-primary">
+  <body>
     <!-- NAVIGATION BAR -->
     <nav
-      class="navbar navbar-expand-sm sticky-top d-flex ps-2 pe-2 ps-sm-5 pe-sm-5 text-sm navbar-blur"
+      class="navbar navbar-expand-sm sticky-top ps-2 pe-2 ps-sm-5 pe-sm-5"
       id="navbar"
     >
       <div class="container-fluid">
         <a
-          class="navbar-brand order-last order-sm-first me-auto ms-3 ms-sm-0 flex-grow-1"
+          class="navbar-brand order-last order-sm-first flex-grow-1 me-auto ms-3 ms-sm-0"
           href="#"
           >Kiki</a
         >
@@ -56,7 +57,7 @@
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Kiki</h5>
             <button
               type="button"
-              class="btn-close btn-close-hover"
+              class="btn-close"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             ></button>
@@ -73,7 +74,6 @@
       </div>
     </nav>
 
-    <!-- ABOUT to EXPERIENCE -->
     <div
       class="content"
       data-bs-spy="scroll"
@@ -81,13 +81,12 @@
       data-bs-smooth-scroll="true"
       tabindex="0"
     >
-      <!-- ABOUT -->
-      <div class="about-me" id="about">
-        <div class="container-fluid introduction">
-          <div class="row row-gap-4">
+      <div id="about">
+        <div class="introduction-box container-fluid">
+          <div class="row row-gap-4 center-align-h">
             <div class="col-12 col-lg-6">
               <div class="introduction-text">
-                <h1 class="name">Hello,<br />I'm Kiki</h1>
+                <h1 class="about-name">Hello,<br />I'm Kiki</h1>
                 <p class="pt-3">
                   I build exceptional and accessible digital experiences for the
                   web. this is going to be filled soon. write down 2-3 sentences
@@ -102,27 +101,17 @@
                 alt="profile image"
               />
             </div>
-            <!-- BTN : CHECK OUT MY WORK-->
-            <div class="mt-4 flex">
-              <a class="link-to-projects" href="#projects">
-                <button type="button" class="btn-to-projects">
-                  Check out my projects
-                </button>
-              </a>
-            </div>
           </div>
+        </div>
+        <div class="center-align-v">
+          <button type="button" class="btn-to-projects">
+            Check out my projects
+          </button>
         </div>
       </div>
 
-      <!-- PROJECTS -->
-      <div
-        class="mb-5 px-5 px-sm-5"
-        id="projects"
-        data-bs-spy="scroll"
-        data-bs-target="#btn-projects"
-        tabindex="0"
-      >
-        <h4 class="my-4">Projects</h4>
+      <div id="projects">
+        <h3 class="center-align-v mb-5">Projects</h3>
         <!-- CARDS -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-gap-4">
           <div class="col">
@@ -133,23 +122,19 @@
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title text-base">Project title</h5>
-                <div class="card-text text-sm">
+                <h5 class="card-title">Project title</h5>
+                <div class="card-text">
                   <div>
                     <p>Description</p>
                   </div>
                   <div>
                     <ul class="project-skills">
-                      <li class="skills text-xs text-accent-color">
-                        Bootstrap
-                      </li>
-                      <li class="skills text-xs text-accent-color">SCSS</li>
-                      <li class="skills text-xs text-accent-color">
-                        JavaScript
-                      </li>
+                      <li class="skills">Bootstrap</li>
+                      <li class="skills">SCSS</li>
+                      <li class="skills">JavaScript</li>
                     </ul>
                   </div>
-                  <div class="project-link">
+                  <div class="project-links">
                     <a class="icon-link" href="#"
                       >More.com <i class="bi bi-arrow-right arrow-to-link"></i
                     ></a>
@@ -170,23 +155,19 @@
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title text-base">Project title</h5>
-                <div class="card-text text-sm">
+                <h5 class="card-title">Project title</h5>
+                <div class="card-text">
                   <div>
                     <p>Description</p>
                   </div>
                   <div>
                     <ul class="project-skills">
-                      <li class="skills text-xs text-accent-color">
-                        Bootstrap
-                      </li>
-                      <li class="skills text-xs text-accent-color">SCSS</li>
-                      <li class="skills text-xs text-accent-color">
-                        JavaScript
-                      </li>
+                      <li class="skills">Bootstrap</li>
+                      <li class="skills">SCSS</li>
+                      <li class="skills">JavaScript</li>
                     </ul>
                   </div>
-                  <div class="project-link">
+                  <div class="project-links">
                     <a class="icon-link" href="#"
                       >More.com <i class="bi bi-arrow-right arrow-to-link"></i
                     ></a>
@@ -207,23 +188,19 @@
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title text-base">Project title</h5>
-                <div class="card-text text-sm">
+                <h5 class="card-title">Project title</h5>
+                <div class="card-text">
                   <div>
                     <p>Description</p>
                   </div>
                   <div>
                     <ul class="project-skills">
-                      <li class="skills text-xs text-accent-color">
-                        Bootstrap
-                      </li>
-                      <li class="skills text-xs text-accent-color">SCSS</li>
-                      <li class="skills text-xs text-accent-color">
-                        JavaScript
-                      </li>
+                      <li class="skills">Bootstrap</li>
+                      <li class="skills">SCSS</li>
+                      <li class="skills">JavaScript</li>
                     </ul>
                   </div>
-                  <div class="project-link">
+                  <div class="project-links">
                     <a class="icon-link" href="#"
                       >More.com <i class="bi bi-arrow-right arrow-to-link"></i
                     ></a>
@@ -244,23 +221,19 @@
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title text-base">Project title</h5>
-                <div class="card-text text-sm">
+                <h5 class="card-title">Project title</h5>
+                <div class="card-text">
                   <div>
                     <p>Description</p>
                   </div>
                   <div>
                     <ul class="project-skills">
-                      <li class="skills text-xs text-accent-color">
-                        Bootstrap
-                      </li>
-                      <li class="skills text-xs text-accent-color">SCSS</li>
-                      <li class="skills text-xs text-accent-color">
-                        JavaScript
-                      </li>
+                      <li class="skills">Bootstrap</li>
+                      <li class="skills">SCSS</li>
+                      <li class="skills">JavaScript</li>
                     </ul>
                   </div>
-                  <div class="project-link">
+                  <div class="project-links">
                     <a class="icon-link" href="#"
                       >More.com <i class="bi bi-arrow-right arrow-to-link"></i
                     ></a>
@@ -276,10 +249,9 @@
         </div>
       </div>
 
-      <!-- EXPERIENCE -->
-      <div class="my-5 px-3 px-sm-5" id="experience">
-        <h4 class="my-4">Experience</h4>
-        <div class="accordion mx-auto experience">
+      <div id="experience">
+        <h3 class="center-align-v mb-5">Experience</h3>
+        <div class="accordion mx-auto">
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button
@@ -290,8 +262,8 @@
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                <div class="mb-0 flex-grow-1 job-title">Job title @Company</div>
-                <div class="mb-0 pe-3 duration">May 2022 - May 2023</div>
+                <div class="job-title mb-0 flex-grow-1">Job title @Company</div>
+                <div class="duration mb-0 pe-3">May 2022 - May 2023</div>
               </button>
             </h2>
             <div
@@ -299,7 +271,7 @@
               class="accordion-collapse collapse show"
               data-bs-parent="#experience"
             >
-              <div class="accordion-body text-sm">
+              <div class="accordion-body">
                 <ul class="expeirence-responsibilities">
                   <li>responsibilities, accomplishment</li>
                   <li>responsibilities, accomplishment</li>
@@ -318,8 +290,8 @@
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                <div class="mb-0 flex-grow-1 text-base">Job title @Company</div>
-                <div class="mb-0 pe-3 text-sm">May 2022 - May 2023</div>
+                <div class="job-title mb-0 flex-grow-1">Job title @Company</div>
+                <div class="duration mb-0 pe-3">May 2022 - May 2023</div>
               </button>
             </h2>
             <div
@@ -346,8 +318,8 @@
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                <div class="mb-0 flex-grow-1 text-base">Job title @Company</div>
-                <div class="mb-0 pe-3 text-sm">May 2022 - May 2023</div>
+                <div class="job-title mb-0 flex-grow-1">Job title @Company</div>
+                <div class="duration mb-0 pe-3">May 2022 - May 2023</div>
               </button>
             </h2>
             <div
@@ -367,40 +339,35 @@
         </div>
       </div>
 
-      <!-- CONTACT -->
-      <a class="contact" href="mailto:jhyun.b@gmail.com" id="contact">
-        <div class="email">
-          <div class="text-bold mb-2">1234@gmail.com</div>
-          <div class="text-sm">
+      <a id="contact" href="mailto:jhyun.b@gmail.com">
+        <div class="contact-box">
+          <div class="contact-email">1234@gmail.com</div>
+          <p class="contact-text">
             I’m currently looking for new opportunities, my inbox is always
-            open.
-            <div class="text-sm">
-              Whether you have a question or just want to say hi, feel free to
-              reach out to me!
-            </div>
-          </div>
+            open. Whether you have a question or just want to say hi, feel free
+            to reach out to me!
+          </p>
         </div>
         <i class="bi bi-arrow-right contact-arrow"></i>
       </a>
     </div>
 
-    <!-- FOOTER-->
-    <footer class="container-fluid bg-color-secondary px-3 px-sm-5 pt-3">
-      <div class="row row-gap-4 py-2 footer-content">
+    <footer class="container-fluid">
+      <div class="row row-gap-4">
         <div class="col-12 col-md-6">
           <div class="footer-name mb-2">kiki bae</div>
-          <div class="footer-quote">
+          <p class="footer-text">
             Let's make something amazine together. I'm a more than developer.
             I'm a slow runner, and love knitting.
-          </div>
+          </p>
         </div>
-        <div class="col-6 col-md-3 text-sm alignment">
+        <div class="col-6 col-md-3">
           <div class="footer-channels">
             <div class="channel-category">Docs</div>
             <a class="link-to-channel" href="">Resume</a>
           </div>
         </div>
-        <div class="col-6 col-md-3 text-sm alignment">
+        <div class="col-6 col-md-3">
           <div class="footer-channels">
             <div class="channel-category">Channels</div>
             <a class="link-to-channel" href="https://github.com/kiki-tomato"
@@ -412,13 +379,13 @@
           </div>
         </div>
       </div>
-      <div class="footer-copyright mt-3 py-3 text-sm">
+      <div class="footer-copyright">
         <div>© 2023 kiki</div>
       </div>
     </footer>
 
     <!-- BTN : SCROLL TO TOP -->
-    <i class="bi bi-arrow-up-circle-fill" id="scroll-to-top"></i>
+    <i id="scroll-to-top" class="bi bi-arrow-up-circle-fill"></i>
 
     <script src="bundle.js"></script>
   </body>
