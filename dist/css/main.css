@@ -1,16 +1,6 @@
-.center-align-v {
-  display: flex;
-  justify-content: center;
-}
-
-.center-align-h {
-  display: flex;
-  align-items: center;
-}
-
 :root {
   --bs-body-font-family: Inter, sans-serif;
-  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+  font-feature-settings: "liga" 1, "calt" 1;
 }
 
 @supports (font-variation-settings: normal) {
@@ -33,11 +23,20 @@ body {
   display: block;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
+}
+
+.center-align-v {
+  display: flex;
+  justify-content: center;
+}
+
+.center-align-v {
+  display: flex;
+  align-items: center;
 }
 
 .navbar {
-  background: rgb(255, 255, 255);
+  background: #ffffff;
   border-bottom: 1px solid #222222;
   font-size: 0.875rem;
 }
@@ -57,12 +56,8 @@ body {
 
 @media (max-width: 430px) {
   .offcanvas {
-    --bs-offcanvas-width: min(80vw, 400px) !important;
+    --bs-offcanvas-width: min(80vw, 400px);
   }
-}
-
-.btn-close {
-  --bs-btn-close-color: #fe6e1f !important;
 }
 
 .navbar-nav {
@@ -108,20 +103,22 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
-.profile-img-width {
-  max-width: 75%;
-}
-
 @media (max-width: 992px) {
-  .profile-img-width {
-    max-width: 60%;
-  }
   .profile-img {
     justify-content: center;
     align-items: center;
   }
 }
+
+.profile-img-width {
+  max-width: 75%;
+}
+@media (max-width: 992px) {
+  .profile-img-width {
+    max-width: 60%;
+  }
+}
+
 .btn-to-projects {
   background: white;
   border: 1px solid #222222;
@@ -132,16 +129,14 @@ body {
   text-align: center;
   font-weight: 500;
 }
-
 .btn-to-projects:hover {
   background: #fe6e1f;
 }
 
 #projects {
-  height: auto;
+  padding-top: 3rem;
   padding-left: 4rem;
   padding-right: 4rem;
-  padding-top: 3rem;
   margin-bottom: 5rem;
 }
 @media (max-width: 576px) {
@@ -195,6 +190,10 @@ body {
   color: #222222;
   font-weight: 500;
 }
+.icon-link:hover {
+  color: #fe6e1f;
+  text-decoration: underline;
+}
 
 .arrow-to-link {
   font-size: 14px;
@@ -207,11 +206,6 @@ body {
   transition: transform 0.2s;
   transition-timing-function: ease-in-out;
   color: #fe6e1f;
-}
-
-.icon-link:hover {
-  color: #fe6e1f;
-  text-decoration: underline;
 }
 
 #experience {
@@ -231,29 +225,30 @@ body {
   max-width: 700px;
   --bs-accordion-active-bg: rgba(254, 110, 31, 0.1);
   --bs-accordion-border-color: #222222;
-}
-
-.accordion-header {
-  color: #222222;
+  --bs-accordion-active-color: #222222;
+  --bs-accordion-btn-color: #222222;
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
 }
 
 .job-title {
   font-size: 1rem;
   font-weight: 600;
 }
-
-.duration {
-  font-size: 0.875rem;
-}
-
 @media (max-width: 576px) {
   .job-title {
     font-size: 0.875rem;
   }
+}
+
+.duration {
+  font-size: 0.875rem;
+}
+@media (max-width: 576px) {
   .duration {
     display: none;
   }
 }
+
 .accordion-body {
   font-size: 0.875rem;
 }
@@ -273,6 +268,12 @@ body {
   text-decoration: none;
   color: #222222;
 }
+@media (max-width: 576px) {
+  #contact {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+}
 
 .contact-box {
   width: 60%;
@@ -288,6 +289,11 @@ body {
 .contact-text {
   font-size: 1.2rem;
 }
+@media (max-width: 576px) {
+  .contact-text {
+    font-size: 0.875rem;
+  }
+}
 
 .contact-arrow {
   margin-top: auto;
@@ -295,15 +301,6 @@ body {
   font-size: 2rem;
 }
 
-@media (max-width: 576px) {
-  #contact {
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
-  }
-  .contact-text {
-    font-size: 0.875rem;
-  }
-}
 footer {
   background: #f5e6c5;
   padding: 2rem 4rem !important;
@@ -349,7 +346,6 @@ footer {
   text-decoration: none;
   color: #222222;
 }
-
 .link-to-channel:hover {
   color: #fe6e1f;
 }
