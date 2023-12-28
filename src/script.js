@@ -3,7 +3,7 @@ import * as bootstrap from "bootstrap";
 
 // ELEMENTS
 const btnScrollToTop = document.querySelector("#scroll-to-top");
-const btnToProjects = document.querySelector(".btn-to-projects");
+const btnToAbout = document.querySelector(".btn-to-about");
 const myOffcanvas = document.querySelector(".offcanvas");
 const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
 const offcanvasItem = document.querySelectorAll(".nav-link");
@@ -35,7 +35,7 @@ const hideOffcanvas = function (element) {
 };
 
 btnScrollToTop.addEventListener("click", scrollToTop);
-btnToProjects.addEventListener("click", scrollToAbout);
+btnToAbout.addEventListener("click", scrollToAbout);
 offcanvasItem.forEach(hideOffcanvas);
 window.onscroll = function () {
   showBtn();
