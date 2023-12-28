@@ -413,7 +413,7 @@ footer {
 }
 
 .footer-copyright {
-  border-top: 1px groove #222222;
+  border-top: 1px solid #222222;
   font-size: 0.75rem;
   margin-top: 2rem;
   padding-top: 1rem;
@@ -427,4 +427,4 @@ footer {
   transition: opacity 300ms;
   font-size: 2rem;
   cursor: pointer;
-}/*# sourceMappingURL=main.css.map */
+}
