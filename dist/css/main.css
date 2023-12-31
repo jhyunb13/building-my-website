@@ -317,11 +317,6 @@ body {
   font-size: 0.875rem;
 }
 
-.accordion-button {
-  transition: var(--bs-accordion-transition);
-  -webkit-transition: var(--bs-accordion-transition);
-}
-
 .expeirence-responsibilities {
   margin-bottom: 0;
 }

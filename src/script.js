@@ -1,5 +1,8 @@
 "use strict";
 import * as bootstrap from "bootstrap";
+import smoothscroll from "smoothscroll-polyfill";
+
+smoothscroll.polyfill();
 
 // ELEMENTS
 const btnScrollToTop = document.querySelector("#scroll-to-top");
