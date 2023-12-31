@@ -120,6 +120,7 @@ body {
 }
 
 .btn-to-about {
+  color: #222222;
   background: white;
   border: 1px solid #222222;
   border-radius: 0.375rem;
@@ -253,8 +254,9 @@ body {
   font-weight: 500;
 }
 .icon-link:hover {
-  color: #fe6e1f;
   text-decoration: underline;
+  text-decoration-color: #fe6e1f;
+  color: #fe6e1f;
 }
 
 .arrow-to-link {
@@ -427,4 +429,4 @@ footer {
   transition: opacity 300ms;
   font-size: 2rem;
   cursor: pointer;
-}
+}/*# sourceMappingURL=main.css.map */

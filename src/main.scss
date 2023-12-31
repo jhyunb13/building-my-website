@@ -133,6 +133,7 @@ body {
 }
 
 .btn-to-about {
+  color: $text-color;
   background: white;
   border: $border-default;
   border-radius: 0.375rem;
@@ -265,8 +266,9 @@ body {
   font-weight: map-get($font-weights, medium);
 
   &:hover {
-    color: $color-accent;
     text-decoration: underline;
+    text-decoration-color: $color-accent;
+    color: $color-accent;
   }
 }
 
