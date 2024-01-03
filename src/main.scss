@@ -254,6 +254,7 @@ body {
 
 .card {
   border-color: $text-color;
+  --bs-card-height: 100%;
 }
 
 .card-title {

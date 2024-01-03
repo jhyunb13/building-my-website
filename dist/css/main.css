@@ -247,6 +247,7 @@ body {
 
 .card {
   border-color: #222222;
+  --bs-card-height: 100%;
 }
 
 .card-title {
