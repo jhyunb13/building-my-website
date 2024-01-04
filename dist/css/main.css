@@ -111,11 +111,11 @@ body {
   max-width: 400px;
 }
 
-.about-name {
+.intro-name {
   font-size: 3rem;
 }
 @media (max-width: 576px) {
-  .about-name {
+  .intro-name {
     font-size: 2.5rem;
   }
 }
@@ -168,8 +168,9 @@ body {
 
 .about-paragraph {
   border-top: 1px solid #222222;
-  padding: 3rem 4rem;
+  padding: 3rem 4rem 2rem 4rem;
   background: #ffffff;
+  line-height: 1.6rem;
 }
 @media (min-width: 992px) {
   .about-paragraph {
@@ -178,7 +179,7 @@ body {
 }
 @media (max-width: 576px) {
   .about-paragraph {
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
   }
 }
 
@@ -197,7 +198,7 @@ body {
 
 .skill-label {
   flex-grow: 1;
-  padding: 1.5rem 4rem;
+  padding: 2rem 4rem;
   background: #f5e6c5;
   border-bottom: 1px solid #222222;
   font-size: 0.875rem;
@@ -212,7 +213,7 @@ body {
 .skills-list {
   flex-grow: 1;
   border-bottom: 1px solid #222222;
-  padding: 0.75rem 4rem;
+  padding: 1rem 4rem;
   font-size: 0.875rem;
 }
 .skills-list:hover {
@@ -266,7 +267,7 @@ body {
   padding-left: 0;
 }
 
-.skills {
+.project-skills li {
   font-size: 0.75rem;
   font-weight: 600;
   color: #fe6e1f;
@@ -352,10 +353,22 @@ body {
 
 .accordion-body {
   font-size: 0.875rem;
+  padding: 2rem 5rem 1rem 3rem;
+}
+@media (max-width: 576px) {
+  .accordion-body {
+    font-size: 0.875rem;
+    padding: 2rem 3rem 1rem 3rem;
+  }
 }
 
 .expeirence-responsibilities {
   margin-bottom: 0;
+  padding-left: 0;
+}
+
+.expeirence-responsibilities li {
+  margin-bottom: 1rem;
 }
 
 #contact {

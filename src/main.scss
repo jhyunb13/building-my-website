@@ -125,7 +125,7 @@ body {
   max-width: 400px;
 }
 
-.about-name {
+.intro-name {
   font-size: $text-xl;
 
   @media (max-width: 576px) {
@@ -180,15 +180,16 @@ body {
 
 .about-paragraph {
   border-top: $border-default;
-  padding: 3rem 4rem;
+  padding: 3rem 4rem 2rem 4rem;
   background: #ffffff;
+  line-height: 1.6rem;
 
   @media (min-width: 992px) {
     border-bottom: $border-default;
   }
 
   @media (max-width: 576px) {
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
   }
 }
 
@@ -206,7 +207,7 @@ body {
 
 .skill-label {
   flex-grow: 1;
-  padding: 1.5rem 4rem;
+  padding: 2rem 4rem;
   background: $color-secondary;
   border-bottom: $border-default;
   font-size: $text-sm;
@@ -220,7 +221,7 @@ body {
 .skills-list {
   flex-grow: 1;
   border-bottom: $border-default;
-  padding: 0.75rem 4rem;
+  padding: 1rem 4rem;
   font-size: $text-sm;
 
   &:hover {
@@ -273,7 +274,7 @@ body {
   padding-left: 0;
 }
 
-.skills {
+.project-skills li {
   font-size: $text-xs;
   font-weight: 600;
   color: $color-accent;
@@ -357,10 +358,21 @@ body {
 
 .accordion-body {
   font-size: $text-sm;
+  padding: 2rem 5rem 1rem 3rem;
+
+  @media (max-width: 576px) {
+    font-size: $text-sm;
+    padding: 2rem 3rem 1rem 3rem;
+  }
 }
 
 .expeirence-responsibilities {
   margin-bottom: 0;
+  padding-left: 0;
+}
+
+.expeirence-responsibilities li {
+  margin-bottom: 1rem;
 }
 
 #contact {
@@ -393,6 +405,7 @@ body {
 
 .contact-text {
   font-size: $text-md;
+  // line-height: 1.7rem;
 
   @media (max-width: 576px) {
     font-size: $text-sm;
