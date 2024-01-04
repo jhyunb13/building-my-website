@@ -477,6 +477,6 @@ footer {
   bottom: 20px;
   opacity: 0;
   transition: opacity 300ms;
-  font-size: 2rem;
+  width: 2rem;
   cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
