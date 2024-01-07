@@ -127,12 +127,9 @@ body {
   }
 }
 
-.introduction-text p {
-  font-size: 1.2rem;
-}
-@media (max-width: 576px) {
+@media (min-width: 576px) {
   .introduction-text p {
-    font-size: 0.875rem;
+    font-size: 1.2rem;
   }
 }
 

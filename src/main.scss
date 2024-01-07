@@ -140,10 +140,8 @@ h1:last-of-type {
 }
 
 .introduction-text p {
-  font-size: $text-md;
-
-  @media (max-width: 576px) {
-    font-size: $text-sm;
+  @media (min-width: 576px) {
+    font-size: $text-md;
   }
 }
 
