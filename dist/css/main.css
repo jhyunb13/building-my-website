@@ -121,12 +121,19 @@ body {
   }
 }
 
-h1:last-of-type {
-  margin-bottom: 2rem;
+@media (min-width: 576px) {
+  h1:last-of-type {
+    margin-bottom: 2rem;
+  }
 }
 
 .introduction-text p {
   font-size: 1.2rem;
+}
+@media (max-width: 576px) {
+  .introduction-text p {
+    font-size: 0.875rem;
+  }
 }
 
 .profile-img {
@@ -136,6 +143,11 @@ h1:last-of-type {
 
 .profile-img-width {
   max-width: 50%;
+}
+@media (max-width: 576px) {
+  .profile-img-width {
+    max-width: 60%;
+  }
 }
 
 .btn-to-about {
