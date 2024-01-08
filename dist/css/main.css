@@ -121,6 +121,13 @@ body {
     font-size: 1.2rem;
   }
 }
+@media (max-width: 400px) {
+  .introduction-text p:first-child {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+}
 
 .introduction-box p:last-of-type {
   font-size: 3rem;
@@ -143,6 +150,14 @@ body {
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     line-height: 42px;
+  }
+}
+@media (max-width: 400px) {
+  .introduction-box p:last-of-type {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 35px;
   }
 }
 

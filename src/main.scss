@@ -132,6 +132,12 @@ body {
     margin-bottom: 1.5rem;
     font-size: $text-md;
   }
+
+  @media (max-width: 400px) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: $text-sm;
+  }
 }
 
 .introduction-box p:last-of-type {
@@ -153,6 +159,13 @@ body {
     margin-bottom: 1.5rem;
     font-size: $text-lg;
     line-height: 42px;
+  }
+
+  @media (max-width: 400px) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: $text-md;
+    line-height: 35px;
   }
 }
 
