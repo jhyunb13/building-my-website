@@ -214,6 +214,8 @@ body {
 #about {
   padding-top: 3rem;
   margin-bottom: 5rem;
+
+  transition: transform 1s, opacity 1s;
 }
 
 .about-box {
@@ -294,6 +296,8 @@ body {
   padding-left: 4rem;
   padding-right: 4rem;
   margin-bottom: 5rem;
+
+  transition: transform 1s, opacity 1s;
 }
 @media (max-width: 576px) {
   #projects {
@@ -371,6 +375,8 @@ body {
   padding-left: 4rem;
   padding-right: 4rem;
   margin-bottom: 5rem;
+
+  transition: transform 1s, opacity 1s;
 }
 @media (max-width: 576px) {
   #experience {
@@ -437,6 +443,8 @@ body {
   padding: 3rem 4rem;
   text-decoration: none;
   color: #222222;
+
+  transition: transform 1s, opacity 1s;
 }
 @media (max-width: 576px) {
   #contact {
@@ -544,4 +552,9 @@ footer {
   transition: opacity 300ms;
   width: 2rem;
   cursor: pointer;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
