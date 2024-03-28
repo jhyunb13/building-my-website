@@ -346,12 +346,21 @@ body {
 .icon-link {
   text-decoration: none;
   color: $text-color;
+
   font-weight: map-get($font-weights, medium);
 
   &:hover {
     text-decoration: underline;
     text-decoration-color: $color-accent;
     color: $color-accent;
+  }
+
+  &:visited {
+    color: $text-color;
+  }
+
+  &:visited:hover {
+    color: $color-accent !important;
   }
 }
 
