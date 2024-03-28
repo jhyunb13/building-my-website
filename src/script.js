@@ -1,7 +1,7 @@
 "use strict";
 import * as bootstrap from "bootstrap";
 import smoothscroll from "smoothscroll-polyfill";
-import content from "./content.json" assert { type: "json" };
+import content from "./content.json";
 
 //Elements
 const btnScrollToTop = document.querySelector("#scroll-to-top");
@@ -156,7 +156,7 @@ const revealSection = function (entries, observer) {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
-  entry.target.classList.remove("section--hidden");
+  entry.target.classList.remove("section-hidden");
 
   observer.unobserve(entry.target);
 };
@@ -168,7 +168,7 @@ const contentRevelEffect = function () {
   });
 
   sections.forEach((section) => {
-    section.classList.add("section--hidden");
+    section.classList.add("section-hidden");
     sectionObserver.observe(section);
   });
 };
