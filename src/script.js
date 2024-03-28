@@ -1,7 +1,7 @@
 "use strict";
 import * as bootstrap from "bootstrap";
 import smoothscroll from "smoothscroll-polyfill";
-import content from "./content.json";
+import content from "./content.json" assert { type: "json" };
 
 //Elements
 const btnScrollToTop = document.querySelector("#scroll-to-top");
