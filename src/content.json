@@ -46,6 +46,16 @@
       "urlText": "sourdough-busan.onrender.com ",
       "github": "https://github.com/kiki-tomato/sourdough-busan",
       "thumbnail": "./img/sourdough-busan-thumbnail.png"
+    },
+
+    {
+      "title": "Conan Gray Unofficial Webiste",
+      "description": "Conan Gray's fan-made unofficial website. In honor of his 3rd studio album release, Found Heaven, I will recreate his website",
+      "skills": ["Vite.js", "React", "JavaScript"],
+      "url": "https://conan-gray-unofficial-website.onrender.com",
+      "urlText": "conan-gray-unofficial-website.onrender.com ",
+      "github": "https://github.com/kiki-tomato/conan-gray-unofficial-website",
+      "thumbnail": "./img/placeholder-image.png"
     }
   ],
 
