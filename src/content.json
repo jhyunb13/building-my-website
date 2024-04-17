@@ -50,12 +50,18 @@
 
     {
       "title": "Conan Gray Unofficial Webiste",
-      "description": "Conan Gray's fan-made unofficial website. In honor of his 3rd studio album release, Found Heaven, I will recreate his website",
-      "skills": ["Vite.js", "React", "JavaScript"],
+      "description": "Conan Gray's fan-made unofficial website. In honor of his 3rd studio album release, Found Heaven, I recreated his website",
+      "skills": [
+        "Vite.js",
+        "React",
+        "JavaScript",
+        "YouTube Data API",
+        "Cheerio"
+      ],
       "url": "https://conan-gray-unofficial-website.onrender.com",
       "urlText": "conan-gray-unofficial-website.onrender.com ",
       "github": "https://github.com/kiki-tomato/conan-gray-unofficial-website",
-      "thumbnail": "./img/placeholder-image.png"
+      "thumbnail": "./img/conan-unofficial-thumbnail.png"
     }
   ],
 
