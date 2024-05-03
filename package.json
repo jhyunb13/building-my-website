@@ -1,14 +1,13 @@
 {
   "name": "building-my-website",
   "version": "1.0.0",
-  "description": "### 1. The Purpose of My Website",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
-  "author": "",
+  "author": "Jihyun Bae",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.16",

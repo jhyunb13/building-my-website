@@ -17,125 +17,178 @@ const sectionExperience = document.querySelector("#experience");
 const sections = [sectionAbout, sectionProjects, sectionExperience];
 
 const { skillset, projects, experiences } = content;
+const accordionNum = ["One", "Two", "Three", "Four", "Five"];
 
 smoothscroll.polyfill();
 
 //Functions
-const updateSkillset = function () {
-  skillset.map((skill) => {
-    const newSkillsetComponent = document.createElement("div");
-
-    sectionAbout.querySelector(".skills-box").append(newSkillsetComponent);
-
-    newSkillsetComponent.classList.add("skills-list");
-    newSkillsetComponent.textContent = skill;
-  });
-};
-
-updateSkillset();
-
-const updateProjectsContent = function () {
-  projects.map((project) => {
-    const cloneProjectCard = sectionProjects
-      .querySelector(".col")
-      .cloneNode(true);
-    const projectLinks = cloneProjectCard.querySelector(".project-links");
-
-    cloneProjectCard
-      .querySelector("img")
-      .setAttribute("src", project.thumbnail);
-
-    cloneProjectCard.querySelector(".card-title").textContent = project.title;
-    cloneProjectCard.querySelector("p").textContent = project.description;
-
-    cloneProjectCard
-      .querySelectorAll(".skills")
-      .forEach((skill) => skill.remove());
-
-    project.skills.map((skill) => {
-      const newSkillsComponent = document.createElement("li");
-
-      cloneProjectCard
-        .querySelector(".project-skills")
-        .append(newSkillsComponent);
-
-      newSkillsComponent.classList.add("skills");
-      newSkillsComponent.textContent = skill;
-    });
-
-    projectLinks.firstElementChild.setAttribute("href", project.url);
-    projectLinks.firstElementChild.firstChild.textContent = project.urlText;
-    projectLinks.lastElementChild.setAttribute("href", project.github);
-
-    sectionProjects.querySelector(".row").prepend(cloneProjectCard);
-  });
-};
-
-updateProjectsContent();
-
-const updateExperienceContent = function () {
-  const accordionNum = ["One", "Two", "Three", "Four", "Five"];
-
-  experiences.map((experience) => {
-    const cloneExperienceCard = sectionExperience
-      .querySelector(".accordion-item")
-      .cloneNode(true);
-
-    cloneExperienceCard.querySelector(
-      ".job-title"
-    ).textContent = `${experience.jobTitle} @${experience.company}`;
-
-    cloneExperienceCard.querySelector(".duration").textContent =
-      experience.duration;
-
-    cloneExperienceCard.querySelectorAll("li").forEach((el) => el.remove());
-
-    experience.responsibilities.map((responsibilities) => {
-      const newResponsibilityComponent = document.createElement("li");
-
-      cloneExperienceCard
-        .querySelector(".expeirence-responsibilities")
-        .append(newResponsibilityComponent);
-
-      newResponsibilityComponent.textContent = responsibilities;
-    });
-
-    sectionExperience.querySelector(".accordion").prepend(cloneExperienceCard);
-  });
-
+const setAccordionBtnStatus = function (numbers) {
   sectionExperience.querySelectorAll(".accordion-item").forEach((item, i) => {
     const accordionBtn = item.querySelector(".accordion-button");
     const accordionCollapse = item.querySelector(".accordion-collapse");
+    const attrList = [
+      {
+        el: accordionBtn,
+        attr: "data-bs-target",
+        content: `#collapse${numbers[i]}`,
+      },
+      {
+        el: accordionBtn,
+        attr: "aria-controls",
+        content: `#collapse${numbers[i]}`,
+      },
+      {
+        el: item.querySelector(".accordion-collapse"),
+        attr: "id",
+        content: `collapse${numbers[i]}`,
+      },
+    ];
 
-    accordionBtn.setAttribute("data-bs-target", `#collapse${accordionNum[i]}`);
-    accordionBtn.setAttribute("aria-controls", `#collapse${accordionNum[i]}`);
-
-    item
-      .querySelector(".accordion-collapse")
-      .setAttribute("id", `collapse${accordionNum[i]}`);
+    updateAttribute(attrList);
 
     if (item === sectionExperience.querySelector(".accordion-item")) {
       accordionBtn.setAttribute("aria-expanded", "true");
       accordionBtn.classList.remove("collapsed");
-
       accordionCollapse.classList.add("show");
     } else {
       accordionBtn.setAttribute("aria-expanded", "false");
       accordionBtn.classList.add("collapsed");
-
       accordionCollapse.classList.remove("show");
     }
   });
 };
 
-updateExperienceContent();
+const appendElement = function (insertingPlace, el) {
+  insertingPlace.append(el);
+};
+
+const prependElement = function (insertingPlace, el) {
+  insertingPlace.prepend(el);
+};
+
+const createNInsertElements = function (
+  data,
+  newEl,
+  classForNewEl,
+  insertingPlace
+) {
+  data.map((content) => {
+    const newElement = document.createElement(newEl);
+
+    newElement.classList.add(classForNewEl);
+    newElement.textContent = content;
+
+    appendElement(insertingPlace, newElement);
+  });
+};
+
+const cloneElement = function (parentEl, childEl) {
+  return parentEl.querySelector(childEl).cloneNode(true);
+};
+
+const removeElements = function (parentEl, targetEl) {
+  parentEl.querySelectorAll(targetEl).forEach((el) => el.remove());
+};
+
+const updateTextContent = function (data) {
+  data.map((d) => (d.el.textContent = d.content));
+};
+
+const updateAttribute = function (data) {
+  data.map((d) => d.el.setAttribute(d.attr, d.content));
+};
+
+const updateProjectsContent = function () {
+  projects.map((project) => {
+    const cloneProjectCard = cloneElement(sectionProjects, ".col");
+    const projectLinks = cloneProjectCard.querySelector(".project-links");
+    const textContentList = [
+      {
+        el: cloneProjectCard.querySelector(".card-title"),
+        content: project.title,
+      },
+      { el: cloneProjectCard.querySelector("p"), content: project.description },
+      {
+        el: projectLinks.firstElementChild.firstChild,
+        content: project.urlText,
+      },
+    ];
+    const attrList = [
+      {
+        el: cloneProjectCard.querySelector("img"),
+        attr: "src",
+        content: project.thumbnail,
+      },
+      {
+        el: projectLinks.firstElementChild,
+        attr: "href",
+        content: project.url,
+      },
+      {
+        el: projectLinks.lastElementChild,
+        attr: "href",
+        content: project.github,
+      },
+    ];
+
+    updateAttribute(attrList);
+
+    updateTextContent(textContentList);
+
+    removeElements(cloneProjectCard, ".skills");
+
+    createNInsertElements(
+      project.skills,
+      "li",
+      "skills",
+      cloneProjectCard.querySelector(".project-skills")
+    );
+
+    prependElement(sectionProjects.querySelector(".row"), cloneProjectCard);
+  });
+};
+
+const updateExperienceContent = function () {
+  experiences.map((experience) => {
+    const cloneExperienceCard = cloneElement(
+      sectionExperience,
+      ".accordion-item"
+    );
+    const textContentList = [
+      {
+        el: cloneExperienceCard.querySelector(".job-title"),
+        content: `${experience.jobTitle} @${experience.company}`,
+      },
+      {
+        el: cloneExperienceCard.querySelector(".duration"),
+        content: experience.duration,
+      },
+    ];
+
+    updateTextContent(textContentList);
+
+    removeElements(cloneExperienceCard, "li");
+
+    createNInsertElements(
+      experience.responsibilities,
+      "li",
+      undefined,
+      cloneExperienceCard.querySelector(".expeirence-responsibilities")
+    );
+
+    prependElement(
+      sectionExperience.querySelector(".accordion"),
+      cloneExperienceCard
+    );
+  });
+
+  setAccordionBtnStatus(accordionNum);
+};
 
 const showBtn = function () {
-  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-    btnScrollToTop.style.opacity = 100;
-  } else {
-    btnScrollToTop.style.opacity = 0;
-  }
+  document.body.scrollTop > 30 || document.documentElement.scrollTop > 30
+    ? (btnScrollToTop.style.opacity = 100)
+    : (btnScrollToTop.style.opacity = 0);
 };
 
 const scrollToTop = function () {
@@ -174,6 +227,14 @@ const contentRevelEffect = function () {
 };
 
 contentRevelEffect();
+createNInsertElements(
+  skillset,
+  "div",
+  "skills-list",
+  sectionAbout.querySelector(".skills-box")
+);
+updateProjectsContent();
+updateExperienceContent();
 
 //Event Handler
 btnScrollToTop.addEventListener("click", scrollToTop);

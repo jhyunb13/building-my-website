@@ -12,16 +12,6 @@
 
   "projects": [
     {
-      "title": "Next Project",
-      "description": "Coming up soon. Currently working on it. Stay tuned for updates",
-      "skills": ["skill"],
-      "url": "#",
-      "urlText": "more.com ",
-      "github": "#",
-      "thumbnail": "./img/placeholder-image.png"
-    },
-
-    {
       "title": "Personal Portfolio Website",
       "description": "My first portfolio webstie that I designed and built in 2023, using Bootstrap. Through this project, I gained a deeper understanding of web development.",
       "skills": ["HTML", "SCSS", "JavaScript", "Bootstrap"],
