@@ -4,8 +4,6 @@ import smoothscroll from "smoothscroll-polyfill";
 import content from "./content.json";
 import supabase from "./supabase";
 
-console.log(supabase);
-
 //Elements
 const btnScrollToTop = document.querySelector("#scroll-to-top");
 const btnToAbout = document.querySelector(".btn-to-about");
