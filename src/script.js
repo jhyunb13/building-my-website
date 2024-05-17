@@ -2,6 +2,7 @@
 import * as bootstrap from "bootstrap";
 import smoothscroll from "smoothscroll-polyfill";
 import content from "./content.json";
+import supabase from "./supabase";
 
 //Elements
 const btnScrollToTop = document.querySelector("#scroll-to-top");
@@ -16,7 +17,7 @@ const sectionProjects = document.querySelector("#projects");
 const sectionExperience = document.querySelector("#experience");
 const sections = [sectionAbout, sectionProjects, sectionExperience];
 
-const { skillset, projects, experiences } = content;
+const { skillset } = content;
 const accordionNum = ["One", "Two", "Three", "Four", "Five"];
 
 smoothscroll.polyfill();
@@ -98,8 +99,8 @@ const updateAttribute = function (data) {
   data.map((d) => d.el.setAttribute(d.attr, d.content));
 };
 
-const updateProjectsContent = function () {
-  projects.map((project) => {
+const updateProjectsContent = function (arr) {
+  arr.map((project) => {
     const cloneProjectCard = cloneElement(sectionProjects, ".col");
     const projectLinks = cloneProjectCard.querySelector(".project-links");
     const textContentList = [
@@ -148,8 +149,8 @@ const updateProjectsContent = function () {
   });
 };
 
-const updateExperienceContent = function () {
-  experiences.map((experience) => {
+const updateExperienceContent = function (arr) {
+  arr.map((experience) => {
     const cloneExperienceCard = cloneElement(
       sectionExperience,
       ".accordion-item"
@@ -226,15 +227,25 @@ const contentRevelEffect = function () {
   });
 };
 
+const loadData = async function (tableName, updateFunc) {
+  const { data, error } = await supabase.from(tableName).select("*");
+
+  const sortedData = data.slice().sort((a, b) => {
+    return new Date(a.createdAt) - new Date(b.createdAt);
+  });
+
+  if (!error) updateFunc(sortedData);
+};
+
 contentRevelEffect();
+loadData("portfolio-projects", updateProjectsContent);
+loadData("portfolio-experience", updateExperienceContent);
 createNInsertElements(
   skillset,
   "div",
   "skills-list",
   sectionAbout.querySelector(".skills-box")
 );
-updateProjectsContent();
-updateExperienceContent();
 
 //Event Handler
 btnScrollToTop.addEventListener("click", scrollToTop);
