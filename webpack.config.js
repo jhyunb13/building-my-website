@@ -15,5 +15,5 @@ module.exports = {
     compress: true,
     port: 3000,
   },
-  plugins: [new Dotenv()],
+  plugins: [new Dotenv({ systemvars: true })],
 };
