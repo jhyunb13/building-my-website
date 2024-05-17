@@ -4,7 +4,7 @@ import smoothscroll from "smoothscroll-polyfill";
 import content from "./content.json";
 import supabase from "./supabase";
 
-console.log(process.env.SUPABASE_KEY);
+console.log(supabase);
 
 //Elements
 const btnScrollToTop = document.querySelector("#scroll-to-top");
