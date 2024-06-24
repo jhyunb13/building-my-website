@@ -99,7 +99,7 @@ const updateAttribute = function (data) {
   data.map((d) => d.el.setAttribute(d.attr, d.content));
 };
 
-const updateProjectsContent = function (arr) {
+const renderProjectsContent = function (arr) {
   arr.map((project) => {
     const cloneProjectCard = cloneElement(sectionProjects, ".col");
     const projectLinks = cloneProjectCard.querySelector(".project-links");
@@ -149,7 +149,7 @@ const updateProjectsContent = function (arr) {
   });
 };
 
-const updateExperienceContent = function (arr) {
+const renderExperienceContent = function (arr) {
   arr.map((experience) => {
     const cloneExperienceCard = cloneElement(
       sectionExperience,
@@ -238,8 +238,8 @@ const loadData = async function (tableName, updateFunc) {
 };
 
 contentRevelEffect();
-loadData("portfolio-projects", updateProjectsContent);
-loadData("portfolio-experience", updateExperienceContent);
+loadData("portfolio-projects", renderProjectsContent);
+loadData("portfolio-experience", renderExperienceContent);
 createNInsertElements(
   skillset,
   "div",
