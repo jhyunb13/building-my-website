@@ -9,9 +9,13 @@ $font-weights: (
   "bold": 600,
 );
 $text-color: #222222;
+$color-btn: #262626;
+$color-btn-text: #f7f7f7;
 $color-primary: #faf3e1;
 $color-secondary: #f5e6c5;
-$color-accent: #fe6e1f;
+$color-accent-1: #fe6e1f;
+$color-accent-2: #fbbd1d;
+$color-accent-3: #9fc4e8;
 $border-default: 1px solid #222222;
 
 :root {
@@ -41,6 +45,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h3 {
+  font-size: $text-md;
+  font-weight: map-get($font-weights, medium);
+  letter-spacing: 4px;
+
+  @media (max-width: 992px) {
+    margin-bottom: 3rem;
+  }
+}
+
 .navbar {
   border-bottom: $border-default;
   background: #ffffff;
@@ -62,7 +76,7 @@ body {
 }
 
 .navbar-toggler:hover .btn-navbar-toggler {
-  color: $color-accent;
+  color: $color-accent-1;
 }
 
 .offcanvas {
@@ -77,7 +91,7 @@ body {
 }
 
 .navbar-nav {
-  --bs-nav-link-hover-color: #{$color-accent};
+  --bs-nav-link-hover-color: #{$color-accent-1};
 }
 
 .nav-link {
@@ -95,144 +109,120 @@ body {
 #intro {
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  row-gap: 5rem;
-  min-height: calc(100vh - 80px);
-  overflow: hidden;
-}
-
-.introduction-box {
+  justify-content: end;
+  row-gap: 1.5rem;
   padding-left: 4rem;
   padding-right: 4rem;
+  padding-bottom: 5rem;
+  box-sizing: border-box;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+  font-size: 4.3rem;
+
+  @media (max-width: 930px) {
+    font-size: 3.5rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (max-width: 680px) {
+    font-size: 3rem;
+  }
 
   @media (max-width: 576px) {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+    font-size: 2.7rem;
+  }
+
+  @media (max-width: 380px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 2rem;
   }
 }
 
-.introduction-text p:first-child {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  font-size: 2rem;
-  font-weight: map-get($font-weights, medium);
-
-  @media (max-width: 992px) {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  @media (max-width: 576px) {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-size: $text-md;
-  }
-
-  @media (max-width: 400px) {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-}
-
-.introduction-box p:last-of-type {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  line-height: 80px;
-  font-size: $text-xl;
-  font-weight: map-get($font-weights, bold);
-
-  @media (max-width: 992px) {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    line-height: 70px;
-    font-size: 2.5rem;
-  }
-
-  @media (max-width: 576px) {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 42px;
-    font-size: $text-lg;
-  }
-
-  @media (max-width: 400px) {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    line-height: 35px;
-    font-size: $text-md;
-  }
+.introduction-box p {
+  padding: 0px;
 }
 
 .introduction-box p strong {
   padding: 2px 20px 9px 20px;
   margin-bottom: 10px;
   border-radius: 100px;
-  background: $color-accent;
 
   @media (max-width: 576px) {
     padding: 2px 10px 5px 10px;
   }
 }
 
+.introduction-box .intro-highlight-1 {
+  background: $color-accent-1;
+}
+
+.introduction-box .intro-highlight-2 {
+  background: $color-accent-2;
+}
+
+.introduction-box .intro-highlight-3 {
+  background: $color-accent-3;
+}
+
+.intro-btn {
+  font-size: $text-lg;
+  font-weight: map-get($font-weights, medium);
+
+  @media (max-width: 930px) {
+    font-size: $text-md;
+  }
+
+  @media (max-width: 380px) {
+    font-size: $text-sm;
+  }
+}
+
 .btn-to-about {
-  width: 250px;
-  padding: 1rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  border: $border-default;
-  border-radius: 0.375rem;
-  box-sizing: border-box;
+  box-shadow: inset 0 -3px 0 $color-btn;
+  transition: all 0.2s ease-in-out;
+  border: none;
   text-align: center;
   font-weight: map-get($font-weights, medium);
-  color: $text-color;
-  background: white;
+  background: none;
+  outline: none;
 
   &:hover {
-    background: $color-accent;
+    box-shadow: inset 0 -50px 0 $color-btn;
+    color: $color-btn-text;
   }
 
-  @media (max-width: 992px) {
-    width: 100%;
+  &:focus {
+    box-shadow: inset 0 -3px 0 $color-btn !important;
   }
-}
 
-.profile-img {
-  display: flex;
-  justify-content: center;
-  padding-top: 2rem;
+  @media (max-width: 380px) {
+    box-shadow: inset 0 -2px 0 $color-btn;
+    padding: 1px 3px;
 
-  @media (min-width: 992px) {
-    padding-top: 5rem;
-  }
-}
-
-.profile-img .img-fluid {
-  @media (max-width: 992px) {
-    width: 50%;
+    &:focus {
+      box-shadow: inset 0 -2px 0 $color-btn !important;
+    }
   }
 }
 
 #about {
-  padding-top: 3rem;
-  margin-bottom: 5rem;
+  padding: 3rem 4rem 2rem 4rem;
   transition: transform 1s, opacity 1s;
-}
 
-.about-box {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  @media (max-width: 576px) {
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  }
 }
 
 .about-paragraph {
-  padding: 3rem 4rem 2rem 4rem;
   line-height: 1.6rem;
-  border-top: $border-default;
-  background: #ffffff;
+}
 
-  @media (min-width: 992px) {
-    border-bottom: $border-default;
-  }
+#skills {
+  padding: 3rem 4rem;
 
   @media (max-width: 576px) {
     padding: 2.5rem 2.5rem 1.5rem 2.5rem;
@@ -241,44 +231,31 @@ body {
 
 .skills-box {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0;
-  border-top: $border-default;
+  flex-wrap: wrap;
+  gap: 20px;
 
-  @media (min-width: 992px) {
-    border-left: $border-default;
-  }
-}
-
-.skill-label {
-  flex-grow: 1;
-  padding: 2rem 4rem;
-  font-size: $text-sm;
-  font-weight: map-get($font-weights, bold);
-  background: $color-secondary;
-  border-bottom: $border-default;
-
-  @media (max-width: 576px) {
-    padding: 1.5rem 2.5rem;
+  @media (max-width: 768px) {
+    gap: 10px;
   }
 }
 
 .skills-list {
-  flex-grow: 1;
-  padding: 1rem 4rem;
-  border-bottom: $border-default;
+  padding: 5px 15px;
+  border-radius: 9999px;
   font-size: $text-sm;
+  font-weight: 600;
+}
 
-  &:hover {
-    font-weight: map-get($font-weights, bold);
-    background: $color-accent;
-    color: #ffffff;
-  }
+.skills-list:nth-child(3n - 2) {
+  background-color: rgba(255, 152, 95, 0.77);
+}
 
-  @media (max-width: 576px) {
-    padding: 0.75rem 2.5rem;
-  }
+.skills-list:nth-child(3n - 1) {
+  background-color: rgba(251, 189, 29, 0.77);
+}
+
+.skills-list:nth-child(3n) {
+  background-color: rgba(159, 196, 232, 0.77);
 }
 
 .bi-arrow-down-right {
@@ -288,9 +265,7 @@ body {
 }
 
 #projects {
-  padding-top: 3rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding: 3rem 4rem 2rem 4rem;
   margin-bottom: 5rem;
   transition: transform 1s, opacity 1s;
 
@@ -303,6 +278,10 @@ body {
 .card {
   border-color: $text-color;
   --bs-card-height: 100%;
+}
+
+.lazy-img {
+  filter: blur(20px);
 }
 
 .card-title {
@@ -330,7 +309,7 @@ body {
   font-size: $text-xs;
   font-weight: 600;
   background-color: rgba(255, 152, 95, 0.1);
-  color: $color-accent;
+  color: $color-accent-1;
   cursor: default;
 }
 
@@ -348,8 +327,8 @@ body {
 
   &:hover {
     text-decoration: underline;
-    text-decoration-color: $color-accent;
-    color: $color-accent;
+    text-decoration-color: $color-accent-1;
+    color: $color-accent-1;
   }
 
   &:visited {
@@ -357,7 +336,7 @@ body {
   }
 
   &:visited:hover {
-    color: $color-accent !important;
+    color: $color-accent-1 !important;
   }
 }
 
@@ -371,13 +350,11 @@ body {
   transform: translate(5px);
   transition: transform 0.2s;
   transition-timing-function: ease-in-out;
-  color: $color-accent;
+  color: $color-accent-1;
 }
 
 #experience {
-  padding-top: 3rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding: 3rem 4rem 2rem 4rem;
   margin-bottom: 5rem;
   transition: transform 1s, opacity 1s;
 
@@ -388,7 +365,6 @@ body {
 }
 
 .accordion {
-  max-width: 700px;
   --bs-accordion-active-bg: rgba(254, 110, 31, 0.1);
   --bs-accordion-border-color: #{$text-color};
   --bs-accordion-active-color: #{$text-color};
@@ -430,6 +406,12 @@ body {
 
 .expeirence-responsibilities li {
   margin-bottom: 1rem;
+}
+
+.btn-resume {
+  margin-top: 30px;
+  padding-left: 30px;
+  font-size: $text-md;
 }
 
 #contact {
@@ -524,7 +506,7 @@ footer {
   color: $text-color;
 
   &:hover {
-    color: $color-accent;
+    color: $color-accent-1;
   }
 }
 

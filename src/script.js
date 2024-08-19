@@ -1,4 +1,5 @@
 "use strict";
+
 import * as bootstrap from "bootstrap";
 import smoothscroll from "smoothscroll-polyfill";
 import content from "./content.json";
@@ -13,16 +14,34 @@ const offcanvasItem = document.querySelectorAll(".nav-link");
 const locationOfAbout = document.querySelector("#about").offsetTop;
 const menuHeight = document.querySelector(".navbar").offsetHeight;
 const sectionAbout = document.querySelector("#about");
+const sectionSkills = document.querySelector("#skills");
+const introHighlight = document.querySelector(".intro-highlight-1");
+const thridHighlight = document.querySelector(".intro-highlight-3");
 const sectionProjects = document.querySelector("#projects");
 const sectionExperience = document.querySelector("#experience");
-const sections = [sectionAbout, sectionProjects, sectionExperience];
 
 const { skillset } = content;
+const sections = [sectionAbout, sectionProjects, sectionExperience];
 const accordionNum = ["One", "Two", "Three", "Four", "Five"];
+let loadingDone = false;
 
 smoothscroll.polyfill();
 
 //Functions
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener("load", function () {
+    this.classList.remove("lazy-img");
+  });
+
+  observer.unobserve(entry.target);
+};
+
 const setAccordionBtnStatus = function (numbers) {
   sectionExperience.querySelectorAll(".accordion-item").forEach((item, i) => {
     const accordionBtn = item.querySelector(".accordion-button");
@@ -118,6 +137,11 @@ const renderProjectsContent = function (arr) {
       {
         el: cloneProjectCard.querySelector("img"),
         attr: "src",
+        content: project.thumbnailLazy,
+      },
+      {
+        el: cloneProjectCard.querySelector("img"),
+        attr: "data-src",
         content: project.thumbnail,
       },
       {
@@ -147,6 +171,15 @@ const renderProjectsContent = function (arr) {
 
     prependElement(sectionProjects.querySelector(".row"), cloneProjectCard);
   });
+
+  const thumbnails = document.querySelectorAll("img[data-src]");
+  const imgObserver = new IntersectionObserver(loadImg, {
+    root: null,
+    rootMargin: `200px`,
+    threshold: 0,
+  });
+
+  thumbnails.forEach((target) => imgObserver.observe(target));
 };
 
 const renderExperienceContent = function (arr) {
@@ -227,6 +260,39 @@ const contentRevelEffect = function () {
   });
 };
 
+const rearrangeHighlight = function () {
+  const firstHighlightHeight = introHighlight.getBoundingClientRect().height;
+  const thirdHighlightHeight = thridHighlight.getBoundingClientRect().height;
+  const firstHighlightGroup = document.querySelectorAll(".intro-highlight-1");
+  const numFirstHighlight = firstHighlightGroup.length;
+  const firstHighlightTop = [];
+
+  firstHighlightGroup.forEach((el) => {
+    const top = el.getBoundingClientRect().top;
+    firstHighlightTop.push(top);
+  });
+
+  if (firstHighlightHeight >= thirdHighlightHeight * 2) {
+    if (numFirstHighlight === 2) return;
+
+    introHighlight.textContent = "front-end";
+    introHighlight.insertAdjacentText("beforeend", " ");
+
+    const secondHighlight = document.createElement("strong");
+    introHighlight.insertAdjacentElement("afterend", secondHighlight);
+    secondHighlight.textContent = "developer";
+    secondHighlight.classList.add("intro-highlight-1");
+  }
+
+  if (
+    numFirstHighlight === 2 &&
+    firstHighlightTop[0] === firstHighlightTop[1]
+  ) {
+    introHighlight.nextSibling.remove();
+    introHighlight.textContent = "front-end developer";
+  }
+};
+
 const loadData = async function (tableName, updateFunc) {
   const { data, error } = await supabase.from(tableName).select("*");
 
@@ -244,12 +310,15 @@ createNInsertElements(
   skillset,
   "div",
   "skills-list",
-  sectionAbout.querySelector(".skills-box")
+  sectionSkills.querySelector(".skills-box")
 );
 
 //Event Handler
 btnScrollToTop.addEventListener("click", scrollToTop);
 btnToAbout.addEventListener("click", scrollToAbout);
+window.addEventListener("load", rearrangeHighlight);
+window.addEventListener("resize", rearrangeHighlight);
+
 offcanvasItem.forEach(hideOffcanvas);
 window.onscroll = function () {
   showBtn();

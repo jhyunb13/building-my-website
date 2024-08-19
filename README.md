@@ -2,7 +2,7 @@
 
 ## Project Description
 
-showcase myself and my works to convey trustworthiness  
+showcase myself and my work to convey trustworthiness  
 &nbsp;
 
 ## Built With
@@ -12,12 +12,12 @@ showcase myself and my works to convey trustworthiness
 
 ## Features
 
-| Feature                     | Description                                                                                                                                                                                                                                                                                                    |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single Page Format          | - Display content on a single scrollable page without navigating between multiple pages<br> - Used this format with an intention to prevent distractions and effectively deliver concise but impactful content<br> - Divided into 4 sections: introduction, projects, work experience, and contact information |
-| Smooth Navigation           | - Fixed top navbar for easy navigation between sections<br> - Scroll to top button for easy movement up and down the page                                                                                                                                                                                      |
-| Present Myself and My Works | - Fetch data with Supabase and display it as content<br> - Start by delivering my core value using concise headline<br> - Showcase selected projects and work experience to prove my core value<br> - Provide a brief description, problem solving process, and skills used for each project                   |
-| Contact Information         | - On click, open visitor’s email program to let them send an email without copying the email address<br> - Provide links to social media profiles for further contact                                                                                                                                          |
+| Feature                    | Description                                                                                                                                                                                                                                                                                                    |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single Page Format         | - Display content on a single scrollable page without navigating between multiple pages<br> - Used this format with an intention to prevent distractions and effectively deliver concise but impactful content<br> - Divided into 4 sections: introduction, projects, work experience, and contact information |
+| Smooth Navigation          | - Fixed top navbar for easy navigation between sections<br> - Scroll to top button for easy movement up and down the page                                                                                                                                                                                      |
+| Present Myself and My Work | - Fetch data with Supabase and display it as content<br> - Start by delivering my core values using concise headlines<br> - Showcase selected projects and work experience to prove my core values<br> - Provide a brief description, problem solving process, and skills used for each project                |
+| Contact Information        | - On click, open visitor’s email program to let them send an email without copying the email address<br> - Provide links to social media profiles for further contact                                                                                                                                          |
 
 &nbsp;
 
@@ -32,4 +32,6 @@ showcase myself and my works to convey trustworthiness
 
 ## Improvement Ideas
 
+- Display a data loading indicator
+- Implement more realistic error and confirmation messages
 - Add a Korean language option for the website to reach more potential clients
