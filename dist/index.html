@@ -33,9 +33,9 @@
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
     <link
@@ -114,27 +114,23 @@
       data-bs-smooth-scroll="true"
       tabindex="0"
     >
-      <div id="intro">
-        <div class="introduction-box">
-          <div class="intro-text">
-            <p>Hello! I'm Jihyun.</p>
-            <p>
-              I'm a
-              <strong class="intro-highlight-1">front-end developer</strong>
-              focused on building interfaces and experiences with
-              <strong class="intro-highlight-2">purpose</strong> and
-              <strong class="intro-highlight-3">intention</strong>.
-            </p>
-          </div>
+      <header id="intro">
+        <p class="intro-name">Hello! I'm Jihyun.</p>
+        <p class="intro-summary">
+          I'm a
+          <strong class="intro-highlight-1">front-end developer</strong>
+          focused on building interfaces and experiences with
+          <strong class="intro-highlight-2">purpose</strong> and
+          <strong class="intro-highlight-3">intention</strong>.
+        </p>
+        <div class="button">
+          <button class="btn-know-more">Know more</button>
         </div>
-        <div class="intro-btn">
-          <button type="button" class="btn-to-about">Know more</button>
-        </div>
-      </div>
+      </header>
 
-      <div id="about" class="row gx-0 mb-5">
-        <h3 class="col-12 col-lg-4">ABOUT</h3>
-        <div class="about-paragraph col-12 col-lg-8">
+      <section id="about" class="section row gx-0">
+        <h3 class="heading col-12 col-lg-3">ABOUT</h3>
+        <div class="section-content about-paragraph col-12 col-lg-7">
           <p>
             I transitioned into front-end development with immense gratitude to
             the supportive developer communities and instructors that guided my
@@ -158,16 +154,16 @@
             bring joy and positive impacts on everyday life.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div id="skills" class="row gx-0 mb-5">
-        <h3 class="col-12 col-lg-4">SKILLS</h3>
-        <div class="skills-box col-12 col-lg-8"></div>
-      </div>
+      <section id="skills" class="section row gx-0">
+        <h3 class="heading col-12 col-lg-3">SKILLS</h3>
+        <div class="section-content skills-box col-12 col-lg-7"></div>
+      </section>
 
-      <div id="projects" class="row gx-0 mb-5">
-        <h3 class="col-12 col-lg-4">PROJECTS</h3>
-        <div class="card-box col-12 col-lg-8">
+      <section id="projects" class="section row gx-0">
+        <h3 class="heading col-12 col-lg-3">PROJECTS</h3>
+        <div class="section-content card-box col-12 col-lg-7">
           <div class="row row-cols-1 row-cols-md-2 row-gap-4">
             <div class="col">
               <div class="card">
@@ -178,44 +174,113 @@
                   alt="place holder"
                 />
                 <div class="card-body">
-                  <h5 class="card-title">Next Project</h5>
-                  <div class="card-text">
-                    <p>
-                      Coming up soon. Currently working on it. Stay tuned for
-                      updates
-                    </p>
-                    <ul class="project-skills">
-                      <li class="skills">skill</li>
-                    </ul>
-                    <div class="project-links">
-                      <a
-                        class="icon-link"
-                        href="#"
-                        target="_blank"
-                        rel="noopener"
-                        >more.com <i class="bi bi-arrow-right arrow-to-link"></i
-                      ></a>
-                      <a
-                        class="icon-link"
-                        href="#"
-                        target="_blank"
-                        rel="noopener"
-                        >Code
-                        <i class="bi bi-arrow-right arrow-to-link"></i>
-                      </a>
-                    </div>
+                  <div class="card-heading">
+                    <h7 class="card-subheading">subheading</h7>
+                    <h5 class="card-title">Next Project</h5>
                   </div>
+                  <p class="card-description">
+                    Coming up soon. Currently working on it. Stay tuned for
+                    updates
+                  </p>
+                  <table class="card-info">
+                    <tbody>
+                      <tr>
+                        <th>Built with</th>
+                        <td>
+                          <ul class="project-skills">
+                            <li class="skills">skill</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Problem solving</th>
+                        <td>
+                          <button
+                            type="button"
+                            class="btn--modal btn--link icon-link icon-link-hover"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          >
+                            Read more
+                            <i class="bi bi-arrow-right arrow-to-link"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Link</th>
+                        <td>
+                          <a
+                            class="btn--link icon-link icon-link-hover link-project"
+                            href="#"
+                            target="_blank"
+                            rel="noopener"
+                            >more.com</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Code</th>
+                        <td>
+                          <a
+                            class="btn--link icon-link icon-link-hover link-code"
+                            href="#"
+                            target="_blank"
+                            rel="noopener"
+                            >GitHub
+                            <i class="bi bi-arrow-right arrow-to-link"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <div class="modal-container">
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <div>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Next Project
+                  </h1>
+                  <div class="btn-container">
+                    <button class="btn-problem btn--active skills-list">
+                      #problem
+                    </button>
+                    <button class="btn-problem skills-list">#problem</button>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">content</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div id="experience" class="row gx-0 mb-5">
-        <h3 class="col-12 col-lg-4">EXPERIENCE</h3>
-        <div class="col-12 col-lg-8">
-          <div class="accordion">
+      <section id="experience" class="section row gx-0">
+        <h3 class="heading col-12 col-lg-3">EXPERIENCE</h3>
+        <div class="section-content col-lg-7">
+          <div class="accordion accordion-flush">
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button
@@ -253,31 +318,32 @@
               </div>
             </div>
           </div>
-          <div class="btn-resume">
-            <a
-              class="icon-link"
-              href="/Resume_Jihyun_2024.pdf"
-              target="_blank"
-              rel="noopener"
-              >View My Resume <i class="bi bi-arrow-right arrow-to-link"></i
-            ></a>
-          </div>
+          <a
+            class="btn--resume btn--link icon-link icon-link-hover"
+            href="/Resume_Jihyun_2024.pdf"
+            target="_blank"
+            rel="noopener"
+            >View My Resume <i class="bi bi-arrow-right arrow-to-link"></i
+          ></a>
         </div>
-      </div>
+      </section>
 
-      <a id="contact" href="mailto:jihyun_bae@icloud.com">
-        <div class="contact-box">
-          <div class="contact-email">✸ jihyun_bae@icloud.com</div>
-          <p class="contact-text">
-            I'm currently open to new opportunities and projects. Let's create
-            something amazing together. Feel free to reach out to me; my inbox
-            is alway open!
-          </p>
+      <a id="contact" class="" href="mailto:jihyun_bae@icloud.com">
+        <div class="contact">
+          <div class="contact-box">
+            <p class="contact-email">✸ jihyun_bae@icloud.com</p>
+            <p class="contact-text">
+              I'm currently open to new opportunities and projects. Let's create
+              something amazing together. Feel free to reach out to me; my inbox
+              is alway open!
+            </p>
+          </div>
+          <i class="bi bi-arrow-right contact-arrow"></i>
         </div>
-        <i class="bi bi-arrow-right contact-arrow"></i>
       </a>
     </main>
-    <footer class="container-fluid">
+
+    <footer>
       <div class="row gx-0 row-gap-4">
         <div class="col-12 col-md-6">
           <div class="footer-name mb-2">Jihyun Bae</div>
@@ -290,7 +356,7 @@
           <div class="footer-channels">
             <div class="channel-category">Docs</div>
             <a
-              class="link-to-channel"
+              class="btn--social"
               href="/Resume_Jihyun_2024.pdf"
               target="_blank"
               rel="noopener"
@@ -302,28 +368,28 @@
           <div class="footer-channels">
             <div class="channel-category">Channels</div>
             <a
-              class="link-to-channel"
+              class="btn--social"
               target="_blank"
               rel="noopener"
               href="https://github.com/jhyunb13"
-              >Github</a
+              >GitHub</a
             >
             <a
-              class="link-to-channel"
+              class="btn--social"
               target="_blank"
               rel="noopener"
               href="https://www.linkedin.com/in/jihyun-bae-2490402a7/"
               >LinkedIn</a
             >
             <a
-              class="link-to-channel"
+              class="btn--social"
               target="_blank"
               rel="noopener"
               href="https://dev.to/jihyun_bae"
               >Blog(en)</a
             >
             <a
-              class="link-to-channel"
+              class="btn--social"
               target="_blank"
               rel="noopener"
               href="https://blog.naver.com/kiki_thetomato"
@@ -336,7 +402,7 @@
         <div>© 2023 Bae</div>
       </div>
     </footer>
-    <img id="scroll-to-top" src="./img/Icon_Arrow_Up.svg" />
+    <img class="btn-to-top" src="./img/Icon_Arrow_Up.svg" />
     <script defer src="bundle.js"></script>
   </body>
 </html>

@@ -6,8 +6,8 @@ import content from "./content.json";
 import supabase from "./supabase";
 
 //Elements
-const btnScrollToTop = document.querySelector("#scroll-to-top");
-const btnToAbout = document.querySelector(".btn-to-about");
+const btnToTop = document.querySelector(".btn-to-top");
+const btnToAbout = document.querySelector(".btn-know-more");
 const myOffcanvas = document.querySelector(".offcanvas");
 const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
 const offcanvasItem = document.querySelectorAll(".nav-link");
@@ -19,6 +19,8 @@ const introHighlight = document.querySelector(".intro-highlight-1");
 const thridHighlight = document.querySelector(".intro-highlight-3");
 const sectionProjects = document.querySelector("#projects");
 const sectionExperience = document.querySelector("#experience");
+const projectModal = document.querySelector("#exampleModal");
+const modalContainer = document.querySelector(".modal-container");
 
 const { skillset } = content;
 const sections = [sectionAbout, sectionProjects, sectionExperience];
@@ -28,18 +30,44 @@ let loadingDone = false;
 smoothscroll.polyfill();
 
 //Functions
+const loadSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section-hidden");
+
+  observer.unobserve(entry.target);
+};
+
+const revealSection = function () {
+  const sectionObserver = new IntersectionObserver(loadSection, {
+    root: null,
+    threshold: 0.05,
+  });
+
+  sections.forEach((section) => {
+    section.classList.add("section-hidden");
+    sectionObserver.observe(section);
+  });
+};
+
 const loadImg = function (entries, observer) {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
 
   entry.target.src = entry.target.dataset.src;
+  observer.unobserve(entry.target);
+};
 
-  entry.target.addEventListener("load", function () {
-    this.classList.remove("lazy-img");
+const lazyLoading = function () {
+  const thumbnails = document.querySelectorAll(".card-img-top");
+  const imgObserver = new IntersectionObserver(loadImg, {
+    root: null,
+    threshold: [0, 0.1, 0.5],
   });
 
-  observer.unobserve(entry.target);
+  thumbnails.forEach((target) => imgObserver.observe(target));
 };
 
 const setAccordionBtnStatus = function (numbers) {
@@ -95,7 +123,7 @@ const createNInsertElements = function (
   data.map((content) => {
     const newElement = document.createElement(newEl);
 
-    newElement.classList.add(classForNewEl);
+    classForNewEl && newElement.classList.add(...classForNewEl);
     newElement.textContent = content;
 
     appendElement(insertingPlace, newElement);
@@ -118,10 +146,44 @@ const updateAttribute = function (data) {
   data.map((d) => d.el.setAttribute(d.attr, d.content));
 };
 
+const renderModal = function (arr) {
+  arr.map((project) => {
+    const modalClone = projectModal.cloneNode(true);
+    const btnContainer = modalClone.querySelector(".btn-container");
+
+    modalClone.setAttribute("id", project.modalID);
+    modalClone.querySelector(".modal-title").textContent = project.title;
+
+    removeElements(modalClone, ".btn-problem");
+    createNInsertElements(
+      project.problemSolving,
+      "button",
+      ["btn-problem", "skills-list"],
+      btnContainer
+    );
+
+    btnContainer.firstElementChild.classList.add("btn--active");
+    appendElement(modalContainer, modalClone);
+  });
+
+  const btnContainer = document.querySelectorAll(".btn-container");
+
+  btnContainer.forEach((container) => {
+    container.addEventListener("click", (e) => {
+      const btns = container.querySelectorAll(".btn-problem");
+
+      btns.forEach((btn) => btn.classList.remove("btn--active"));
+      e.target.closest(".btn-problem")?.classList.add("btn--active");
+    });
+  });
+};
+
 const renderProjectsContent = function (arr) {
   arr.map((project) => {
     const cloneProjectCard = cloneElement(sectionProjects, ".col");
-    const projectLinks = cloneProjectCard.querySelector(".project-links");
+    const codeLink = cloneProjectCard.querySelector(".link-code");
+    const projectLink = cloneProjectCard.querySelector(".link-project");
+
     const textContentList = [
       {
         el: cloneProjectCard.querySelector(".card-title"),
@@ -129,8 +191,12 @@ const renderProjectsContent = function (arr) {
       },
       { el: cloneProjectCard.querySelector("p"), content: project.description },
       {
-        el: projectLinks.firstElementChild.firstChild,
+        el: projectLink,
         content: project.urlText,
+      },
+      {
+        el: cloneProjectCard.querySelector(".card-subheading"),
+        content: project.subheading,
       },
     ];
     const attrList = [
@@ -145,41 +211,35 @@ const renderProjectsContent = function (arr) {
         content: project.thumbnail,
       },
       {
-        el: projectLinks.firstElementChild,
+        el: projectLink,
         attr: "href",
         content: project.url,
       },
       {
-        el: projectLinks.lastElementChild,
+        el: codeLink,
         attr: "href",
         content: project.github,
+      },
+      {
+        el: cloneProjectCard.querySelector(".btn--modal"),
+        attr: "data-bs-target",
+        content: `#${project.modalID}`,
       },
     ];
 
     updateAttribute(attrList);
-
     updateTextContent(textContentList);
-
     removeElements(cloneProjectCard, ".skills");
-
     createNInsertElements(
       project.skills,
       "li",
-      "skills",
+      ["skills"],
       cloneProjectCard.querySelector(".project-skills")
     );
-
     prependElement(sectionProjects.querySelector(".row"), cloneProjectCard);
   });
 
-  const thumbnails = document.querySelectorAll("img[data-src]");
-  const imgObserver = new IntersectionObserver(loadImg, {
-    root: null,
-    rootMargin: `200px`,
-    threshold: 0,
-  });
-
-  thumbnails.forEach((target) => imgObserver.observe(target));
+  lazyLoading();
 };
 
 const renderExperienceContent = function (arr) {
@@ -206,7 +266,7 @@ const renderExperienceContent = function (arr) {
     createNInsertElements(
       experience.responsibilities,
       "li",
-      undefined,
+      "",
       cloneExperienceCard.querySelector(".expeirence-responsibilities")
     );
 
@@ -221,8 +281,8 @@ const renderExperienceContent = function (arr) {
 
 const showBtn = function () {
   document.body.scrollTop > 30 || document.documentElement.scrollTop > 30
-    ? (btnScrollToTop.style.opacity = 100)
-    : (btnScrollToTop.style.opacity = 0);
+    ? (btnToTop.style.opacity = 100)
+    : (btnToTop.style.opacity = 0);
 };
 
 const scrollToTop = function () {
@@ -236,27 +296,6 @@ const scrollToAbout = function () {
 const hideOffcanvas = function (element) {
   element.addEventListener("click", function () {
     bsOffcanvas.hide();
-  });
-};
-
-const revealSection = function (entries, observer) {
-  const [entry] = entries;
-
-  if (!entry.isIntersecting) return;
-  entry.target.classList.remove("section-hidden");
-
-  observer.unobserve(entry.target);
-};
-
-const contentRevelEffect = function () {
-  const sectionObserver = new IntersectionObserver(revealSection, {
-    root: null,
-    threshold: 0.05,
-  });
-
-  sections.forEach((section) => {
-    section.classList.add("section-hidden");
-    sectionObserver.observe(section);
   });
 };
 
@@ -303,18 +342,19 @@ const loadData = async function (tableName, updateFunc) {
   if (!error) updateFunc(sortedData);
 };
 
-contentRevelEffect();
+revealSection();
 loadData("portfolio-projects", renderProjectsContent);
 loadData("portfolio-experience", renderExperienceContent);
+loadData("portfolio-projects", renderModal);
 createNInsertElements(
   skillset,
   "div",
-  "skills-list",
+  ["skills-list"],
   sectionSkills.querySelector(".skills-box")
 );
 
 //Event Handler
-btnScrollToTop.addEventListener("click", scrollToTop);
+btnToTop.addEventListener("click", scrollToTop);
 btnToAbout.addEventListener("click", scrollToAbout);
 window.addEventListener("load", rearrangeHighlight);
 window.addEventListener("resize", rearrangeHighlight);
