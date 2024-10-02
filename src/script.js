@@ -124,7 +124,8 @@ const createNInsertElements = function (
     const newElement = document.createElement(newEl);
 
     classForNewEl && newElement.classList.add(...classForNewEl);
-    newElement.textContent = content;
+    newElement.textContent =
+      typeof content === "string" ? content : content.title;
 
     appendElement(insertingPlace, newElement);
   });
@@ -150,31 +151,25 @@ const renderModal = function (arr) {
   arr.map((project) => {
     const modalClone = projectModal.cloneNode(true);
     const btnContainer = modalClone.querySelector(".btn-container");
+    const modalContent = project.problemSolving.map((content) =>
+      JSON.parse(content)
+    );
+    const initialContent = modalContent[0].content;
 
     modalClone.setAttribute("id", project.modalID);
     modalClone.querySelector(".modal-title").textContent = project.title;
+    modalClone.querySelector(".modal-body").textContent = initialContent;
 
     removeElements(modalClone, ".btn-problem");
     createNInsertElements(
-      project.problemSolving,
+      modalContent,
       "button",
-      ["btn-problem", "skills-list"],
+      ["btn-problem", "skill--default"],
       btnContainer
     );
 
     btnContainer.firstElementChild.classList.add("btn--active");
     appendElement(modalContainer, modalClone);
-  });
-
-  const btnContainer = document.querySelectorAll(".btn-container");
-
-  btnContainer.forEach((container) => {
-    container.addEventListener("click", (e) => {
-      const btns = container.querySelectorAll(".btn-problem");
-
-      btns.forEach((btn) => btn.classList.remove("btn--active"));
-      e.target.closest(".btn-problem")?.classList.add("btn--active");
-    });
   });
 };
 
@@ -229,12 +224,12 @@ const renderProjectsContent = function (arr) {
 
     updateAttribute(attrList);
     updateTextContent(textContentList);
-    removeElements(cloneProjectCard, ".skills");
+    removeElements(cloneProjectCard, ".skill--project");
     createNInsertElements(
       project.skills,
       "li",
-      ["skills"],
-      cloneProjectCard.querySelector(".project-skills")
+      ["skill--default", "skill--project"],
+      cloneProjectCard.querySelector(".project-skills-container")
     );
     prependElement(sectionProjects.querySelector(".row"), cloneProjectCard);
   });
@@ -339,7 +334,53 @@ const loadData = async function (tableName, updateFunc) {
     return new Date(a.createdAt) - new Date(b.createdAt);
   });
 
-  if (!error) updateFunc(sortedData);
+  if (!error && updateFunc) updateFunc(sortedData);
+
+  return sortedData;
+};
+
+const resetModalContent = function (e) {
+  const currentModal = e.target.closest(".modal");
+  const firstBtn = currentModal.querySelector(".btn-problem");
+  const btns = currentModal.querySelectorAll(".btn-problem");
+
+  if (
+    !currentModal.classList.contains("show") ||
+    (!currentModal.classList.contains("show") && e.key === "Escape")
+  ) {
+    btns.forEach((btn) => {
+      btn.classList.remove("btn--active");
+      firstBtn.classList.add("btn--active");
+    });
+
+    changeModalContent(currentModal, firstBtn);
+  }
+};
+
+const activateBtn = function (e) {
+  const currentModal = e.target.closest(".modal");
+  const clickedBtn = e.target.closest(".btn-problem");
+  const btns = currentModal.querySelectorAll(".btn-problem");
+
+  if (!clickedBtn) return;
+
+  btns.forEach((btn) => btn.classList.remove("btn--active"));
+  clickedBtn?.classList.add("btn--active");
+
+  changeModalContent(currentModal, clickedBtn);
+};
+
+const changeModalContent = async function (currentModal, clickedBtn) {
+  const projectData = await loadData("portfolio-projects");
+  const rawModalData = projectData
+    .map((data) => data.problemSolving)
+    .reduce((acc, cur) => acc.concat(cur), []);
+  const finalModalData = rawModalData.map((data) => JSON.parse(data));
+
+  finalModalData.map((content) => {
+    if (content.title === clickedBtn?.textContent)
+      currentModal.querySelector(".modal-body").textContent = content.content;
+  });
 };
 
 revealSection();
@@ -349,8 +390,8 @@ loadData("portfolio-projects", renderModal);
 createNInsertElements(
   skillset,
   "div",
-  ["skills-list"],
-  sectionSkills.querySelector(".skills-box")
+  ["skill--default"],
+  sectionSkills.querySelector(".skills-container")
 );
 
 //Event Handler
@@ -358,6 +399,11 @@ btnToTop.addEventListener("click", scrollToTop);
 btnToAbout.addEventListener("click", scrollToAbout);
 window.addEventListener("load", rearrangeHighlight);
 window.addEventListener("resize", rearrangeHighlight);
+modalContainer.addEventListener("click", (e) => {
+  resetModalContent(e);
+  activateBtn(e);
+});
+modalContainer.addEventListener("keydown", resetModalContent);
 
 offcanvasItem.forEach(hideOffcanvas);
 window.onscroll = function () {
