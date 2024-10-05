@@ -115,13 +115,15 @@
       tabindex="0"
     >
       <header id="intro">
-        <p class="intro-name">Hello! I'm Jihyun.</p>
+        <p class="intro-name">
+          Hello! I'm <span class="intro-highlight-0">Jihyun</span>.
+        </p>
         <p class="intro-summary">
           I'm a
-          <strong class="intro-highlight-1">front-end developer</strong>
+          <span class="intro-highlight-1">front-end developer</span>
           focused on building interfaces and experiences with
-          <strong class="intro-highlight-2">purpose</strong> and
-          <strong class="intro-highlight-3">intention</strong>.
+          <span class="intro-highlight-2">purpose</span> and
+          <span class="intro-highlight-3">intention</span>.
         </p>
         <div class="button">
           <button class="btn-know-more">Know more</button>
@@ -175,7 +177,7 @@
                 />
                 <div class="card-body">
                   <div class="card-heading">
-                    <h7 class="card-subheading">subheading</h7>
+                    <h6 class="card-subheading">subheading</h6>
                     <h5 class="card-title">Next Project</h5>
                   </div>
                   <p class="card-description">
@@ -277,25 +279,46 @@
           >
             <div class="modal-content">
               <div class="modal-header">
-                <div>
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">
-                    Next Project
-                  </h1>
-                  <div class="btn-container">
-                    <button class="btn-problem btn--active skills-list">
-                      #problem
-                    </button>
-                    <button class="btn-problem skills-list">#problem</button>
+                <div class="modal-title-container">
+                  <div>
+                    <h6 class="modal-subheading">Problem Solving</h6>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Next Project
+                    </h1>
                   </div>
+
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+                <div class="btn-container">
+                  <button class="btn-problem skill--default btn--active">
+                    #problem
+                  </button>
+                  <button class="btn-problem skill--default">#problem</button>
+                </div>
               </div>
-              <div class="modal-body">content</div>
+              <div class="modal-body">
+                <h6 class="modal-body-heading">heading</h6>
+                <table>
+                  <tr>
+                    <th>Problem Identification</th>
+                    <td class="problem-identification-content">content</td>
+                  </tr>
+                  <tr>
+                    <th>Solution</th>
+                    <td class="solution-content">content</td>
+                  </tr>
+                  <tr>
+                    <th>Outcome</th>
+                    <td class="outcome-content">content</td>
+                  </tr>
+                </table>
+                <div></div>
+              </div>
             </div>
           </div>
         </div>

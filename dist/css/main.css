@@ -141,8 +141,8 @@ body {
 }
 @media (max-width: 380px) {
   #intro {
-    padding: 75px 1.5rem;
-    font-size: 30px;
+    padding: 80px 1.5rem;
+    font-size: 24px;
   }
 }
 
@@ -152,32 +152,31 @@ body {
 }
 
 .intro-summary {
-  line-height: 1.5;
+  line-height: 1.4;
   max-width: 1200px;
 }
 
-.intro-summary strong {
-  display: inline-block;
-  padding: 0 20px;
-  margin-bottom: 5px;
+.intro-name span,
+.intro-summary span {
+  padding: 0 10px;
   border-radius: 100px;
-}
-@media (max-width: 576px) {
-  .intro-summary strong {
-    padding: 0 10px;
-  }
+  white-space: nowrap;
 }
 
-.intro-summary .intro-highlight-1 {
+.intro-name .intro-highlight-0 {
   background: #fe6e1f;
 }
 
+.intro-summary .intro-highlight-1 {
+  background: #ff6cd7;
+}
+
 .intro-summary .intro-highlight-2 {
-  background: #fbbd1d;
+  background: #fbf13f;
 }
 
 .intro-summary .intro-highlight-3 {
-  background: #9fc4e8;
+  background: #50e871;
 }
 
 .btn-know-more {
@@ -298,6 +297,7 @@ body {
 .card-info,
 th,
 td {
+  vertical-align: top;
   border-bottom: 1px solid rgba(34, 34, 34, 0.4);
 }
 
@@ -362,30 +362,80 @@ th {
 }
 
 .modal-header {
-  align-items: start;
+  flex-direction: column;
+  gap: 32px;
   padding: 16px 0;
   margin: 0 16px;
 }
 
-.modal-title {
-  margin-bottom: 32px;
+.modal-subheading {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fe6e1f;
+  margin-bottom: 0;
+}
+
+.modal-title-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-body {
+  display: grid;
+  font-size: 14px;
+}
+
+.modal-body h6 {
+  margin-bottom: 12px;
+}
+
+.modal-body table,
+.modal-body th,
+.modal-body td {
+  border: none;
+  vertical-align: top;
+  font-weight: 400;
+  padding-top: 0;
+  padding-bottom: 32px;
+}
+
+.modal-body th {
+  padding-right: 8px;
+}
+
+.modal-body p {
+  margin: 0;
+}
+
+.solution-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .btn-container {
   display: flex;
   gap: 4px;
-  flex-wrap: wrap;
+  width: 100%;
+  overflow-x: scroll;
+}
+.btn-container::-webkit-scrollbar {
+  display: none;
 }
 
 .btn-problem {
   background: none;
   border: 1px solid #ced4da;
   color: #7e7d7d;
+  white-space: nowrap;
 }
 
 .btn--active {
-  background: #fe6e1f;
-  color: #f7f7f7;
+  background: rgba(255, 152, 95, 0.1);
+  color: #fe6e1f;
   border: 1px solid #fe6e1f;
 }
 
@@ -588,6 +638,7 @@ footer {
   bottom: 24px;
   opacity: 0;
   transition: opacity 300ms;
+  color: #222222;
   cursor: pointer;
 }
 @media (max-width: 576px) {
@@ -596,4 +647,8 @@ footer {
     right: 3px;
     bottom: 20px;
   }
+}
+
+button:focus {
+  outline: none;
 }/*# sourceMappingURL=main.css.map */

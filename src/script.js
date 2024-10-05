@@ -154,11 +154,9 @@ const renderModal = function (arr) {
     const modalContent = project.problemSolving.map((content) =>
       JSON.parse(content)
     );
-    const initialContent = modalContent[0].content;
 
     modalClone.setAttribute("id", project.modalID);
     modalClone.querySelector(".modal-title").textContent = project.title;
-    modalClone.querySelector(".modal-body").textContent = initialContent;
 
     removeElements(modalClone, ".btn-problem");
     createNInsertElements(
@@ -168,7 +166,10 @@ const renderModal = function (arr) {
       btnContainer
     );
 
-    btnContainer.firstElementChild.classList.add("btn--active");
+    const firstProblemBtn = btnContainer.firstElementChild;
+
+    firstProblemBtn.classList.add("btn--active");
+    changeModalContent(modalClone, firstProblemBtn);
     appendElement(modalContainer, modalClone);
   });
 };
@@ -327,7 +328,7 @@ const rearrangeHighlight = function () {
   }
 };
 
-const loadData = async function (tableName, updateFunc) {
+async function loadData(tableName, updateFunc) {
   const { data, error } = await supabase.from(tableName).select("*");
 
   const sortedData = data.slice().sort((a, b) => {
@@ -337,7 +338,7 @@ const loadData = async function (tableName, updateFunc) {
   if (!error && updateFunc) updateFunc(sortedData);
 
   return sortedData;
-};
+}
 
 const resetModalContent = function (e) {
   const currentModal = e.target.closest(".modal");
@@ -370,7 +371,7 @@ const activateBtn = function (e) {
   changeModalContent(currentModal, clickedBtn);
 };
 
-const changeModalContent = async function (currentModal, clickedBtn) {
+async function changeModalContent(currentModal, clickedBtn) {
   const projectData = await loadData("portfolio-projects");
   const rawModalData = projectData
     .map((data) => data.problemSolving)
@@ -378,10 +379,28 @@ const changeModalContent = async function (currentModal, clickedBtn) {
   const finalModalData = rawModalData.map((data) => JSON.parse(data));
 
   finalModalData.map((content) => {
-    if (content.title === clickedBtn?.textContent)
-      currentModal.querySelector(".modal-body").textContent = content.content;
+    if (content.title === clickedBtn?.textContent) {
+      currentModal.querySelector(".modal-body-heading").textContent =
+        content.content;
+      currentModal.querySelector(
+        ".problem-identification-content"
+      ).textContent = content.problemIdentification;
+      currentModal.querySelector(".solution-content").textContent = "";
+      currentModal.querySelector(".outcome-content").textContent =
+        content.outcome;
+
+      content.solution.map((item) => {
+        const solutionEl = document.createElement("p");
+
+        solutionEl.textContent = item;
+        appendElement(
+          currentModal.querySelector(".solution-content"),
+          solutionEl
+        );
+      });
+    }
   });
-};
+}
 
 revealSection();
 loadData("portfolio-projects", renderProjectsContent);
@@ -397,8 +416,8 @@ createNInsertElements(
 //Event Handler
 btnToTop.addEventListener("click", scrollToTop);
 btnToAbout.addEventListener("click", scrollToAbout);
-window.addEventListener("load", rearrangeHighlight);
-window.addEventListener("resize", rearrangeHighlight);
+// window.addEventListener("load", rearrangeHighlight);
+// window.addEventListener("resize", rearrangeHighlight);
 modalContainer.addEventListener("click", (e) => {
   resetModalContent(e);
   activateBtn(e);
