@@ -130,7 +130,7 @@
         </div>
       </header>
 
-      <section id="about" class="section row gx-0">
+      <section id="about" class="section section-hidden row gx-0">
         <h3 class="heading col-12 col-lg-3">ABOUT</h3>
         <div class="section-content about-paragraph col-12 col-lg-7">
           <p>
@@ -158,12 +158,16 @@
         </div>
       </section>
 
-      <section id="skills" class="section row gx-0">
+      <section id="skills" class="section section-hidden row gx-0">
         <h3 class="heading col-12 col-lg-3">SKILLS</h3>
-        <div class="section-content skills-container col-12 col-lg-7"></div>
+        <div
+          class="section-content skills-container col-12 col-lg-7 placeholder-glow"
+        >
+          <div class="skill-placeholder placeholder">&nbsp;</div>
+        </div>
       </section>
 
-      <section id="projects" class="section row gx-0">
+      <section id="projects" class="section section-hidden row gx-0">
         <h3 class="heading col-12 col-lg-3">PROJECTS</h3>
         <div class="section-content card-box col-12 col-lg-7">
           <div class="row row-cols-1 row-cols-md-2 row-gap-4">
@@ -175,16 +179,18 @@
                   class="card-img-top"
                   alt="place holder"
                 />
-                <div class="card-body">
+                <div class="card-body placeholder-glow">
                   <div class="card-heading">
-                    <h6 class="card-subheading">subheading</h6>
-                    <h5 class="card-title">Next Project</h5>
+                    <h6 class="card-subheading placeholder col-8">
+                      subheading
+                    </h6>
+                    <h5 class="card-title placeholder">Next Project</h5>
                   </div>
-                  <p class="card-description">
+                  <p class="card-description placeholder">
                     Coming up soon. Currently working on it. Stay tuned for
                     updates
                   </p>
-                  <table class="card-info">
+                  <table class="card-info table-hidden">
                     <tbody>
                       <tr>
                         <th>Built with</th>
@@ -275,73 +281,79 @@
           aria-hidden="true"
         >
           <div
-            class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
           >
             <div class="modal-content">
+              <button
+                type="button"
+                class="btn-close btn-close-modal"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
               <div class="modal-header">
                 <div class="modal-title-container">
                   <div>
-                    <h6 class="modal-subheading">Problem Solving</h6>
+                    <h6 class="modal-subheading">Problem Solving Process</h6>
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
                       Next Project
                     </h1>
                   </div>
-
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="btn-container">
-                  <button class="btn-problem skill--default btn--active">
-                    #problem
-                  </button>
-                  <button class="btn-problem skill--default">#problem</button>
+                  <div class="btn-container">
+                    <button class="btn-problem skill--default btn--active">
+                      #problem
+                    </button>
+                    <button class="btn-problem skill--default">#problem</button>
+                  </div>
                 </div>
               </div>
               <div class="modal-body">
-                <h6 class="modal-body-heading">heading</h6>
                 <table>
-                  <tr>
-                    <th>Problem Identification</th>
-                    <td class="problem-identification-content">content</td>
-                  </tr>
-                  <tr>
-                    <th>Solution</th>
-                    <td class="solution-content">content</td>
-                  </tr>
-                  <tr>
-                    <th>Outcome</th>
-                    <td class="outcome-content">content</td>
-                  </tr>
+                  <thead>
+                    <tr>
+                      <th class="modal-table-heading" colspan="2">heading</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Problem Identification</th>
+                      <td class="problem-identification-content">content</td>
+                    </tr>
+                    <tr>
+                      <th>Solution</th>
+                      <td class="solution-content">content</td>
+                    </tr>
+                    <tr>
+                      <th>Outcome</th>
+                      <td class="outcome-content">content</td>
+                    </tr>
+                  </tbody>
                 </table>
-                <div></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <section id="experience" class="section row gx-0">
+      <section id="experience" class="section section-hidden row gx-0">
         <h3 class="heading col-12 col-lg-3">EXPERIENCE</h3>
         <div class="section-content col-lg-7">
           <div class="accordion accordion-flush">
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button
-                  class="accordion-button"
+                  class="accordion-button placeholder-glow"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseOne"
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  <div class="job-title mb-0 flex-grow-1">
+                  <div class="job-title mb-0 flex-grow-1 placeholder">
                     A&R/Artist Manager @BGBG Records
                   </div>
-                  <div class="duration mb-0 pe-3">Oct 2018 - Dec 2019</div>
+                  <div class="duration mb-0 pe-3 placeholder">
+                    Oct 2018 - Dec 2019
+                  </div>
                 </button>
               </h2>
               <div
@@ -349,8 +361,8 @@
                 class="accordion-collapse collapse show"
                 data-bs-parent="#experience"
               >
-                <div class="accordion-body">
-                  <ul class="expeirence-responsibilities">
+                <div class="accordion-body placeholder-glow">
+                  <ul class="expeirence-responsibilities placeholder">
                     <li>Successfully organized 2500+ capacity events</li>
                     <li>
                       Created promotional content and managed official social

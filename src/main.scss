@@ -15,10 +15,11 @@ $color-btn-text: #f7f7f7;
 $color-background: #f3f3f3;
 $color-secondary: #e6e6e6;
 $color-accent-1: #fe6e1f;
-$color-accent-2: #ff6cd7;
-$color-accent-3: #fbf13f;
-$color-accent-4: #50e871;
+$color-accent-2: #fbf13f;
+$color-accent-3: #50e871;
+$color-accent-4: #22bfff;
 $color-gray: #7e7d7d;
+$color-placeholder: #dfdfdf;
 $border-default: 1px solid #222222;
 
 * {
@@ -94,7 +95,7 @@ body {
   justify-content: center;
   gap: 48px;
   padding: 80px 64px;
-  transition: transform 0.8s, opacity 0.8s;
+  transition: opacity 0.6s cubic-bezier(0.694, 0, 0.335, 1);
 
   @media (max-width: 992px) {
     gap: 0;
@@ -111,7 +112,6 @@ body {
 
 .section-hidden {
   opacity: 0;
-  transform: translateY(8rem);
 }
 
 .heading {
@@ -151,12 +151,12 @@ body {
   }
 
   @media (max-width: 490px) {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   @media (max-width: 380px) {
     padding: 80px 1.5rem;
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 
@@ -174,7 +174,6 @@ body {
 .intro-summary span {
   padding: 0 10px;
   border-radius: 100px;
-  white-space: nowrap;
 }
 
 .intro-name .intro-highlight-0 {
@@ -257,14 +256,15 @@ body {
 }
 
 .skill--default {
-  padding: 5px 10px;
+  padding: 3px 6px;
   border-radius: 9999px;
   font-size: $text-sm;
   font-weight: map-get($font-weights, bold);
   cursor: default;
 
-  border: 1.5px solid $text-color;
+  border: 1px solid $text-color;
   color: $text-color;
+  background-color: rgba(251, 242, 63, 0.641);
 }
 
 .card {
@@ -308,18 +308,18 @@ body {
 }
 
 .card-info,
-th,
-td {
+.card-info th,
+.card-info td {
   vertical-align: top;
   border-bottom: 1px solid rgba(34, 34, 34, 0.4);
 }
 
-th,
-td {
+.card-info th,
+.card-info td {
   padding: 4px 0;
 }
 
-th {
+.card-info th {
   width: 40%;
 }
 
@@ -375,15 +375,24 @@ th {
   background: none;
 }
 
+.btn-close-modal {
+  margin-left: auto;
+  padding: 16px;
+}
+
+.modal.fade {
+  transition: opacity 0.1s linear;
+}
+
 .modal-header {
   flex-direction: column;
   gap: 32px;
   padding: 16px 0;
-  margin: 0 16px;
+  margin: 0 48px;
 
-  // @media (min-width: 992px) {
-  //   margin: 0 48px;
-  // }
+  @media (max-width: 992px) {
+    margin: 0 24px;
+  }
 }
 
 .modal-subheading {
@@ -392,41 +401,59 @@ th {
   font-size: $text-xs;
   font-weight: map-get($font-weights, bold);
   color: $color-accent-1;
-  margin-bottom: 0;
+  margin-bottom: 4px;
 }
 
 .modal-title-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .modal-body {
-  display: grid;
   font-size: $text-sm;
+  height: 55vh;
+  padding: 16px 48px;
 
-  // @media (min-width: 992px) {
-  //   padding: 48px;
-  // }
+  @media (max-width: 992px) {
+    height: 65vh;
+    padding: 16px 24px;
+  }
 }
 
-.modal-body h6 {
-  margin-bottom: 12px;
+.modal-table-heading {
+  font-size: $text-defaut;
+  font-weight: map-get($map: $font-weights, $key: bold);
 }
 
-.modal-body table,
+.modal-body table {
+  font-weight: map-get($map: $font-weights, $key: regular);
+}
+
 .modal-body th,
 .modal-body td {
-  border: none;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.4);
   vertical-align: top;
-  font-weight: map-get($map: $font-weights, $key: regular);
-
-  padding-top: 0;
-  padding-bottom: 32px;
+  padding: 16px 0;
 }
 
-.modal-body th {
-  padding-right: 8px;
+.modal-body thead th {
+  padding: 12px 0;
+}
+
+.modal-body tbody th {
+  font-weight: map-get($map: $font-weights, $key: medium);
+}
+
+.modal-body tbody td {
+  padding-left: 8px;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    padding-left: 16px;
+    padding-right: 80px;
+  }
 }
 
 .modal-body p {
@@ -441,7 +468,7 @@ th {
 
 .btn-container {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   width: 100%;
   overflow-x: scroll;
 
@@ -658,11 +685,38 @@ footer {
 
   @media (max-width: 576px) {
     width: 30px;
-    right: 3px;
+    right: 8px;
     bottom: 20px;
   }
 }
 
 button:focus {
   outline: none;
+}
+
+.placeholder {
+  display: block;
+  background-color: $color-placeholder;
+  color: $color-placeholder;
+  border-radius: 4px;
+  opacity: 0.8;
+  min-height: 32px;
+}
+
+.accordion-button.placeholder-glow {
+  gap: 24px;
+}
+
+.accordion-button .placeholder {
+  @media (max-width: 670px) {
+    min-height: 32px;
+  }
+}
+
+.table-hidden {
+  display: none;
+}
+
+.skill-placeholder {
+  flex: 0 1 100%;
 }

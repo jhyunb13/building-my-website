@@ -1,35 +1,38 @@
 "use strict";
 
 import * as bootstrap from "bootstrap";
-import smoothscroll from "smoothscroll-polyfill";
 import content from "./content.json";
 import supabase from "./supabase";
 
 //Elements
-const btnToTop = document.querySelector(".btn-to-top");
-const btnToAbout = document.querySelector(".btn-know-more");
-const myOffcanvas = document.querySelector(".offcanvas");
-const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
-const offcanvasItem = document.querySelectorAll(".nav-link");
-const locationOfAbout = document.querySelector("#about").offsetTop;
-const menuHeight = document.querySelector(".navbar").offsetHeight;
+const nav = document.querySelector(".navbar");
+const myOffCanvas = document.querySelector(".offcanvas");
 const sectionAbout = document.querySelector("#about");
 const sectionSkills = document.querySelector("#skills");
-const introHighlight = document.querySelector(".intro-highlight-1");
-const thridHighlight = document.querySelector(".intro-highlight-3");
 const sectionProjects = document.querySelector("#projects");
 const sectionExperience = document.querySelector("#experience");
 const projectModal = document.querySelector("#exampleModal");
 const modalContainer = document.querySelector(".modal-container");
+const btnToTop = document.querySelector(".btn-to-top");
+const btnToAbout = document.querySelector(".btn-know-more");
+const introHighlight = document.querySelector(".intro-highlight-1");
+const thridHighlight = document.querySelector(".intro-highlight-3");
 
+//Variables
+const bsOffcanvas = new bootstrap.Offcanvas(myOffCanvas);
+const locationOfAbout = sectionAbout.offsetTop;
+const menuHeight = nav.offsetHeight;
 const { skillset } = content;
 const sections = [sectionAbout, sectionProjects, sectionExperience];
 const accordionNum = ["One", "Two", "Three", "Four", "Five"];
-let loadingDone = false;
-
-smoothscroll.polyfill();
 
 //Functions
+const hideOffcanvas = function (e) {
+  if (!e.target.closest(".nav-link")) return;
+
+  bsOffcanvas.hide();
+};
+
 const loadSection = function (entries, observer) {
   const [entry] = entries;
 
@@ -39,16 +42,24 @@ const loadSection = function (entries, observer) {
   observer.unobserve(entry.target);
 };
 
-const revealSection = function () {
+const revealSections = function () {
   const sectionObserver = new IntersectionObserver(loadSection, {
     root: null,
-    threshold: 0.05,
+    rootMargin: "20%",
+    threshold: [0.05, 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
   });
 
-  sections.forEach((section) => {
-    section.classList.add("section-hidden");
-    sectionObserver.observe(section);
+  sections.forEach((section) => sectionObserver.observe(section));
+};
+
+const revealSkillSection = function () {
+  const sectionObserver = new IntersectionObserver(loadSection, {
+    root: null,
+    rootMargin: "20%",
+    threshold: [0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
   });
+
+  sectionObserver.observe(sectionSkills);
 };
 
 const loadImg = function (entries, observer) {
@@ -147,8 +158,10 @@ const updateAttribute = function (data) {
   data.map((d) => d.el.setAttribute(d.attr, d.content));
 };
 
-const renderModal = function (arr) {
-  arr.map((project) => {
+const renderModal = async function () {
+  const data = await loadData("portfolio-projects");
+
+  data.map((project) => {
     const modalClone = projectModal.cloneNode(true);
     const btnContainer = modalClone.querySelector(".btn-container");
     const modalContent = project.problemSolving.map((content) =>
@@ -174,8 +187,40 @@ const renderModal = function (arr) {
   });
 };
 
-const renderProjectsContent = function (arr) {
-  arr.map((project) => {
+function renderSkillsContent() {
+  createNInsertElements(
+    skillset,
+    "div",
+    ["skill--default"],
+    sectionSkills.querySelector(".skills-container")
+  );
+
+  if (!sectionSkills.querySelector(".skill--default")) return;
+  sectionSkills.querySelector(".skill-placeholder").remove();
+  sectionSkills
+    .querySelector(".skills-container")
+    .classList.remove("placeholder-glow");
+}
+
+const renderProjectsContent = async function () {
+  let isLoading = false;
+
+  isLoading = true;
+
+  const data = await loadData("portfolio-projects");
+  sectionProjects
+    .querySelectorAll(".placeholder")
+    .forEach((el) =>
+      el.classList.remove("placeholder", "placeholder-lg", "col-8")
+    );
+  sectionProjects
+    .querySelectorAll(".placeholder-glow")
+    .forEach((el) => el.classList.remove("placeholder-glow"));
+  sectionProjects.querySelector("table").classList.remove("table-hidden");
+
+  isLoading = false;
+
+  data.map((project) => {
     const cloneProjectCard = cloneElement(sectionProjects, ".col");
     const codeLink = cloneProjectCard.querySelector(".link-code");
     const projectLink = cloneProjectCard.querySelector(".link-project");
@@ -238,8 +283,23 @@ const renderProjectsContent = function (arr) {
   lazyLoading();
 };
 
-const renderExperienceContent = function (arr) {
-  arr.map((experience) => {
+const renderExperienceContent = async function () {
+  let isLoading = false;
+
+  isLoading = true;
+
+  const data = await loadData("portfolio-experience");
+
+  sectionExperience
+    .querySelectorAll(".placeholder")
+    .forEach((el) => el.classList.remove("placeholder"));
+  sectionExperience
+    .querySelectorAll(".placeholder-glow")
+    .forEach((el) => el.classList.remove("placeholder-glow"));
+
+  isLoading = false;
+
+  data.map((experience) => {
     const cloneExperienceCard = cloneElement(
       sectionExperience,
       ".accordion-item"
@@ -289,12 +349,6 @@ const scrollToAbout = function () {
   window.scrollTo({ top: locationOfAbout - menuHeight, behavior: "smooth" });
 };
 
-const hideOffcanvas = function (element) {
-  element.addEventListener("click", function () {
-    bsOffcanvas.hide();
-  });
-};
-
 const rearrangeHighlight = function () {
   const firstHighlightHeight = introHighlight.getBoundingClientRect().height;
   const thirdHighlightHeight = thridHighlight.getBoundingClientRect().height;
@@ -313,7 +367,7 @@ const rearrangeHighlight = function () {
     introHighlight.textContent = "front-end";
     introHighlight.insertAdjacentText("beforeend", " ");
 
-    const secondHighlight = document.createElement("strong");
+    const secondHighlight = document.createElement("span");
     introHighlight.insertAdjacentElement("afterend", secondHighlight);
     secondHighlight.textContent = "developer";
     secondHighlight.classList.add("intro-highlight-1");
@@ -328,33 +382,34 @@ const rearrangeHighlight = function () {
   }
 };
 
-async function loadData(tableName, updateFunc) {
+async function loadData(tableName) {
   const { data, error } = await supabase.from(tableName).select("*");
-
   const sortedData = data.slice().sort((a, b) => {
     return new Date(a.createdAt) - new Date(b.createdAt);
   });
 
-  if (!error && updateFunc) updateFunc(sortedData);
-
-  return sortedData;
+  if (!error) return sortedData;
 }
 
 const resetModalContent = function (e) {
   const currentModal = e.target.closest(".modal");
   const firstBtn = currentModal.querySelector(".btn-problem");
   const btns = currentModal.querySelectorAll(".btn-problem");
+  const modalBtnContainer = currentModal.querySelector(".btn-container");
 
   if (
     !currentModal.classList.contains("show") ||
     (!currentModal.classList.contains("show") && e.key === "Escape")
   ) {
-    btns.forEach((btn) => {
-      btn.classList.remove("btn--active");
-      firstBtn.classList.add("btn--active");
-    });
+    setTimeout(() => {
+      modalBtnContainer.scrollLeft = 0;
 
-    changeModalContent(currentModal, firstBtn);
+      btns.forEach((btn) => {
+        btn.classList.remove("btn--active");
+        firstBtn.classList.add("btn--active");
+      });
+      changeModalContent(currentModal, firstBtn);
+    }, 90);
   }
 };
 
@@ -362,17 +417,25 @@ const activateBtn = function (e) {
   const currentModal = e.target.closest(".modal");
   const clickedBtn = e.target.closest(".btn-problem");
   const btns = currentModal.querySelectorAll(".btn-problem");
+  const modalBody = currentModal.querySelector(".modal-body");
 
   if (!clickedBtn) return;
 
   btns.forEach((btn) => btn.classList.remove("btn--active"));
   clickedBtn?.classList.add("btn--active");
-
+  clickedBtn.scrollIntoView({ behavior: "smooth", inline: "center" });
   changeModalContent(currentModal, clickedBtn);
+
+  // modalBody.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 async function changeModalContent(currentModal, clickedBtn) {
+  let isLoading = false;
+
+  isLoading = true;
   const projectData = await loadData("portfolio-projects");
+  isLoading = false;
+
   const rawModalData = projectData
     .map((data) => data.problemSolving)
     .reduce((acc, cur) => acc.concat(cur), []);
@@ -380,7 +443,7 @@ async function changeModalContent(currentModal, clickedBtn) {
 
   finalModalData.map((content) => {
     if (content.title === clickedBtn?.textContent) {
-      currentModal.querySelector(".modal-body-heading").textContent =
+      currentModal.querySelector(".modal-table-heading").textContent =
         content.content;
       currentModal.querySelector(
         ".problem-identification-content"
@@ -402,29 +465,23 @@ async function changeModalContent(currentModal, clickedBtn) {
   });
 }
 
-revealSection();
-loadData("portfolio-projects", renderProjectsContent);
-loadData("portfolio-experience", renderExperienceContent);
-loadData("portfolio-projects", renderModal);
-createNInsertElements(
-  skillset,
-  "div",
-  ["skill--default"],
-  sectionSkills.querySelector(".skills-container")
-);
+//Display Content
+revealSections();
+revealSkillSection();
+renderSkillsContent();
+renderProjectsContent();
+renderExperienceContent();
+renderModal();
 
 //Event Handler
+myOffCanvas.addEventListener("click", hideOffcanvas);
 btnToTop.addEventListener("click", scrollToTop);
 btnToAbout.addEventListener("click", scrollToAbout);
-// window.addEventListener("load", rearrangeHighlight);
-// window.addEventListener("resize", rearrangeHighlight);
+window.addEventListener("scroll", showBtn);
+window.addEventListener("load", rearrangeHighlight);
+window.addEventListener("resize", rearrangeHighlight);
 modalContainer.addEventListener("click", (e) => {
   resetModalContent(e);
   activateBtn(e);
 });
 modalContainer.addEventListener("keydown", resetModalContent);
-
-offcanvasItem.forEach(hideOffcanvas);
-window.onscroll = function () {
-  showBtn();
-};

@@ -72,7 +72,7 @@ body {
   justify-content: center;
   gap: 48px;
   padding: 80px 64px;
-  transition: transform 0.8s, opacity 0.8s;
+  transition: opacity 0.6s cubic-bezier(0.694, 0, 0.335, 1);
 }
 @media (max-width: 992px) {
   .section {
@@ -91,7 +91,6 @@ body {
 
 .section-hidden {
   opacity: 0;
-  transform: translateY(8rem);
 }
 
 .heading {
@@ -136,13 +135,13 @@ body {
 }
 @media (max-width: 490px) {
   #intro {
-    font-size: 36px;
+    font-size: 32px;
   }
 }
 @media (max-width: 380px) {
   #intro {
     padding: 80px 1.5rem;
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 
@@ -160,7 +159,6 @@ body {
 .intro-summary span {
   padding: 0 10px;
   border-radius: 100px;
-  white-space: nowrap;
 }
 
 .intro-name .intro-highlight-0 {
@@ -168,15 +166,15 @@ body {
 }
 
 .intro-summary .intro-highlight-1 {
-  background: #ff6cd7;
-}
-
-.intro-summary .intro-highlight-2 {
   background: #fbf13f;
 }
 
-.intro-summary .intro-highlight-3 {
+.intro-summary .intro-highlight-2 {
   background: #50e871;
+}
+
+.intro-summary .intro-highlight-3 {
+  background: #22bfff;
 }
 
 .btn-know-more {
@@ -245,13 +243,14 @@ body {
 }
 
 .skill--default {
-  padding: 5px 10px;
+  padding: 3px 6px;
   border-radius: 9999px;
   font-size: 14px;
   font-weight: 600;
   cursor: default;
-  border: 1.5px solid #222222;
+  border: 1px solid #222222;
   color: #222222;
+  background-color: rgba(251, 242, 63, 0.641);
 }
 
 .card {
@@ -295,18 +294,18 @@ body {
 }
 
 .card-info,
-th,
-td {
+.card-info th,
+.card-info td {
   vertical-align: top;
   border-bottom: 1px solid rgba(34, 34, 34, 0.4);
 }
 
-th,
-td {
+.card-info th,
+.card-info td {
   padding: 4px 0;
 }
 
-th {
+.card-info th {
   width: 40%;
 }
 
@@ -361,11 +360,25 @@ th {
   background: none;
 }
 
+.btn-close-modal {
+  margin-left: auto;
+  padding: 16px;
+}
+
+.modal.fade {
+  transition: opacity 0.1s linear;
+}
+
 .modal-header {
   flex-direction: column;
   gap: 32px;
   padding: 16px 0;
-  margin: 0 16px;
+  margin: 0 48px;
+}
+@media (max-width: 992px) {
+  .modal-header {
+    margin: 0 24px;
+  }
 }
 
 .modal-subheading {
@@ -374,36 +387,61 @@ th {
   font-size: 12px;
   font-weight: 600;
   color: #fe6e1f;
-  margin-bottom: 0;
+  margin-bottom: 4px;
 }
 
 .modal-title-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .modal-body {
-  display: grid;
   font-size: 14px;
+  height: 55vh;
+  padding: 16px 48px;
+}
+@media (max-width: 992px) {
+  .modal-body {
+    height: 65vh;
+    padding: 16px 24px;
+  }
 }
 
-.modal-body h6 {
-  margin-bottom: 12px;
+.modal-table-heading {
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.modal-body table,
+.modal-body table {
+  font-weight: 400;
+}
+
 .modal-body th,
 .modal-body td {
-  border: none;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.4);
   vertical-align: top;
-  font-weight: 400;
-  padding-top: 0;
-  padding-bottom: 32px;
+  padding: 16px 0;
 }
 
-.modal-body th {
-  padding-right: 8px;
+.modal-body thead th {
+  padding: 12px 0;
+}
+
+.modal-body tbody th {
+  font-weight: 500;
+}
+
+.modal-body tbody td {
+  padding-left: 8px;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .modal-body tbody td {
+    padding-left: 16px;
+    padding-right: 80px;
+  }
 }
 
 .modal-body p {
@@ -418,7 +456,7 @@ th {
 
 .btn-container {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   width: 100%;
   overflow-x: scroll;
 }
@@ -644,11 +682,38 @@ footer {
 @media (max-width: 576px) {
   .btn-to-top {
     width: 30px;
-    right: 3px;
+    right: 8px;
     bottom: 20px;
   }
 }
 
 button:focus {
   outline: none;
+}
+
+.placeholder {
+  display: block;
+  background-color: #dfdfdf;
+  color: #dfdfdf;
+  border-radius: 4px;
+  opacity: 0.8;
+  min-height: 32px;
+}
+
+.accordion-button.placeholder-glow {
+  gap: 24px;
+}
+
+@media (max-width: 670px) {
+  .accordion-button .placeholder {
+    min-height: 32px;
+  }
+}
+
+.table-hidden {
+  display: none;
+}
+
+.skill-placeholder {
+  flex: 0 1 100%;
 }/*# sourceMappingURL=main.css.map */
