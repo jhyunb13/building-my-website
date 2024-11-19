@@ -1,0 +1,44 @@
+.footer {
+  background: $color-secondary;
+  padding: 4.8rem 2.4rem;
+
+  @include media-breakpoint-up(sm) {
+    padding-left: 6.4rem;
+    padding-right: 6.4rem;
+  }
+
+  &-name {
+    font-size: $text-md;
+    font-weight: map-get($font-weights, medium);
+  }
+
+  &-text {
+    font-size: $text-sm;
+
+    @include media-breakpoint-up(md) {
+      width: 70%;
+    }
+  }
+
+  &-channels {
+    display: flex;
+    flex-direction: column;
+    line-height: 3.2rem;
+    font-size: $text-sm;
+
+    @include media-breakpoint-up(md) {
+      text-align: right;
+    }
+
+    .channel-category {
+      font-weight: map-get($font-weights, bold);
+    }
+  }
+
+  &-copyright {
+    margin-top: 3.2rem;
+    padding-top: 1.6rem;
+    border-top: $border-default;
+    font-size: $text-xs;
+  }
+}

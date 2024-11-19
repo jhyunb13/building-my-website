@@ -45,8 +45,7 @@ const loadSection = function (entries, observer) {
 const revealSections = function () {
   const sectionObserver = new IntersectionObserver(loadSection, {
     root: null,
-    rootMargin: "20%",
-    threshold: [0.05, 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
+    threshold: [0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
   });
 
   sections.forEach((section) => sectionObserver.observe(section));
@@ -175,13 +174,13 @@ const renderModal = async function () {
     createNInsertElements(
       modalContent,
       "button",
-      ["btn-problem", "skill--default"],
+      ["btn-problem"],
       btnContainer
     );
 
     const firstProblemBtn = btnContainer.firstElementChild;
 
-    firstProblemBtn.classList.add("btn--active");
+    firstProblemBtn.classList.add("active");
     changeModalContent(modalClone, firstProblemBtn);
     appendElement(modalContainer, modalClone);
   });
@@ -191,11 +190,11 @@ function renderSkillsContent() {
   createNInsertElements(
     skillset,
     "div",
-    ["skill--default"],
+    ["skill"],
     sectionSkills.querySelector(".skills-container")
   );
 
-  if (!sectionSkills.querySelector(".skill--default")) return;
+  if (!sectionSkills.querySelector(".skill")) return;
   sectionSkills.querySelector(".skill-placeholder").remove();
   sectionSkills
     .querySelector(".skills-container")
@@ -222,8 +221,8 @@ const renderProjectsContent = async function () {
 
   data.map((project) => {
     const cloneProjectCard = cloneElement(sectionProjects, ".col");
-    const codeLink = cloneProjectCard.querySelector(".link-code");
-    const projectLink = cloneProjectCard.querySelector(".link-project");
+    const codeLink = cloneProjectCard.querySelector(".btn-link-github");
+    const projectLink = cloneProjectCard.querySelector(".btn-link-project");
 
     const textContentList = [
       {
@@ -262,7 +261,7 @@ const renderProjectsContent = async function () {
         content: project.github,
       },
       {
-        el: cloneProjectCard.querySelector(".btn--modal"),
+        el: cloneProjectCard.querySelector(".btn-link-modal"),
         attr: "data-bs-target",
         content: `#${project.modalID}`,
       },
@@ -270,12 +269,12 @@ const renderProjectsContent = async function () {
 
     updateAttribute(attrList);
     updateTextContent(textContentList);
-    removeElements(cloneProjectCard, ".skill--project");
+    removeElements(cloneProjectCard, ".skill-project");
     createNInsertElements(
       project.skills,
       "li",
-      ["skill--default", "skill--project"],
-      cloneProjectCard.querySelector(".project-skills-container")
+      ["skill", "skill-project"],
+      cloneProjectCard.querySelector(".skills-container-project")
     );
     prependElement(sectionProjects.querySelector(".row"), cloneProjectCard);
   });
@@ -316,16 +315,13 @@ const renderExperienceContent = async function () {
     ];
 
     updateTextContent(textContentList);
-
     removeElements(cloneExperienceCard, "li");
-
     createNInsertElements(
       experience.responsibilities,
       "li",
       "",
       cloneExperienceCard.querySelector(".expeirence-responsibilities")
     );
-
     prependElement(
       sectionExperience.querySelector(".accordion"),
       cloneExperienceCard
@@ -370,7 +366,7 @@ const rearrangeHighlight = function () {
     const secondHighlight = document.createElement("span");
     introHighlight.insertAdjacentElement("afterend", secondHighlight);
     secondHighlight.textContent = "developer";
-    secondHighlight.classList.add("intro-highlight-1");
+    secondHighlight.classList.add("intro-highlight", "intro-highlight-1");
   }
 
   if (
@@ -405,8 +401,8 @@ const resetModalContent = function (e) {
       modalBtnContainer.scrollLeft = 0;
 
       btns.forEach((btn) => {
-        btn.classList.remove("btn--active");
-        firstBtn.classList.add("btn--active");
+        btn.classList.remove("active");
+        firstBtn.classList.add("active");
       });
       changeModalContent(currentModal, firstBtn);
     }, 90);
@@ -417,16 +413,13 @@ const activateBtn = function (e) {
   const currentModal = e.target.closest(".modal");
   const clickedBtn = e.target.closest(".btn-problem");
   const btns = currentModal.querySelectorAll(".btn-problem");
-  const modalBody = currentModal.querySelector(".modal-body");
 
   if (!clickedBtn) return;
 
-  btns.forEach((btn) => btn.classList.remove("btn--active"));
-  clickedBtn?.classList.add("btn--active");
+  btns.forEach((btn) => btn.classList.remove("active"));
+  clickedBtn?.classList.add("active");
   clickedBtn.scrollIntoView({ behavior: "smooth", inline: "center" });
   changeModalContent(currentModal, clickedBtn);
-
-  // modalBody.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 async function changeModalContent(currentModal, clickedBtn) {

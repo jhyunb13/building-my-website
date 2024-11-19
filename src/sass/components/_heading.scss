@@ -1,0 +1,12 @@
+.heading {
+  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: map-get($font-weights, bold);
+  letter-spacing: 3px;
+
+  @include media-breakpoint-up(lg) {
+    text-align: right;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,62 @@
+.card {
+  --bs-card-border-radius: 0;
+  --bs-card-height: 100%;
+
+  &-img-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 1.6rem;
+  }
+
+  &-subheading {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
+    font-size: $text-xs;
+    font-weight: map-get($font-weights, bold);
+    color: $color-accent-1;
+  }
+
+  &-title {
+    font-size: $text-md;
+    font-weight: map-get($font-weights, medium);
+    margin: 0;
+  }
+
+  &-description {
+    font-size: $text-sm;
+    margin-bottom: auto;
+  }
+
+  &-info {
+    width: 100%;
+    font-size: $text-sm;
+  }
+}
+
+.card-info,
+.card-info th,
+.card-info td {
+  vertical-align: top;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.4);
+}
+
+.card-info th,
+.card-info td {
+  padding: 4px 0;
+}
+
+.card-info th {
+  width: 40%;
+}
+
+.icon-arrow {
+  width: 1.2rem;
+  height: 1.2rem;
+}

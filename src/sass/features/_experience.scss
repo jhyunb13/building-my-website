@@ -1,0 +1,61 @@
+.accordion {
+  --bs-accordion-active-bg: #fff;
+  --bs-accordion-border-color: none;
+  --bs-accordion-active-color: #{$text-color};
+  --bs-accordion-btn-color: #{$text-color};
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  &-item {
+    border-top: #{$border-default};
+  }
+
+  &-button {
+    padding: 1.6rem 2rem;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &.placeholder-glow {
+      gap: 2.4rem;
+    }
+  }
+
+  &-body {
+    display: flex;
+    align-items: center;
+    padding: 1.6rem 2rem;
+    font-size: $text-sm;
+  }
+}
+
+.job-title {
+  font-size: $text-sm;
+  font-weight: map-get($font-weights, medium);
+
+  @include media-breakpoint-up(sm) {
+    font-size: $text-defaut;
+  }
+}
+
+.duration {
+  display: none;
+  font-size: $text-sm;
+
+  @include media-breakpoint-up(sm) {
+    display: block;
+  }
+}
+
+.expeirence-responsibilities {
+  max-width: 55rem;
+  padding-left: 1.6rem;
+
+  li:not(:last-child) {
+    margin-bottom: 0.8rem;
+  }
+}

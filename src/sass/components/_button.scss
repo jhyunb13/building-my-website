@@ -1,0 +1,139 @@
+button {
+  background: none;
+  border: none;
+  color: $text-color;
+  cursor: pointer;
+}
+
+.btn-know-more {
+  padding: 1px 3px;
+  box-shadow: inset 0 -2px 0 $color-btn;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  font-size: $text-md;
+  font-weight: map-get($font-weights, medium);
+
+  @media screen and (min-width: 380px) {
+    padding: 0 0.8rem;
+    box-shadow: inset 0 -3px 0 $color-btn;
+  }
+
+  @media screen and (min-width: 930px) {
+    font-size: $text-lg;
+  }
+
+  &:hover {
+    box-shadow: inset 0 -5rem 0 $color-btn;
+    color: $color-btn-text;
+  }
+}
+
+.btn-link {
+  &:link,
+  &:visited {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: map-get($font-weights, medium);
+
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-underline-offset: 0.4rem;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+    text-decoration-color: $color-accent-1;
+    color: $color-accent-1;
+  }
+
+  &:hover .icon-arrow {
+    transform: translate(0.4rem, 0);
+    transition: transform 0.15s ease-out;
+  }
+
+  &-resume:link {
+    margin-top: 3rem;
+    padding-left: 3rem;
+    font-size: 1.8rem;
+    gap: 0.8rem;
+    text-underline-offset: 0.6rem;
+
+    .icon-arrow {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+  }
+
+  &-modal {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: map-get($font-weights, medium);
+
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-underline-offset: 0.4rem;
+  }
+}
+
+.btn-container {
+  display: flex;
+  gap: 0.8rem;
+  width: 100%;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .btn-problem {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ced4da;
+    border-radius: $border-radius;
+    font-size: $text-sm;
+    font-weight: map-get($font-weights, bold);
+    color: $color-gray;
+    white-space: nowrap;
+
+    &.active {
+      background: rgba(255, 152, 95, 0.1);
+      color: $color-accent-1;
+      border: 1px solid $color-accent-1;
+    }
+  }
+}
+
+.btn-social {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  &:hover,
+  &:active {
+    color: $color-accent-1;
+  }
+}
+
+.btn-close-modal {
+  margin-left: auto;
+  padding: 1.6rem;
+}
+
+.btn-to-top {
+  position: fixed;
+  width: 3rem;
+  right: 0.8rem;
+  bottom: 2rem;
+  opacity: 0;
+  transition: opacity 300ms;
+
+  @include media-breakpoint-up(sm) {
+    width: 3.5rem;
+    right: 1.2rem;
+    bottom: 2.4rem;
+  }
+}

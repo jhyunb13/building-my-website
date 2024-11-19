@@ -1,0 +1,42 @@
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+
+  @include media-breakpoint-down(md) {
+    gap: 1rem;
+  }
+
+  &-project {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+}
+
+.skill {
+  padding: 0.3rem 0.6rem;
+  border-radius: $border-radius;
+  font-size: $text-sm;
+  font-weight: map-get($font-weights, bold);
+  cursor: default;
+
+  border: 1px solid $text-color;
+  color: $text-color;
+  background-color: #fff;
+
+  &-project {
+    padding: 0.4rem 0.8rem;
+    font-size: $text-xs;
+    background-color: rgba(255, 152, 95, 0.1);
+    color: $color-accent-1;
+    border: none;
+  }
+
+  &-placeholder {
+    flex: 0 1 100%;
+  }
+}

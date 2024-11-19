@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: $color-background;
+  --bs-body-font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1;
+  font-optical-sizing: auto;
+  color: $text-color;
+  font-size: $text-defaut;
+  -webkit-font-smoothing: antialiased;
+}

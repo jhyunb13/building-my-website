@@ -1,0 +1,63 @@
+.navbar {
+  padding: 1.1rem 0.8rem;
+  border-bottom: $border-default;
+  background: #fff;
+  font-size: $text-sm;
+  letter-spacing: 1px;
+
+  .navbar-brand {
+    --bs-navbar-brand-font-size: $text-sm;
+    font-weight: map-get($font-weights, medium);
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding-left: 5.2rem;
+    padding-right: 5.2rem;
+  }
+}
+
+.navbar-toggler {
+  border-color: transparent;
+  padding: 0.4rem 1.2rem;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &-btn {
+    font-size: 2.8rem;
+    color: $text-color;
+  }
+
+  &:hover &-btn {
+    color: $color-accent-1;
+  }
+}
+
+.offcanvas {
+  --bs-offcanvas-padding-x: 1.6rem;
+  --bs-offcanvas-padding-y: 1.6rem;
+  --bs-offcanvas-width: min(80vw, 32rem);
+
+  &-title {
+    font-size: $text-sm;
+    font-weight: map-get($font-weights, medium);
+  }
+}
+
+.navbar-nav {
+  --bs-nav-link-hover-color: #{$color-accent-1};
+  gap: 1.2rem;
+
+  @include media-breakpoint-up(sm) {
+    gap: 2.4rem;
+  }
+}
+
+.nav-link {
+  color: $color-gray;
+
+  &.active {
+    font-weight: map-get($font-weights, medium);
+  }
+}

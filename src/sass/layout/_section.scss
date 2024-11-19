@@ -1,0 +1,23 @@
+.section {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 4.8rem 2.4rem;
+  transition: opacity 0.6s cubic-bezier(0.694, 0, 0.335, 1);
+
+  @include media-breakpoint-up(sm) {
+    padding: 8rem 6.4rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    gap: 4.8rem;
+  }
+}
+
+.section-content {
+  max-width: 80rem;
+}
+
+.section-hidden {
+  opacity: 0;
+}
