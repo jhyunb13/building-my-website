@@ -11,6 +11,7 @@ $font-weights: (
 );
 
 $text-color: #222222;
+$text-color-light: rgba($text-color, 0.9);
 $color-btn: #262626;
 $color-btn-text: #f7f7f7;
 $color-background: #f3f3f3;
@@ -22,5 +23,7 @@ $color-accent-4: #22bfff;
 $color-gray: #7e7d7d;
 $color-placeholder: #dfdfdf;
 
-$border-radius: 999rem;
+$border-radius: 4px;
 $border-default: 1px solid #222222;
+
+$focus-box-shadow: 0 0 0 0.5rem rgba($color-accent-1, 0.5);

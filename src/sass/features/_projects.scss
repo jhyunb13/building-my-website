@@ -14,49 +14,41 @@
     padding: 1.6rem;
   }
 
-  &-subheading {
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.8rem;
-    font-size: $text-xs;
-    font-weight: map-get($font-weights, bold);
-    color: $color-accent-1;
-  }
-
-  &-title {
-    font-size: $text-md;
-    font-weight: map-get($font-weights, medium);
-    margin: 0;
-  }
-
-  &-description {
+  &-text {
     font-size: $text-sm;
     margin-bottom: auto;
   }
+}
 
-  &-info {
-    width: 100%;
-    font-size: $text-sm;
+.card-table {
+  width: 100%;
+  font-size: $text-sm;
+  border-collapse: collapse;
+
+  & th,
+  & td {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.2);
+    border-spacing: 0;
+    vertical-align: top;
+  }
+
+  & tr:last-child th,
+  & tr:last-child td {
+    border-bottom: none;
+  }
+
+  & th {
+    display: none;
+    width: 40%;
+    font-weight: map-get($font-weights, medium);
+
+    @include media-breakpoint-up(lg) {
+      display: table-cell;
+    }
   }
 }
 
-.card-info,
-.card-info th,
-.card-info td {
-  vertical-align: top;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.4);
-}
-
-.card-info th,
-.card-info td {
-  padding: 4px 0;
-}
-
-.card-info th {
-  width: 40%;
-}
-
-.icon-arrow {
-  width: 1.2rem;
-  height: 1.2rem;
+.lazy-img {
+  filter: blur(0.5px);
 }

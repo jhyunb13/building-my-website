@@ -1,8 +1,8 @@
 .accordion {
   --bs-accordion-active-bg: #fff;
   --bs-accordion-border-color: none;
-  --bs-accordion-active-color: #{$text-color};
-  --bs-accordion-btn-color: #{$text-color};
+  --bs-accordion-active-color: #{$text-color-light};
+  --bs-accordion-btn-color: #{$text-color-light};
   --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
 
   display: flex;
@@ -16,8 +16,25 @@
   &-button {
     padding: 1.6rem 2rem;
 
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    row-gap: 0.8rem;
+
+    @include media-breakpoint-up(md) {
+      display: flex;
+      gap: 0;
+    }
+
     &:focus {
       box-shadow: none;
+    }
+
+    &:focus-visible {
+      box-shadow: $focus-box-shadow;
+    }
+
+    &::after {
+      grid-row: 1 / span 2;
     }
 
     &.placeholder-glow {
@@ -30,12 +47,18 @@
     align-items: center;
     padding: 1.6rem 2rem;
     font-size: $text-sm;
+
+    @include media-breakpoint-up(sm) {
+      font-size: $text-sm;
+    }
   }
 }
 
 .job-title {
   font-size: $text-sm;
   font-weight: map-get($font-weights, medium);
+  grid-column: span 1;
+  grid-row: 2 / span 1;
 
   @include media-breakpoint-up(sm) {
     font-size: $text-defaut;
@@ -43,15 +66,14 @@
 }
 
 .duration {
-  display: none;
-  font-size: $text-sm;
+  font-size: $text-xs;
+  color: #4e4e4e;
 
-  @include media-breakpoint-up(sm) {
-    display: block;
-  }
+  grid-column: span 1;
+  grid-row: 1 / span 1;
 }
 
-.expeirence-responsibilities {
+.experience-list {
   max-width: 55rem;
   padding-left: 1.6rem;
 

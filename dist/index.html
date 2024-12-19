@@ -60,9 +60,9 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-sm sticky-top" id="navbar">
-      <div class="container-fluid">
+      <div class="container-fluid gap-3">
         <a
-          class="navbar-brand order-last order-sm-first flex-grow-1 me-auto ms-1 ms-sm-2"
+          class="navbar-brand order-last order-sm-first me-auto ms-1 ms-sm-2"
           href="#"
           >BAE</a
         >
@@ -75,7 +75,7 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <i class="bi bi-water navbar-toggler-btn"></i>
+          <i class="bi bi-water icon-nav"></i>
         </button>
         <div
           class="offcanvas offcanvas-start"
@@ -94,16 +94,25 @@
             ></button>
           </div>
           <div class="offcanvas-body">
-            <div class="navbar-nav mb-2 mb-sm-0 ms-auto">
-              <a class="nav-link" href="#about">ABOUT</a>
-              <a class="nav-link" href="#projects">PROJECTS</a>
-              <a class="nav-link" href="#experience">EXPERIENCE</a>
-              <a class="nav-link" href="#contact">CONTACT</a>
-            </div>
+            <ul class="navbar-nav mb-2 mb-sm-0 ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#about">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#projects">PROJECTS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#experience">EXPERIENCE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">CONTACT</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </nav>
+
     <main
       class="content"
       data-bs-spy="scroll"
@@ -112,27 +121,26 @@
       tabindex="0"
     >
       <header id="intro" class="intro">
-        <p class="intro-paragraph-name">
-          Hello! I'm
-          <span class="intro-highlight intro-highlight-0">Jihyun</span>.
+        <h1 class="intro-heading-primary">Jihyun Bae</h1>
+        <h2 class="intro-heading-secondary">Front End Developer</h2>
+        <h2 class="intro-heading-tertiary">
+          I build interfaces and experiences with
+          <span class="highlight highlight-0">purpose</span>,
+          <span class="highlight highlight-1">intention</span>.
+        </h2>
+        <p class="intro-text">
+          My key strength lies in working with clear intention and excelling at
+          seeing and tracking small details to ensure a seamless user
+          experience. I feel motivated by turning intangible ideas into
+          real-life outcomes, leveraging my skills and knowledge to bring joy
+          and positive impacts on everyday life.
         </p>
-        <p class="intro-paragraph-summary">
-          I'm a
-          <span class="intro-highlight intro-highlight-1"
-            >front-end developer</span
-          >
-          focused on building interfaces and experiences with
-          <span class="intro-highlight intro-highlight-2">purpose</span> and
-          <span class="intro-highlight intro-highlight-3">intention</span>.
-        </p>
-        <div class="button-container">
-          <button class="btn-know-more">Know more</button>
-        </div>
+        <button class="btn-box btn-more">Keep reading</button>
       </header>
 
       <section id="about" class="about section section-hidden row gx-0">
-        <h3 class="heading col-12 col-lg-3">ABOUT</h3>
-        <div class="section-content about-content col-12 col-lg-7">
+        <h3 class="section-heading col-12 col-lg-2 col-xl-3">ABOUT</h3>
+        <div class="section-content about-content col-12 col-lg-10 col-xl-7">
           <p>
             I transitioned into front-end development with immense gratitude to
             the supportive developer communities and instructors that guided my
@@ -159,38 +167,36 @@
       </section>
 
       <section id="skills" class="section section-hidden row gx-0">
-        <h3 class="heading col-12 col-lg-3">SKILLS</h3>
+        <h3 class="section-heading col-12 col-lg-2 col-xl-3">SKILLS</h3>
         <div
-          class="section-content skills-container col-12 col-lg-7 placeholder-glow"
+          class="section-content skills-container col-12 col-lg-10 col-xl-7 placeholder-glow"
         >
           <div class="skill-placeholder placeholder">&nbsp;</div>
         </div>
       </section>
 
       <section id="projects" class="section section-hidden row gx-0">
-        <h3 class="heading col-12 col-lg-3">PROJECTS</h3>
-        <div class="section-content card-box col-12 col-lg-7">
+        <h3 class="section-heading col-12 col-lg-2 col-xl-3">PROJECTS</h3>
+        <div class="section-content card-box col-12 col-lg-10 col-xl-7">
           <div class="row row-cols-1 row-cols-md-2 gx-5 row-gap-5">
             <div class="col">
               <div class="card border-light">
                 <img
                   src="./img/placeholder-image-lazy.png"
                   data-src="./img/placeholder-image.png"
-                  class="card-img-top"
-                  alt="place holder"
+                  class="card-img-top lazy-img"
+                  alt="Placeholder image"
                 />
                 <div class="card-body placeholder-glow">
                   <div class="card-heading">
-                    <h6 class="card-subheading placeholder col-8">
-                      subheading
-                    </h6>
-                    <h5 class="card-title placeholder">Next Project</h5>
+                    <div class="subheading placeholder col-8">subheading</div>
+                    <h3 class="heading-title placeholder">Next Project</h3>
                   </div>
-                  <p class="card-description placeholder">
+                  <p class="card-text placeholder">
                     Coming up soon. Currently working on it. Stay tuned for
                     updates
                   </p>
-                  <table class="card-info table-hidden">
+                  <table class="card-table table-hidden">
                     <tbody>
                       <tr>
                         <th>Built with</th>
@@ -205,7 +211,28 @@
                         <td>
                           <button
                             type="button"
-                            class="btn-link btn-link-modal"
+                            class="btn-underline btn-modal-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          >
+                            Problem solving<svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              class="icon-arrow"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn-underline btn-modal-lg"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
                           >
@@ -230,7 +257,7 @@
                         <th>Link</th>
                         <td>
                           <a
-                            class="btn-link btn-link-project"
+                            class="btn-underline btn-project"
                             href="#"
                             target="_blank"
                             rel="noopener"
@@ -242,7 +269,7 @@
                         <th>Code</th>
                         <td>
                           <a
-                            class="btn-link btn-link-github"
+                            class="btn-underline btn-github"
                             href="#"
                             target="_blank"
                             rel="noopener"
@@ -278,7 +305,6 @@
           id="exampleModal"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
         >
           <div
             class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
@@ -286,46 +312,34 @@
             <div class="modal-content">
               <button
                 type="button"
-                class="btn-close btn-close-modal"
+                class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
               <div class="modal-header">
-                <div class="modal-title-container">
-                  <div>
-                    <h6 class="modal-subheading">Problem Solving Process</h6>
-                    <h1 class="modal-title" id="exampleModalLabel">
-                      Next Project
-                    </h1>
-                  </div>
-                  <div class="btn-container">
-                    <button class="btn-problem active">#problem</button>
-                    <button class="btn-problem">#problem</button>
-                  </div>
+                <div>
+                  <div class="subheading">Problem Solving Process</div>
+                  <h3 class="heading-title" id="exampleModalLabel">
+                    Next Project
+                  </h3>
+                </div>
+                <div class="modal-btns">
+                  <button class="btn-problem active">#problem</button>
+                  <button class="btn-problem">#problem</button>
                 </div>
               </div>
               <div class="modal-body">
-                <table>
-                  <thead>
-                    <tr>
-                      <th class="modal-table-heading" colspan="2">heading</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th>Problem Identification</th>
-                      <td class="problem-identification-content">content</td>
-                    </tr>
-                    <tr>
-                      <th>Solution</th>
-                      <td class="solution-content">content</td>
-                    </tr>
-                    <tr>
-                      <th>Outcome</th>
-                      <td class="outcome-content">content</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="modal-body-heading">heading</div>
+                <div class="modal-table">
+                  <div class="subheading">Identification</div>
+                  <div class="problem-identification-content">content</div>
+                  <div class="grid-border">&nbsp;</div>
+                  <div class="subheading">Solution</div>
+                  <div class="solution-content">content</div>
+                  <div class="grid-border">&nbsp;</div>
+                  <div class="subheading">Outcome</div>
+                  <div class="outcome-content">content</div>
+                </div>
               </div>
             </div>
           </div>
@@ -333,8 +347,8 @@
       </div>
 
       <section id="experience" class="section section-hidden row gx-0">
-        <h3 class="heading col-12 col-lg-3">EXPERIENCE</h3>
-        <div class="section-content col-lg-7">
+        <h3 class="section-heading col-12 col-lg-2 col-xl-3">EXPERIENCE</h3>
+        <div class="section-content col-12 col-lg-10 col-xl-7">
           <div class="accordion accordion-flush">
             <div class="accordion-item">
               <h2 class="accordion-header">
@@ -360,7 +374,7 @@
                 data-bs-parent="#experience"
               >
                 <div class="accordion-body placeholder-glow">
-                  <ul class="expeirence-responsibilities placeholder">
+                  <ul class="experience-list placeholder">
                     <li>Successfully organized 2500+ capacity events</li>
                     <li>
                       Created promotional content and managed official social
@@ -376,11 +390,11 @@
             </div>
           </div>
           <a
-            class="btn-link btn-link-resume"
+            class="btn-underline btn-underline-lg"
             href="/Resume_Jihyun_2024.pdf"
             target="_blank"
             rel="noopener"
-            >View My Resume<svg
+            >View Full Resume<svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -398,91 +412,73 @@
         </div>
       </section>
 
-      <a id="contact" class="contact" href="mailto:jihyun_bae@icloud.com">
-        <div class="contact-content">
-          <p class="contact-email">✸ jihyun_bae@icloud.com</p>
-          <p class="contact-paragraph">
-            I'm currently open to new opportunities and projects. Let's create
-            something amazing together. Feel free to reach out to me; my inbox
-            is alway open!
+      <section id="contact" class="section section-hidden row gx-0">
+        <h3 class="section-heading col-12 col-lg-2 col-xl-3">GET IN TOUCH</h3>
+        <div class="section-content col-12 col-lg-10 col-xl-7">
+          <p class="contact-text">
+            Thank you for reading!<br />
+            Once again, I'm Jihyun Bae, and I'm open to new opportunities and
+            projects.<br />
+            Let's create something amazing together. My inbox is alway open!
           </p>
+          <div class="contact-info">
+            <div class="subheading">Email</div>
+            <a
+              class="btn-box contact-email"
+              href="mailto:jihyun_bae@icloud.com"
+            >
+              jihyun_bae@icloud.com
+            </a>
+            <div class="subheading">Social Media</div>
+            <ul class="social-list">
+              <li class="social-item">
+                <a
+                  class="social-link btn-underline"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://github.com/jhyunb13"
+                  >GitHub</a
+                >
+              </li>
+              <li class="social-item">
+                <a
+                  class="social-link btn-underline"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://www.linkedin.com/in/jihyun-bae-2490402a7/"
+                  >LinkedIn</a
+                >
+              </li>
+              <li class="social-item">
+                <a
+                  class="social-link btn-underline"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://dev.to/jihyun_bae"
+                  >Blog(en)</a
+                >
+              </li>
+              <li class="social-item">
+                <a
+                  class="social-link btn-underline"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://blog.naver.com/kiki_thetomato"
+                  >Blog(ko)</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="icon-arrow"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-          />
-        </svg>
-      </a>
+      </section>
     </main>
 
     <footer class="footer">
-      <div class="row gx-0 row-gap-4">
-        <div class="col-12 col-md-6">
-          <div class="footer-name mb-2">Jihyun Bae</div>
-          <p class="footer-text">
-            When I'm not coding, I'm running, knitting, crocheting, cooking or
-            writing.
-          </p>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="footer-channels">
-            <div class="channel-category">Docs</div>
-            <a
-              class="btn-social"
-              href="/Resume_Jihyun_2024.pdf"
-              target="_blank"
-              rel="noopener"
-              >Resume</a
-            >
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="footer-channels">
-            <div class="channel-category">Channels</div>
-            <a
-              class="btn-social"
-              target="_blank"
-              rel="noopener"
-              href="https://github.com/jhyunb13"
-              >GitHub</a
-            >
-            <a
-              class="btn-social"
-              target="_blank"
-              rel="noopener"
-              href="https://www.linkedin.com/in/jihyun-bae-2490402a7/"
-              >LinkedIn</a
-            >
-            <a
-              class="btn-social"
-              target="_blank"
-              rel="noopener"
-              href="https://dev.to/jihyun_bae"
-              >Blog(en)</a
-            >
-            <a
-              class="btn-social"
-              target="_blank"
-              rel="noopener"
-              href="https://blog.naver.com/kiki_thetomato"
-              >Blog(ko)</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div>© 2023 Bae</div>
-      </div>
+      <p class="footer-copyright">
+        &copy;2023 – <span class="copyright-current-year">2024</span> Jihyun Bae
+      </p>
     </footer>
+
     <button class="btn-to-top">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -497,6 +493,7 @@
         />
       </svg>
     </button>
+
     <script defer src="bundle.js"></script>
   </body>
 </html>

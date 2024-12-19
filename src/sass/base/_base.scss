@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,7 +17,11 @@ body {
   --bs-body-font-family: Inter, sans-serif;
   font-feature-settings: "liga" 1, "calt" 1;
   font-optical-sizing: auto;
-  color: $text-color;
+  color: $text-color-light;
   font-size: $text-defaut;
   -webkit-font-smoothing: antialiased;
+}
+
+a:focus-visible {
+  @include focus;
 }

@@ -1,12 +1,14 @@
-.heading {
-  margin-bottom: 2rem;
-  text-align: left;
-  font-size: 1.6rem;
+.subheading {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+  font-size: $text-xs;
   font-weight: map-get($font-weights, bold);
-  letter-spacing: 3px;
+  color: $color-accent-1;
+}
 
-  @include media-breakpoint-up(lg) {
-    text-align: right;
-    margin-bottom: 0;
-  }
+.heading-title {
+  font-size: 1.8rem;
+  font-weight: map-get($font-weights, medium);
+  margin: 0;
 }

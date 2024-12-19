@@ -4,83 +4,129 @@ import * as bootstrap from "bootstrap";
 import content from "./content.json";
 import supabase from "./supabase";
 
-//Elements
+///////////////////////////////////////////////////////////////
+// Elements
 const nav = document.querySelector(".navbar");
 const myOffCanvas = document.querySelector(".offcanvas");
+
 const sectionAbout = document.querySelector("#about");
 const sectionSkills = document.querySelector("#skills");
 const sectionProjects = document.querySelector("#projects");
 const sectionExperience = document.querySelector("#experience");
+const allSections = document.querySelectorAll(".section");
+
 const projectModal = document.querySelector("#exampleModal");
 const modalContainer = document.querySelector(".modal-container");
-const btnToTop = document.querySelector(".btn-to-top");
-const btnToAbout = document.querySelector(".btn-know-more");
-const introHighlight = document.querySelector(".intro-highlight-1");
-const thridHighlight = document.querySelector(".intro-highlight-3");
 
-//Variables
-const bsOffcanvas = new bootstrap.Offcanvas(myOffCanvas);
+const btnToTop = document.querySelector(".btn-to-top");
+const btnToAbout = document.querySelector(".btn-more");
+
+const copyrightYear = document.querySelector(".copyright-current-year");
+
+///////////////////////////////////////////////////////////////
+// Update Copyright Year
+const currentYear = new Date().getFullYear();
+copyrightYear.textContent = currentYear;
+
+///////////////////////////////////////////////////////////////
+// Show & hide a scroll-to-top button
+function showBtn() {
+  if (document.documentElement.scrollTop > 30) {
+    btnToTop.style.opacity = 100;
+    btnToTop.style.visibility = "visible";
+  } else {
+    btnToTop.style.opacity = 0;
+    btnToTop.style.visibility = "hidden";
+  }
+}
+
+///////////////////////////////////////////////////////////////
+// Scroll Behavior
 const locationOfAbout = sectionAbout.offsetTop;
 const menuHeight = nav.offsetHeight;
-const { skillset } = content;
-const sections = [sectionAbout, sectionProjects, sectionExperience];
-const accordionNum = ["One", "Two", "Three", "Four", "Five"];
 
-//Functions
-const hideOffcanvas = function (e) {
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function scrollToAbout() {
+  window.scrollTo({ top: locationOfAbout - menuHeight, behavior: "smooth" });
+}
+
+///////////////////////////////////////////////////////////////
+// Hide offcanvas
+const bsOffcanvas = new bootstrap.Offcanvas(myOffCanvas);
+
+function hideOffcanvas(e) {
   if (!e.target.closest(".nav-link")) return;
 
   bsOffcanvas.hide();
-};
+}
 
-const loadSection = function (entries, observer) {
+///////////////////////////////////////////////////////////////
+// Reveal Sections
+const sectionObserver = new IntersectionObserver(loadSection, {
+  root: null,
+  threshold: [0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
+});
+
+const sectionSkillsObserver = new IntersectionObserver(loadSection, {
+  root: null,
+  threshold: [0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
+});
+
+function loadSection(entries, observer) {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
   entry.target.classList.remove("section-hidden");
 
   observer.unobserve(entry.target);
-};
+}
 
-const revealSections = function () {
-  const sectionObserver = new IntersectionObserver(loadSection, {
-    root: null,
-    threshold: [0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
-  });
+allSections.forEach((section) => sectionObserver.observe(section));
+sectionSkillsObserver.observe(sectionSkills);
 
-  sections.forEach((section) => sectionObserver.observe(section));
-};
-
-const revealSkillSection = function () {
-  const sectionObserver = new IntersectionObserver(loadSection, {
-    root: null,
-    rootMargin: "20%",
-    threshold: [0.01, 0.05, 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1],
-  });
-
-  sectionObserver.observe(sectionSkills);
-};
-
-const loadImg = function (entries, observer) {
+///////////////////////////////////////////////////////////////
+// Image Lazy Loading
+function loadImg(entries, observer) {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
 
   entry.target.src = entry.target.dataset.src;
-  observer.unobserve(entry.target);
-};
 
-const lazyLoading = function () {
+  entry.target.addEventListener("load", () =>
+    entry.target.classList.remove("lazy-img")
+  );
+
+  observer.unobserve(entry.target);
+}
+
+function lazyLoading() {
   const thumbnails = document.querySelectorAll(".card-img-top");
+  const secondThumbnail = thumbnails[1];
+
   const imgObserver = new IntersectionObserver(loadImg, {
     root: null,
-    threshold: [0, 0.1, 0.5],
+    threshold: [0.01, 0.1, 1],
   });
 
-  thumbnails.forEach((target) => imgObserver.observe(target));
-};
+  const secondObserver = new IntersectionObserver(loadImg, {
+    root: null,
+    threshold: [0.01, 0.1, 1],
+  });
 
-const setAccordionBtnStatus = function (numbers) {
+  thumbnails.forEach((img) => imgObserver.observe(img));
+  secondObserver.observe(secondThumbnail);
+}
+
+///////////////////////////////////////////////////////////////
+// Load data and render each section
+const { skillset } = content;
+const accordionNum = ["One", "Two", "Three", "Four", "Five"];
+
+function setAccordionBtnStatus(numbers) {
   sectionExperience.querySelectorAll(".accordion-item").forEach((item, i) => {
     const accordionBtn = item.querySelector(".accordion-button");
     const accordionCollapse = item.querySelector(".accordion-collapse");
@@ -114,22 +160,17 @@ const setAccordionBtnStatus = function (numbers) {
       accordionCollapse.classList.remove("show");
     }
   });
-};
+}
 
-const appendElement = function (insertingPlace, el) {
+function appendElement(insertingPlace, el) {
   insertingPlace.append(el);
-};
+}
 
-const prependElement = function (insertingPlace, el) {
+function prependElement(insertingPlace, el) {
   insertingPlace.prepend(el);
-};
+}
 
-const createNInsertElements = function (
-  data,
-  newEl,
-  classForNewEl,
-  insertingPlace
-) {
+function createNInsertElements(data, newEl, classForNewEl, insertingPlace) {
   data.map((content) => {
     const newElement = document.createElement(newEl);
 
@@ -139,36 +180,36 @@ const createNInsertElements = function (
 
     appendElement(insertingPlace, newElement);
   });
-};
+}
 
-const cloneElement = function (parentEl, childEl) {
+function cloneElement(parentEl, childEl) {
   return parentEl.querySelector(childEl).cloneNode(true);
-};
+}
 
-const removeElements = function (parentEl, targetEl) {
+function removeElements(parentEl, targetEl) {
   parentEl.querySelectorAll(targetEl).forEach((el) => el.remove());
-};
+}
 
-const updateTextContent = function (data) {
+function updateTextContent(data) {
   data.map((d) => (d.el.textContent = d.content));
-};
+}
 
-const updateAttribute = function (data) {
+function updateAttribute(data) {
   data.map((d) => d.el.setAttribute(d.attr, d.content));
-};
+}
 
-const renderModal = async function () {
+async function renderModal() {
   const data = await loadData("portfolio-projects");
 
   data.map((project) => {
     const modalClone = projectModal.cloneNode(true);
-    const btnContainer = modalClone.querySelector(".btn-container");
+    const btnContainer = modalClone.querySelector(".modal-btns");
     const modalContent = project.problemSolving.map((content) =>
       JSON.parse(content)
     );
 
     modalClone.setAttribute("id", project.modalID);
-    modalClone.querySelector(".modal-title").textContent = project.title;
+    modalClone.querySelector(".heading-title").textContent = project.title;
 
     removeElements(modalClone, ".btn-problem");
     createNInsertElements(
@@ -184,7 +225,7 @@ const renderModal = async function () {
     changeModalContent(modalClone, firstProblemBtn);
     appendElement(modalContainer, modalClone);
   });
-};
+}
 
 function renderSkillsContent() {
   createNInsertElements(
@@ -201,7 +242,7 @@ function renderSkillsContent() {
     .classList.remove("placeholder-glow");
 }
 
-const renderProjectsContent = async function () {
+async function renderProjectsContent() {
   let isLoading = false;
 
   isLoading = true;
@@ -215,18 +256,18 @@ const renderProjectsContent = async function () {
   sectionProjects
     .querySelectorAll(".placeholder-glow")
     .forEach((el) => el.classList.remove("placeholder-glow"));
-  sectionProjects.querySelector("table").classList.remove("table-hidden");
+  sectionProjects.querySelector(".card-table").classList.remove("table-hidden");
 
   isLoading = false;
 
   data.map((project) => {
     const cloneProjectCard = cloneElement(sectionProjects, ".col");
-    const codeLink = cloneProjectCard.querySelector(".btn-link-github");
-    const projectLink = cloneProjectCard.querySelector(".btn-link-project");
+    const codeLink = cloneProjectCard.querySelector(".btn-github");
+    const projectLink = cloneProjectCard.querySelector(".btn-project");
 
     const textContentList = [
       {
-        el: cloneProjectCard.querySelector(".card-title"),
+        el: cloneProjectCard.querySelector(".heading-title"),
         content: project.title,
       },
       { el: cloneProjectCard.querySelector("p"), content: project.description },
@@ -235,7 +276,7 @@ const renderProjectsContent = async function () {
         content: project.urlText,
       },
       {
-        el: cloneProjectCard.querySelector(".card-subheading"),
+        el: cloneProjectCard.querySelector(".subheading"),
         content: project.subheading,
       },
     ];
@@ -251,6 +292,11 @@ const renderProjectsContent = async function () {
         content: project.thumbnail,
       },
       {
+        el: cloneProjectCard.querySelector("img"),
+        attr: "alt",
+        content: project.altText,
+      },
+      {
         el: projectLink,
         attr: "href",
         content: project.url,
@@ -261,7 +307,12 @@ const renderProjectsContent = async function () {
         content: project.github,
       },
       {
-        el: cloneProjectCard.querySelector(".btn-link-modal"),
+        el: cloneProjectCard.querySelector(".btn-modal-sm"),
+        attr: "data-bs-target",
+        content: `#${project.modalID}`,
+      },
+      {
+        el: cloneProjectCard.querySelector(".btn-modal-lg"),
         attr: "data-bs-target",
         content: `#${project.modalID}`,
       },
@@ -280,9 +331,9 @@ const renderProjectsContent = async function () {
   });
 
   lazyLoading();
-};
+}
 
-const renderExperienceContent = async function () {
+async function renderExperienceContent() {
   let isLoading = false;
 
   isLoading = true;
@@ -320,7 +371,7 @@ const renderExperienceContent = async function () {
       experience.responsibilities,
       "li",
       "",
-      cloneExperienceCard.querySelector(".expeirence-responsibilities")
+      cloneExperienceCard.querySelector(".experience-list")
     );
     prependElement(
       sectionExperience.querySelector(".accordion"),
@@ -329,54 +380,7 @@ const renderExperienceContent = async function () {
   });
 
   setAccordionBtnStatus(accordionNum);
-};
-
-const showBtn = function () {
-  document.body.scrollTop > 30 || document.documentElement.scrollTop > 30
-    ? (btnToTop.style.opacity = 100)
-    : (btnToTop.style.opacity = 0);
-};
-
-const scrollToTop = function () {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-const scrollToAbout = function () {
-  window.scrollTo({ top: locationOfAbout - menuHeight, behavior: "smooth" });
-};
-
-const rearrangeHighlight = function () {
-  const firstHighlightHeight = introHighlight.getBoundingClientRect().height;
-  const thirdHighlightHeight = thridHighlight.getBoundingClientRect().height;
-  const firstHighlightGroup = document.querySelectorAll(".intro-highlight-1");
-  const numFirstHighlight = firstHighlightGroup.length;
-  const firstHighlightTop = [];
-
-  firstHighlightGroup.forEach((el) => {
-    const top = el.getBoundingClientRect().top;
-    firstHighlightTop.push(top);
-  });
-
-  if (firstHighlightHeight >= thirdHighlightHeight * 2) {
-    if (numFirstHighlight === 2) return;
-
-    introHighlight.textContent = "front-end";
-    introHighlight.insertAdjacentText("beforeend", " ");
-
-    const secondHighlight = document.createElement("span");
-    introHighlight.insertAdjacentElement("afterend", secondHighlight);
-    secondHighlight.textContent = "developer";
-    secondHighlight.classList.add("intro-highlight", "intro-highlight-1");
-  }
-
-  if (
-    numFirstHighlight === 2 &&
-    firstHighlightTop[0] === firstHighlightTop[1]
-  ) {
-    introHighlight.nextSibling.remove();
-    introHighlight.textContent = "front-end developer";
-  }
-};
+}
 
 async function loadData(tableName) {
   const { data, error } = await supabase.from(tableName).select("*");
@@ -387,11 +391,11 @@ async function loadData(tableName) {
   if (!error) return sortedData;
 }
 
-const resetModalContent = function (e) {
+function resetModalContent(e) {
   const currentModal = e.target.closest(".modal");
   const firstBtn = currentModal.querySelector(".btn-problem");
   const btns = currentModal.querySelectorAll(".btn-problem");
-  const modalBtnContainer = currentModal.querySelector(".btn-container");
+  const modalBtnContainer = currentModal.querySelector(".modal-btns");
 
   if (
     !currentModal.classList.contains("show") ||
@@ -407,9 +411,9 @@ const resetModalContent = function (e) {
       changeModalContent(currentModal, firstBtn);
     }, 90);
   }
-};
+}
 
-const activateBtn = function (e) {
+function activateBtn(e) {
   const currentModal = e.target.closest(".modal");
   const clickedBtn = e.target.closest(".btn-problem");
   const btns = currentModal.querySelectorAll(".btn-problem");
@@ -420,7 +424,7 @@ const activateBtn = function (e) {
   clickedBtn?.classList.add("active");
   clickedBtn.scrollIntoView({ behavior: "smooth", inline: "center" });
   changeModalContent(currentModal, clickedBtn);
-};
+}
 
 async function changeModalContent(currentModal, clickedBtn) {
   let isLoading = false;
@@ -436,7 +440,7 @@ async function changeModalContent(currentModal, clickedBtn) {
 
   finalModalData.map((content) => {
     if (content.title === clickedBtn?.textContent) {
-      currentModal.querySelector(".modal-table-heading").textContent =
+      currentModal.querySelector(".modal-body-heading").textContent =
         content.content;
       currentModal.querySelector(
         ".problem-identification-content"
@@ -458,21 +462,19 @@ async function changeModalContent(currentModal, clickedBtn) {
   });
 }
 
+///////////////////////////////////////////////////////////////
 //Display Content
-revealSections();
-revealSkillSection();
 renderSkillsContent();
 renderProjectsContent();
 renderExperienceContent();
 renderModal();
 
+///////////////////////////////////////////////////////////////
 //Event Handler
 myOffCanvas.addEventListener("click", hideOffcanvas);
 btnToTop.addEventListener("click", scrollToTop);
 btnToAbout.addEventListener("click", scrollToAbout);
 window.addEventListener("scroll", showBtn);
-window.addEventListener("load", rearrangeHighlight);
-window.addEventListener("resize", rearrangeHighlight);
 modalContainer.addEventListener("click", (e) => {
   resetModalContent(e);
   activateBtn(e);

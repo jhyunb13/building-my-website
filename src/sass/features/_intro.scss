@@ -1,66 +1,70 @@
 .intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  max-width: 144rem;
-  height: calc(100dvh - 4.5rem);
-  padding: 8rem 2.4rem;
+  max-width: 120rem;
+  padding: 4.8rem 2.4rem;
   margin: 0 auto;
-  font-size: 2.8rem;
 
-  @media screen and (min-width: 380px) {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    font-size: 3.2rem;
+  color: inherit;
+
+  @include media-breakpoint-up(sm) {
+    padding: 8rem 6.4rem;
   }
+}
 
-  @media screen and (min-width: 490px) {
-    font-size: 4rem;
-  }
+.intro-heading {
+  &-primary {
+    margin-bottom: 0.5rem;
+    font-size: 3.6rem;
+    text-transform: uppercase;
+    font-weight: map-get($font-weights, medium);
 
-  @media screen and (min-width: 576px) {
-    padding-left: 6.4rem;
-    padding-right: 6.4rem;
-  }
-
-  @media screen and (min-width: 760px) {
-    font-size: 4.8rem;
-  }
-
-  @include media-breakpoint-up(xl) {
-    font-size: $text-header;
-  }
-
-  &-paragraph {
-    &-name {
-      margin-bottom: 0;
-    }
-
-    &-summary {
-      margin-bottom: 0;
-      line-height: 1.4;
-      max-width: 120rem;
+    @include media-breakpoint-up(sm) {
+      font-size: $text-header;
     }
   }
 
-  &-highlight {
-    padding: 0 1rem;
-    border-radius: $border-radius;
-
-    &-0 {
-      background: $color-accent-1;
-    }
-
-    &-1 {
-      background: $color-accent-2;
-    }
-
-    &-2 {
-      background: $color-accent-3;
-    }
-
-    &-3 {
-      background: $color-accent-4;
-    }
+  &-secondary {
+    margin-bottom: 3.6rem;
+    font-size: $text-lg;
   }
+
+  &-tertiary {
+    margin-bottom: 1.2rem;
+    font-weight: map-get($font-weights, regular);
+    font-size: $text-md;
+    line-height: 1.4;
+  }
+}
+
+.intro-text {
+  max-width: 80rem;
+  margin-bottom: 4.8rem;
+  font-size: $text-sm;
+  line-height: 1.5;
+}
+
+.highlight {
+  padding: 0 0.5rem;
+  border-radius: $border-radius;
+
+  &-0 {
+    background: $color-accent-1;
+  }
+
+  &-1 {
+    background: $color-accent-2;
+  }
+
+  &-2 {
+    background: $color-accent-3;
+  }
+
+  &-3 {
+    background: $color-accent-4;
+  }
+}
+
+.btn-more {
+  font-size: $text-sm;
+  font-weight: map-get($font-weights, medium);
+  text-transform: uppercase;
 }
