@@ -7,6 +7,10 @@ button {
 .btn-box,
 .btn-to-top,
 .btn-close {
+  &:focus {
+    box-shadow: none;
+  }
+
   &:focus-visible {
     @include focus;
   }

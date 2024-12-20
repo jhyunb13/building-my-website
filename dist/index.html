@@ -27,9 +27,22 @@
       content="https://jihyun-bae.com/img/Thumbnail.png"
     />
     <meta property="og:url" content="https://jihyun-bae.com/" />
-
     <meta property="og:locale" content="en_US" />
     <meta name="theme-color" content="#ffffff" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="favicon/favicon-64.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/favicon-180.png"
+    />
+    <link rel="manifest" href="favicon/manifest.webmanifest" />
+
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link
@@ -42,8 +55,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+    <link rel="stylesheet" href="css/main.css" />
+
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-5MFWLPLW96"
@@ -135,7 +148,9 @@
           real-life outcomes, leveraging my skills and knowledge to bring joy
           and positive impacts on everyday life.
         </p>
-        <button class="btn-box btn-more">Keep reading</button>
+        <button class="btn-box btn-more" aria-label="Scroll to about section">
+          Keep reading
+        </button>
       </header>
 
       <section id="about" class="about section section-hidden row gx-0">
@@ -181,12 +196,22 @@
           <div class="row row-cols-1 row-cols-md-2 gx-5 row-gap-5">
             <div class="col">
               <div class="card border-light">
-                <img
-                  src="./img/placeholder-image-lazy.png"
-                  data-src="./img/placeholder-image.png"
-                  class="card-img-top lazy-img"
-                  alt="Placeholder image"
-                />
+                <picture>
+                  <source
+                    srcset="
+                      img/placeholder-image-small-x1.jpg 1x,
+                      img/placeholder-image-small-x2.jpg 2x
+                    "
+                    media="(max-width: 576px)"
+                  />
+                  <img
+                    src="img/placeholder-image-lazy.jpg"
+                    data-src="img/placeholder-image.jpg"
+                    class="card-img-top lazy-img"
+                    alt="Placeholder image"
+                  />
+                </picture>
+
                 <div class="card-body placeholder-glow">
                   <div class="card-heading">
                     <div class="subheading placeholder col-8">subheading</div>
@@ -319,9 +344,7 @@
               <div class="modal-header">
                 <div>
                   <div class="subheading">Problem Solving Process</div>
-                  <h3 class="heading-title" id="exampleModalLabel">
-                    Next Project
-                  </h3>
+                  <h3 class="heading-title">Next Project</h3>
                 </div>
                 <div class="modal-btns">
                   <button class="btn-problem active">#problem</button>
@@ -479,7 +502,7 @@
       </p>
     </footer>
 
-    <button class="btn-to-top">
+    <button class="btn-to-top" aria-label="Scroll to top button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

@@ -292,6 +292,11 @@ async function renderProjectsContent() {
         content: project.thumbnail,
       },
       {
+        el: cloneProjectCard.querySelector("source"),
+        attr: "srcset",
+        content: project.smallThumbnail,
+      },
+      {
         el: cloneProjectCard.querySelector("img"),
         attr: "alt",
         content: project.altText,
