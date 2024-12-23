@@ -47,22 +47,15 @@
     align-items: center;
     padding: 1.6rem 2rem;
     font-size: $text-sm;
-
-    @include media-breakpoint-up(sm) {
-      font-size: $text-sm;
-    }
   }
 }
 
 .job-title {
   font-size: $text-sm;
+  font-size: $text-default;
   font-weight: map-get($font-weights, medium);
   grid-column: span 1;
   grid-row: 2 / span 1;
-
-  @include media-breakpoint-up(sm) {
-    font-size: $text-defaut;
-  }
 }
 
 .duration {

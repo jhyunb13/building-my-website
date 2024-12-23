@@ -22,7 +22,7 @@ button {
   &:visited {
     display: inline-block;
     text-decoration: none;
-    color: $color-btn-text;
+    color: $color-white;
     padding: 0.3rem 0.6rem;
     background-color: $text-color-light;
     border-radius: $border-radius;
@@ -84,7 +84,8 @@ button {
     margin-top: 3rem;
     margin-left: 2rem;
     padding-right: 2.4rem;
-    font-size: 1.8rem;
+    font-weight: map-get($font-weights, medium);
+
     gap: 0.8rem;
     text-underline-offset: 0.6rem;
 

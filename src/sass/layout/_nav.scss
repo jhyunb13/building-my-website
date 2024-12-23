@@ -1,4 +1,6 @@
 .navbar {
+  --bs-navbar-active-color: #{$text-color};
+
   padding: 1.1rem 0.8rem;
   border-bottom: $border-default;
   background: #fff;
@@ -6,7 +8,7 @@
   letter-spacing: 1px;
 
   .navbar-brand {
-    --bs-navbar-brand-font-size: $text-sm;
+    --bs-navbar-brand-font-size: #{$text-sm};
     font-weight: map-get($font-weights, medium);
   }
 
@@ -17,8 +19,9 @@
 }
 
 .navbar-toggler {
-  border-color: transparent;
   padding: 0.4rem;
+  border: none;
+  color: $text-color;
 
   &:focus {
     box-shadow: none;
@@ -29,8 +32,8 @@
   }
 
   .icon-nav {
-    font-size: 2.8rem;
-    color: $text-color;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 
   &:hover .icon-nav {

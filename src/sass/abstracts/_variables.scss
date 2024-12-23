@@ -1,6 +1,6 @@
-$text-defaut: 1.6rem;
 $text-xs: 1.2rem;
 $text-sm: 1.4rem;
+$text-default: 1.6rem;
 $text-md: 2rem;
 $text-lg: 2.4rem;
 $text-header: 6.2rem;
@@ -10,20 +10,19 @@ $font-weights: (
   "bold": 600,
 );
 
+$color-background: #f3f3f3;
 $text-color: #222222;
 $text-color-light: rgba($text-color, 0.9);
-$color-btn: #262626;
-$color-btn-text: #f7f7f7;
-$color-background: #f3f3f3;
-$color-secondary: #e6e6e6;
+$color-white: #f7f7f7;
+$color-gray: #646464;
 $color-accent-1: #fe6e1f;
 $color-accent-2: #fbf13f;
 $color-accent-3: #50e871;
 $color-accent-4: #22bfff;
-$color-gray: #7e7d7d;
 $color-placeholder: #dfdfdf;
 
 $border-radius: 4px;
-$border-default: 1px solid #222222;
+$border-default: 1px solid $text-color;
+$border-light: 1px solid rgba($text-color, 0.2);
 
 $focus-box-shadow: 0 0 0 0.5rem rgba($color-accent-1, 0.5);

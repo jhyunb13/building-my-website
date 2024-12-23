@@ -139,7 +139,7 @@ function setAccordionBtnStatus(numbers) {
       {
         el: accordionBtn,
         attr: "aria-controls",
-        content: `#collapse${numbers[i]}`,
+        content: `collapse${numbers[i]}`,
       },
       {
         el: item.querySelector(".accordion-collapse"),

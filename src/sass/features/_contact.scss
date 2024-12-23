@@ -1,8 +1,11 @@
+.contact {
+  font-size: $text-sm;
+}
+
 .contact-text {
-  font-size: $text-defaut;
   line-height: 1.7;
   padding-bottom: 2.4rem;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.5);
+  border-bottom: 1px solid rgba($text-color, 0.5);
 }
 
 .contact-info {
@@ -18,10 +21,6 @@
     color: $text-color;
     font-size: $text-sm;
   }
-}
-
-.contact-email {
-  font-size: 1.5rem;
 }
 
 .social-list {

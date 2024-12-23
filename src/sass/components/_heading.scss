@@ -8,7 +8,7 @@
 }
 
 .heading-title {
-  font-size: 1.8rem;
+  font-size: $text-default;
   font-weight: map-get($font-weights, medium);
   margin: 0;
 }
