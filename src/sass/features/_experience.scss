@@ -13,6 +13,10 @@
     border-top: #{$border-default};
   }
 
+  &-header.placeholder-glow .accordion-button {
+    display: flex;
+  }
+
   &-button {
     padding: 1.6rem 2rem;
 

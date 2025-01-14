@@ -157,9 +157,7 @@
           real-life outcomes, leveraging my skills and knowledge to bring joy
           and positive impacts on everyday life.
         </p>
-        <button class="btn-box btn-more" aria-label="Scroll to about section">
-          Keep reading
-        </button>
+        <button class="btn-box btn-more">Keep reading</button>
       </header>
 
       <section id="about" class="about section section-hidden row gx-0">
@@ -192,10 +190,12 @@
 
       <section id="skills" class="section section-hidden row gx-0">
         <h3 class="section-heading col-12 col-lg-2 col-xl-3">SKILLS</h3>
-        <div
-          class="section-content skills-container col-12 col-lg-10 col-xl-7 placeholder-glow"
-        >
-          <div class="skill-placeholder placeholder">&nbsp;</div>
+        <div class="loading-content col-12 col-lg-10 col-xl-7 placeholder-glow">
+          <span class="placeholder col-2">&nbsp;</span>
+          <span class="placeholder col-2">&nbsp;</span>
+          <span class="placeholder col-2">&nbsp;</span>
+          <span class="placeholder col-2">&nbsp;</span>
+          <span class="placeholder col-2">&nbsp;</span>
         </div>
       </section>
 
@@ -203,129 +203,37 @@
         <h3 class="section-heading col-12 col-lg-2 col-xl-3">PROJECTS</h3>
         <div class="section-content card-box col-12 col-lg-10 col-xl-7">
           <div class="row row-cols-1 row-cols-md-2 gx-5 row-gap-5">
-            <div class="col">
-              <div class="card">
-                <picture>
-                  <source
-                    srcset="
-                      img/placeholder-image-small-x1.jpg 1x,
-                      img/placeholder-image-small-x2.jpg 2x
-                    "
-                    media="(max-width: 576px)"
-                  />
-                  <img
-                    src="img/placeholder-image-lazy.jpg"
-                    data-src="img/placeholder-image.jpg"
-                    class="card-img-top lazy-img"
-                    alt="Placeholder image"
-                  />
-                </picture>
-
-                <div class="card-body placeholder-glow">
-                  <div class="card-heading">
-                    <div class="subheading placeholder col-8">subheading</div>
-                    <h3 class="heading-title placeholder">Next Project</h3>
-                  </div>
-                  <p class="card-text placeholder">
-                    Coming up soon. Currently working on it. Stay tuned for
-                    updates
+            <div class="loading-content col">
+              <div class="card" aria-hidden="true">
+                <div class="loading-img"></div>
+                <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                    <span class="placeholder col-6"></span>
+                  </h5>
+                  <p class="card-text placeholder-glow">
+                    <span class="placeholder col-7"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-6"></span>
+                    <span class="placeholder col-8"></span>
                   </p>
-                  <table class="card-table table-hidden">
-                    <tbody>
-                      <tr>
-                        <th>Built with</th>
-                        <td>
-                          <ul class="skills-container-project">
-                            <li class="skill skill-project">skill</li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>Problem solving</th>
-                        <td>
-                          <button
-                            type="button"
-                            class="btn-underline btn-modal-sm"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                          >
-                            Problem solving<svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="icon-arrow"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                              />
-                            </svg>
-                          </button>
-                          <button
-                            type="button"
-                            class="btn-underline btn-modal-lg"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                          >
-                            Read more<svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="icon-arrow"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                              />
-                            </svg>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>Link</th>
-                        <td>
-                          <a
-                            class="btn-underline btn-project"
-                            href="#"
-                            target="_blank"
-                            rel="noopener"
-                            >more.com</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>Code</th>
-                        <td>
-                          <a
-                            class="btn-underline btn-github"
-                            href="#"
-                            target="_blank"
-                            rel="noopener"
-                            >GitHub<svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="icon-arrow"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                              />
-                            </svg>
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="loading-content col">
+              <div class="card" aria-hidden="true">
+                <div class="loading-img"></div>
+                <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                    <span class="placeholder col-6"></span>
+                  </h5>
+                  <p class="card-text placeholder-glow">
+                    <span class="placeholder col-7"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-6"></span>
+                    <span class="placeholder col-8"></span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -333,71 +241,23 @@
         </div>
       </section>
 
-      <div class="modal-container">
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-        >
-          <div
-            class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
-          >
-            <div class="modal-content">
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-              <div class="modal-header">
-                <div>
-                  <div class="subheading">Problem Solving Process</div>
-                  <h3 class="heading-title">Next Project</h3>
-                </div>
-                <div class="modal-btns">
-                  <button class="btn-problem active">#problem</button>
-                  <button class="btn-problem">#problem</button>
-                </div>
-              </div>
-              <div class="modal-body">
-                <div class="modal-body-heading">heading</div>
-                <div class="modal-table">
-                  <div class="subheading">Identification</div>
-                  <div class="problem-identification-content">content</div>
-                  <div class="grid-border">&nbsp;</div>
-                  <div class="subheading">Solution</div>
-                  <div class="solution-content">content</div>
-                  <div class="grid-border">&nbsp;</div>
-                  <div class="subheading">Outcome</div>
-                  <div class="outcome-content">content</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="modal-container"></div>
 
       <section id="experience" class="section section-hidden row gx-0">
         <h3 class="section-heading col-12 col-lg-2 col-xl-3">EXPERIENCE</h3>
         <div class="section-content col-12 col-lg-10 col-xl-7">
           <div class="accordion accordion-flush">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
+            <div class="accordion-item loading-content">
+              <h2 class="accordion-header placeholder-glow">
                 <button
-                  class="accordion-button placeholder-glow"
+                  class="accordion-button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseOne"
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  <div class="job-title mb-0 flex-grow-1 placeholder">
-                    A&R/Artist Manager @BGBG Records
-                  </div>
-                  <div class="duration mb-0 pe-3 placeholder">
-                    Oct 2018 - Dec 2019
-                  </div>
+                  <span class="placeholder col-6"></span>
                 </button>
               </h2>
               <div
@@ -406,17 +266,38 @@
                 data-bs-parent="#experience"
               >
                 <div class="accordion-body placeholder-glow">
-                  <ul class="experience-list placeholder">
-                    <li>Successfully organized 2500+ capacity events</li>
-                    <li>
-                      Created promotional content and managed official social
-                      media
-                    </li>
-                    <li>
-                      Organized a giveaway event to promote the Youtube channel,
-                      which resulted in an increase of 500 subscribers
-                    </li>
-                  </ul>
+                  <span class="placeholder col-5"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-6"></span>
+                  <span class="placeholder col-8"></span>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item loading-content">
+              <h2 class="accordion-header placeholder-glow">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  <span class="placeholder col-6"></span>
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#experience"
+              >
+                <div class="accordion-body placeholder-glow">
+                  <span class="placeholder col-5"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-6"></span>
+                  <span class="placeholder col-8"></span>
                 </div>
               </div>
             </div>
@@ -487,16 +368,7 @@
                   target="_blank"
                   rel="noopener"
                   href="https://dev.to/jihyun_bae"
-                  >Blog(en)</a
-                >
-              </li>
-              <li class="social-item">
-                <a
-                  class="social-link btn-underline"
-                  target="_blank"
-                  rel="noopener"
-                  href="https://blog.naver.com/kiki_thetomato"
-                  >Blog(ko)</a
+                  >Blog</a
                 >
               </li>
             </ul>

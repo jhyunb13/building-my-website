@@ -1,51 +1,58 @@
-.modal {
-  backdrop-filter: blur(4px);
+.modal-container {
+  .modal {
+    background-color: rgba($color-gray, 0.6);
+    --bs-modal-border-radius: #{$border-radius};
 
-  &.fade {
-    transition: opacity 0.1s linear;
-  }
-}
-
-.modal-content .btn-close {
-  margin: 1rem;
-  margin-left: auto;
-  padding: 0.6rem;
-}
-
-.modal-header {
-  flex-direction: column;
-  gap: 1.8rem;
-  align-items: stretch;
-  padding: 1.6rem 0;
-  padding-bottom: 2.4rem;
-  margin: 0 2.4rem;
-  border-bottom: none;
-
-  @include media-breakpoint-up(lg) {
-    margin: 0 4.8rem;
-  }
-}
-
-.modal-body {
-  font-size: $text-sm;
-  height: 55vh;
-  padding: 1.6rem 2.4rem;
-  margin-bottom: 1.6rem;
-
-  @include media-breakpoint-up(lg) {
-    padding: 1.6rem 4.8rem;
+    &.fade {
+      transition: opacity 0.1s linear;
+    }
   }
 
-  .subheading {
-    color: $color-gray;
+  .modal-content {
+    border: none;
+
+    .btn-close {
+      margin: 1rem;
+      margin-left: auto;
+      padding: 0.6rem;
+    }
   }
 
-  &-heading {
-    padding: 1rem 0;
+  .modal-header {
+    flex-direction: column;
+    gap: 1.8rem;
+    align-items: stretch;
+    padding: 1.6rem 0;
+    padding-bottom: 2.4rem;
+    margin: 0 2.4rem;
+    border-bottom: none;
 
-    font-size: $text-default;
-    font-weight: map-get($font-weights, bold);
-    border-bottom: $border-light;
+    @include media-breakpoint-up(lg) {
+      margin: 0 4.8rem;
+    }
+  }
+
+  .modal-body {
+    font-size: $text-sm;
+    height: 55vh;
+    padding: 1.6rem 2.4rem;
+    margin-bottom: 1.6rem;
+
+    @include media-breakpoint-up(lg) {
+      padding: 1.6rem 4.8rem;
+    }
+
+    .subheading {
+      color: $color-gray;
+    }
+
+    &-heading {
+      padding: 1rem 0;
+
+      font-size: $text-default;
+      font-weight: map-get($font-weights, bold);
+      border-bottom: $border-light;
+    }
   }
 }
 

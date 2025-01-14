@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
+  list-style: none;
 
   @include media-breakpoint-down(md) {
     gap: 1rem;
@@ -17,26 +18,28 @@
   }
 }
 
-.skill {
-  padding: 0.2rem 0.6rem;
+%skill {
   border-radius: $border-radius;
+  cursor: default;
+}
+
+.skill {
+  @extend %skill;
+  padding: 0.2rem 0.6rem;
   font-size: $text-sm;
   font-weight: map-get($font-weights, bold);
-  cursor: default;
 
   border: 1px solid $text-color-light;
   background-color: #fff;
 
   &-project {
+    @extend %skill;
+
     padding: 0.2rem 0.8rem;
     font-size: $text-xs;
     background-color: rgba($color-accent-1, 0.2);
     color: #4c2109;
     font-weight: map-get($font-weights, regular);
     border: none;
-  }
-
-  &-placeholder {
-    flex: 0 1 100%;
   }
 }
